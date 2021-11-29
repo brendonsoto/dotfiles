@@ -1,0 +1,23 @@
+[alias]
+  br = branch --sort=-committerdate
+  ci = commit
+  co = checkout
+  hist = log --graph --date=short --name-status
+  histame = log --graph --date=short --name-status --author=brendon
+  lsbr = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+  st = status
+  cm = checkout main
+  p = push
+  m = merge
+  mom = merge origin/main
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[push]
+	default = current
+[user]
+	name = brendon
+	email = brendon.soto@gmail.com
+[init]
+	defaultBranch = main
