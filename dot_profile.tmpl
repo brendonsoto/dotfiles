@@ -48,25 +48,25 @@ fi
 ##########################################
 #             Mac specific
 ##########################################
-if [[ $OSTYPE == darwin* ]]; then
-  # Brew autocomplete
-  if command -v brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+{{ if eq .chezmoi.os "darwin" }}
+# Brew autocomplete
+if command -v brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
-    autoload -Uz compinit
-    compinit
-  fi
-
-  # GCC
-  alias cc="/usr/local/Cellar/gcc/11.2.0_3"
-  ln -s /usr/local/Cellar/gcc/11.2.0_3/bin/gcc-11 /usr/local/bin/cc
-
-  # Python
-  export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
-  # Ruby
-  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+  autoload -Uz compinit
+  compinit
 fi
+
+# GCC
+alias cc="/usr/local/Cellar/gcc/11.2.0_3"
+ln -s /usr/local/Cellar/gcc/11.2.0_3/bin/gcc-11 /usr/local/bin/cc
+
+# Python
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# Ruby
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+{{ end }}
 
 
 ##########################################
@@ -110,13 +110,12 @@ alias cg="curl -i -H "Accept: application/json" -H "Content-Type: application/js
 alias pms="ps -ax -u `whoami` -o pid,command,state,lstart,etime,time,%cpu,%mem"
 
 # ls with colors!
-if [ $OSTYPE = "linux-gnu" ]
-then
-  alias ls="ls -aF --color" # list hidden files; add colors and file type
-  alias wifiSearch="sudo iw dev wlp2s0 scan | less -pSSID"
-else
-  alias ls="ls -aFG" # list hidden files; add colors and file type
-fi
+{{ if eq .chezmoi.os "darwin" }}
+alias ls="ls -aFG" # list hidden files; add colors and file type
+{{ else }}
+alias ls="ls -aF --color" # list hidden files; add colors and file type
+alias wifiSearch="sudo iw dev wlp2s0 scan | less -pSSID"
+{{ end }}
 
 # Git shortcuts
 alias gbr="git branch --sort=-committerdate | head -5"
