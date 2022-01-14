@@ -358,37 +358,37 @@ plugins:
 # This is as a hacky way to customize the status and tab bar appearances
 # This will do until either I try modifying the plugins to make them more
 # customizable or an update doing so comes along
-themes:
-  tokyostorm:
-    fg: [192,202,245]
-    bg: [36,40,59]
-    black: [29, 32, 47]
-    red: [247, 118, 142]
-    green: [158, 206, 106]
-    yellow: [224, 175, 104]
-    blue: [122, 162, 247]
-    magenta: [187, 154, 247]
-    # cyan: [125, 207, 255]
-    cyan: [36,40,59] # This is actually the bg color
-    white: [169, 177, 214]
-    orange: [125, 207, 255] # Using cyan for orange
-    # orange: [0,0,0]
-  test:
-    fg: [0,0,0]
-    bg: [0,0,0]
-    black: [0, 0, 0]
-    red: [0, 0, 0]
-    green: [0, 0, 0]
-    yellow: [0, 0, 0]
-    blue: [0, 0, 0]
-    magenta: [0, 0, 0]
-    cyan: [0, 0, 0]
-    white: [0, 0, 0]
-    orange: [0,0,0]
+# themes:
+#   tokyostorm:
+#     fg: [192,202,245]
+#     bg: [36,40,59]
+#     black: [29, 32, 47]
+#     red: [247, 118, 142]
+#     green: [158, 206, 106]
+#     yellow: [224, 175, 104]
+#     blue: [122, 162, 247]
+#     magenta: [187, 154, 247]
+#     # cyan: [125, 207, 255]
+#     cyan: [36,40,59] # This is actually the bg color
+#     white: [169, 177, 214]
+#     orange: [125, 207, 255] # Using cyan for orange
+#     # orange: [0,0,0]
+#   test:
+#     fg: [0,0,0]
+#     bg: [0,0,0]
+#     black: [0, 0, 0]
+#     red: [0, 0, 0]
+#     green: [0, 0, 0]
+#     yellow: [0, 0, 0]
+#     blue: [0, 0, 0]
+#     magenta: [0, 0, 0]
+#     cyan: [0, 0, 0]
+#     white: [0, 0, 0]
+#     orange: [0,0,0]
 
 # Choose the theme that is specified in the themes section.
 # Default: default
-theme: tokyostorm
+# theme: tokyostorm
 
 # Choose the mode that zellij uses when starting up.
 # Default: normal
