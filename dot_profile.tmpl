@@ -119,21 +119,16 @@ alias wifiSearch="sudo iw dev wlp2s0 scan | less -pSSID"
 
 # Git shortcuts
 alias gbr="git branch --sort=-committerdate | head -5"
-alias gcm="git checkout master"
 alias gf="git fetch"
 alias gfarm="gcm; git fetch && git rebase origin/main"
 alias gp="git push"
 alias gm="git merge"
 alias grh="git reset --hard"
 alias grm="git rebase main"
-# alias gmap="gcm; git merge $(git branch --sort=-committerdate | head -1 | xargs); gp"
 alias gcp="git cherry-pick"
-gmo() {
-  git merge origin/$1
-}
 
-gco() {
-  branch=$(git branch | fzf | xargs)
+function gcm() {
+  branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
   git checkout $branch
 }
 
@@ -162,6 +157,15 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude '.git' . $1
 }
+
+##########################################
+#             LF
+#########################################
+LFCD="$HOME/.config/lf/lfcd.sh"
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+    alias lf="lfcd"
+fi
 
 ##########################################
 #             Helpful
