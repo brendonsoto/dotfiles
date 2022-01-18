@@ -1,0 +1,16 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+# Installing for Solus
+echo "Installing packages and apps"
+sudo eopkg install silver-searcher alacritty bat git lazygit lf neovim ripgrep tmux zsh
+
+# Install Rust
+echo "Installing rustup"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Install Zellij
+echo "Installing zellij"
+cargo install zellij
+{{ end -}}
+
