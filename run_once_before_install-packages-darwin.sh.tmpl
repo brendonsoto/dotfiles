@@ -1,9 +1,16 @@
 {{- if (eq .chezmoi.os "darwin") -}}
 #!/bin/bash
 
+# Avoid re-installing brew if already installed
+# Not skipping the entire script since it can upgrade packages too
+if ! command -v brew &> /dev/null
+then
+  echo "Installing homebrew"
 # Install homebrew
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+fi
 
+echo "Installing packages and some apps"
 brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -44,6 +51,20 @@ cask "rectangle"
 cask "visual-studio-code"
 EOF
 
-# change to zsh
-chsh -s /usr/local/bin/zsh
+echo "
+
+#################################################
+Packages and apps installed!
+
+Please change the shell to use homebrew's zsh:
+1. add '/usr/local/bin/zsh' to /etc/shells
+2. run 'chsh -s /usr/local/bin/zsh
+
+If there are problems with the setup or script:
+JOT THE PROBLEM DOWN IN YOUR TODO APP!!!!!
+Before you forget.
+Your future and past selves thank you.
+#################################################
+
+"
 {{ end -}}
