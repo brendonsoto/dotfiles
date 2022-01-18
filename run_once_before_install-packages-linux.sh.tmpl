@@ -1,6 +1,9 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
+# Upgrade first
+sudo eopkg upgrade
+
 # Installing for Solus
 echo "Installing packages and apps"
 sudo eopkg install silver-searcher alacritty bat git lazygit lf neovim ripgrep tmux zsh
