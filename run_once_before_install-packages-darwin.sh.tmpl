@@ -51,6 +51,12 @@ cask "rectangle"
 cask "visual-studio-code"
 EOF
 
+echo "Installing NVM"
+if ! command -v nvm &> /dev/null
+then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+fi
+
 echo "
 
 #################################################
