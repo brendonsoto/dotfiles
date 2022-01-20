@@ -4,25 +4,26 @@
 # Upgrade first
 sudo eopkg upgrade
 
-# # Installing for Solus
-# echo "Installing packages and apps"
-# sudo eopkg install silver-searcher alacritty bat git lazygit lf neovim ripgrep tmux zsh
-# sudo eopkg install -c system.devel
-#
-# # Install Rust
-# if ! command -v rustup &> /dev/null
-# then
-#   echo "Installing rustup"
-#   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-# fi
-#
-# # Install Zellij
-# if ! command -v zellij &> /dev/null
-# then
-#   source $HOME/.cargo/env
-#   cargo install zellij
-# fi
-#
+# Installing for Solus
+echo "Installing packages and apps"
+sudo eopkg install silver-searcher alacritty bat git lazygit lf neovim ripgrep tmux zsh
+sudo eopkg install -c system.devel
+
+# Install Rust
+if ! command -v rustup &> /dev/null
+then
+  echo "Installing rustup"
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
+# Install Zellij
+if ! command -v zellij &> /dev/null
+then
+  echo "Installing zellij"
+  source $HOME/.cargo/env
+  cargo install zellij
+fi
+
 # # Install NVM
 # if ! command -v nvm &> /dev/null
 # then
