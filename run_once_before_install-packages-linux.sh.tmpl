@@ -24,27 +24,19 @@ then
   cargo install zellij
 fi
 
-# # Install NVM
-# if ! command -v nvm &> /dev/null
-# then
-#   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-#   nvm install --lts --latest-npm
-# fi
+# Communicate installation complete
 
-echo "
+echo -e "\033[0;35m
 
 #################################################
 Packages and apps installed!
-
-You'll have to install separately:
-- Zellij -- cargo install zellij
 
 If there are problems with the setup or script:
 JOT THE PROBLEM DOWN IN YOUR TODO APP!!!!!
 Before you forget.
 Your future and past selves thank you.
 #################################################
-
+\033[0m
 "
 {{ end -}}
 
