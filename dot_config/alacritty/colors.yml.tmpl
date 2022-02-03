@@ -1,5 +1,5 @@
 {{- $currentHour := (now | date "15") | atoi -}}
-{{- if (and (gt $currentHour 8) (lt $currentHour 18)) -}}
+{{- if (and (ge $currentHour 9) (lt $currentHour 17)) -}}
 {{ template "alacritty_colors" .alacritty.tokyo_night.day }}
 {{- else -}}
 {{ template "alacritty_colors" .alacritty.tokyo_night.storm }}

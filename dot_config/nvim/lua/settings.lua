@@ -52,9 +52,9 @@ for _, plugin in pairs(disabled_built_ins) do g["loaded_" .. plugin] = 1 end
 
 -- Set background depending on time of day
 local current_hour = tonumber(os.date("%H", os.time()))
-local starting_light_hour = 8
-local starting_dark_hour = 12 + 6 -- to use 24 hours
-local is_day_time = starting_light_hour < current_hour and current_hour <
+local starting_light_hour = 9
+local starting_dark_hour = 12 + 5 -- to use 24 hours
+local is_day_time = starting_light_hour <= current_hour and current_hour <
                         starting_dark_hour
 
 if (is_day_time) then
