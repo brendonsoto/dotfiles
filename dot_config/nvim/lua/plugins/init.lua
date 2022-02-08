@@ -64,7 +64,7 @@ return require('packer').startup({
 
         use {
             'neovim/nvim-lspconfig',
-            requires = {'folke/which-key.nvim'},
+            requires = {'folke/which-key.nvim', 'hrsh7th/nvim-cmp'},
             config = function() require('plugins.lsp') end
         }
 

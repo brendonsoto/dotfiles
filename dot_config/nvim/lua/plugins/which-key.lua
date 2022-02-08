@@ -36,49 +36,11 @@ wk.register({
             b = {'<cmd>Telescope buffers<cr>', 'Find Buffer'},
             h = {'<cmd>Telescope help_tags<cr>', 'Find help tag'},
             -- p = { '<cmd>Telescope projects<cr>', 'Find projects' },
-            ['ts'] = {'<cmd>Telescope treesitter<cr>', 'Telescope Treesitter?'}
+            -- ['ts'] = {'<cmd>Telescope treesitter<cr>', 'Telescope Treesitter?'}
         },
-
-        -- Hop
-        -- ['<leader>'] = {
-        --   f = {
-        --     function()
-        --       hop.hint_char1({direction = hopHint.HintDirection.AFTER_CURSOR})
-        --     end, 'Hop forward'
-        --   },
-        --   F = {
-        --     function()
-        --       hop.hint_char1({direction = hopHint.HintDirection.BEFORE_CURSOR})
-        --     end, 'Hop Backwards'
-        --   },
-        --   j = {
-        --     function()
-        --       hop.hint_lines_skip_whitespace({
-        --         direction = hopHint.HintDirection.AFTER_CURSOR
-        --       })
-        --     end, 'Hop down'
-        --   },
-        --   k = {
-        --     function()
-        --       hop.hint_lines_skip_whitespace({
-        --         direction = hopHint.HintDirection.BEFORE_CURSOR
-        --       })
-        --     end, 'Hop up'
-        --   }
-        -- },
 
         -- Neogit
         g = {':Lazygit<cr>', 'Lazygit'},
-
-        -- SnipRun
-        r = {'<Plug>SnipRun', 'Run line of code'},
-        R = {'<Plug>SnipClose', 'Close SnipRun displays'},
-
-        -- Taboo
-        -- t = {':TabooRename ', 'Rename tab'},
-
-        -- ZenMode
-        z = {':ZenMode<cr>', 'ZenMode'}
     }
 })
 
@@ -96,12 +58,10 @@ wk.register({
 
     -- Inspired by T-Pope's Unimpaired
     ['['] = {
-        -- a = { ':ALEPreviousWrap<cr>', 'ALE Previous wrap' },
         b = {':bprev<cr>', 'Previous buffer'},
         t = {':tabp<cr>', 'Previous tab'}
     },
     [']'] = {
-        -- a = { ':ALENextWrap<cr>', 'ALE Next wrap' },
         b = {':bnext<cr>', 'Next buffer'},
         t = {':tabn<cr>', 'Next tab'}
     }
@@ -118,7 +78,4 @@ wk.register({
 wk.register({
     name = 'visual mode stuff',
     ['//'] = {'y/<c-r>"<cr>', 'Search for visual selection'},
-
-    -- Sniprun
-    s = {r = {'<Plug>SnipRun', 'Run block of code'}}
 }, {mode = 'v'})
