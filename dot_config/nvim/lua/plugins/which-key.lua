@@ -24,9 +24,6 @@ wk.register({
 
         -- Misc
         ['/'] = {':nohl<cr>', 'Undo highlighting'},
-
-        -- Neogit
-        g = {':Lazygit<cr>', 'Lazygit'},
     }
 })
 

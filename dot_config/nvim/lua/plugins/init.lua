@@ -60,7 +60,21 @@ return require('packer').startup({
             config = function() require('plugins.hop') end
         }
 
-        use { 'https://github.com/kdheepak/lazygit.nvim' }
+        use {
+          'https://github.com/kdheepak/lazygit.nvim',
+          after = 'nvim-cmp',
+          config = function()
+            local is_wk_present, wk = pcall(require, "which-key")
+            if (is_wk_present == false) then
+              print("which-key not found")
+              return
+            end
+
+            wk.register({
+              g = {':Lazygit<cr>', 'Lazygit'},
+            }, { prefix = '<leader>' })
+          end
+        }
 
         use {
             'neovim/nvim-lspconfig',
