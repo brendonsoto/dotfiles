@@ -116,11 +116,6 @@ return require('packer').startup({
             config = function() require('plugins.which-key') end
         }
 
-        use {
-            'folke/zen-mode.nvim',
-            config = function() require('plugins.zen-mode') end
-        }
-
         -- Automatically set up configuration after cloning packer.nvim
         if packer_bootstrap then require('packer').sync() end
     end,
