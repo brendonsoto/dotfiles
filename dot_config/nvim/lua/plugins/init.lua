@@ -61,6 +61,11 @@ return require('packer').startup({
         }
 
         use {
+            'lukas-reineke/indent-blankline.nvim',
+            config = function() require('plugins.indent-blankline') end
+        }
+
+        use {
           'https://github.com/kdheepak/lazygit.nvim',
           after = 'nvim-cmp',
           config = function()
