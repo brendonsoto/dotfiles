@@ -33,3 +33,22 @@ telescope.setup {
 }
 
 telescope.load_extension('repo')
+
+
+-- Setup Telescope specific keybindings
+local is_wk_present, wk = pcall(require, "which-key")
+if (is_wk_present == false) then
+    print("which-key not found")
+    return
+end
+
+wk.register({
+  f = {
+    f = {'<cmd>Telescope find_files<cr>', 'Find files'},
+    g = {'<cmd>Telescope live_grep<cr>', 'Live grep'},
+    b = {'<cmd>Telescope buffers<cr>', 'Find Buffer'},
+    h = {'<cmd>Telescope help_tags<cr>', 'Find help tag'},
+    -- p = { '<cmd>Telescope projects<cr>', 'Find projects' },
+    -- ['ts'] = {'<cmd>Telescope treesitter<cr>', 'Telescope Treesitter?'}
+  },
+}, { prefix = '<leader>'})

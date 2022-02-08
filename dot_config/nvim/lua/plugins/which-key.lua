@@ -25,17 +25,6 @@ wk.register({
         -- Misc
         ['/'] = {':nohl<cr>', 'Undo highlighting'},
 
-        -- Find stuff
-        f = {
-            -- telescope
-            f = {'<cmd>Telescope find_files<cr>', 'Find files'},
-            g = {'<cmd>Telescope live_grep<cr>', 'Live grep'},
-            b = {'<cmd>Telescope buffers<cr>', 'Find Buffer'},
-            h = {'<cmd>Telescope help_tags<cr>', 'Find help tag'},
-            -- p = { '<cmd>Telescope projects<cr>', 'Find projects' },
-            -- ['ts'] = {'<cmd>Telescope treesitter<cr>', 'Telescope Treesitter?'}
-        },
-
         -- Neogit
         g = {':Lazygit<cr>', 'Lazygit'},
     }
