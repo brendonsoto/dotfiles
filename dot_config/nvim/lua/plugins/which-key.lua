@@ -27,9 +27,6 @@ wk.register({
 
         -- Find stuff
         f = {
-            -- fm-nvim
-            m = {':Lf %:p:h<cr>', 'File browser (using lf)'},
-
             -- telescope
             f = {'<cmd>Telescope find_files<cr>', 'Find files'},
             g = {'<cmd>Telescope live_grep<cr>', 'Live grep'},

@@ -17,14 +17,17 @@ require('fm-nvim').setup {
         -- nnn_cmd    = "nnn",
         -- xplr_cmd   = "xplr",
         -- vifm_cmd   = "vifm",
-        ranger_cmd = "ranger"
+        -- ranger_cmd = "ranger"
     },
-
-    -- Mappings used inside the floating window
-    mappings = {
-        vert_split = "<C-v>",
-        horz_split = "<C-h>",
-        tabedit = "<C-h>",
-        edit = "<C-e>"
-    }
 }
+
+
+local is_wk_present, wk = pcall(require, "which-key")
+if (is_wk_present == false) then
+    print("which-key not found")
+    return
+end
+
+wk.register({
+  ['fm'] = {':Lf %:p:h<cr>', 'File browser (using lf)'},
+}, { prefix = '<leader>'})
