@@ -17,7 +17,7 @@ require('nvim-treesitter.configs').setup {
     highlight = {
         enable = true,
         custom_captures = {NOTE = "Special"},
-        additional_vim_regex_highlighting = false
+        additional_vim_regex_highlighting = { "typescriptreact" }
     },
     rainbow = {
         enable = true,
@@ -27,5 +27,8 @@ require('nvim-treesitter.configs').setup {
         -- termcolors = {} -- table of colour name strings
     },
     incremental_selection = {enable = true},
+    indent = {
+      enable = true
+    },
     textobjects = {enable = true}
 }
