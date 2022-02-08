@@ -71,4 +71,4 @@ wk.register({
 -- so I'm including this as a catch-all naming description in which-key
 wk.register({
   name = 'find stuff'
-}, prefix = '<leader>f')
+}, { prefix = '<leader>f' })
