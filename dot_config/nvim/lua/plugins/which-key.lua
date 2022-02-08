@@ -34,6 +34,7 @@ wk.register({
 
     -- Window stuff
     s = {
+        name = 'split windows',
         h = {':split<cr>', 'Split current pane horizontally'},
         v = {':vs<cr>', 'Split current pane vertically'},
         t = {':tab split<cr>', 'Open current pane into tab'}
@@ -41,10 +42,12 @@ wk.register({
 
     -- Inspired by T-Pope's Unimpaired
     ['['] = {
+        name = 'previous...',
         b = {':bprev<cr>', 'Previous buffer'},
         t = {':tabp<cr>', 'Previous tab'}
     },
     [']'] = {
+        name = 'next...',
         b = {':bnext<cr>', 'Next buffer'},
         t = {':tabn<cr>', 'Next tab'}
     }
@@ -53,6 +56,7 @@ wk.register({
 wk.register({
     name = 'insert mode stuff',
     ['<c-'] = {
+        name = 'exit insert mode',
         ['-e>'] = {'<c-[>', 'Exit insert mode'},
         ['-c>'] = {'<c-[>', 'Exit insert mode'}
     }
@@ -62,3 +66,9 @@ wk.register({
     name = 'visual mode stuff',
     ['//'] = {'y/<c-r>"<cr>', 'Search for visual selection'},
 }, {mode = 'v'})
+
+-- I use <leader>f to find things but those commands are in other plugins
+-- so I'm including this as a catch-all naming description in which-key
+wk.register({
+  name = 'find stuff'
+}, prefix = '<leader>f')

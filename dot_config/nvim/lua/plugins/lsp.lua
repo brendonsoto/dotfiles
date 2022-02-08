@@ -38,6 +38,7 @@ local setup_keymaps = function(_client, bufnr)
 
     wk.register({
       g = {
+        name = 'LSP goodies!',
         d = { buf.definition, "Go to definition" },
         D = { buf.declaration, "Go to declaration" },
         i = { buf.implementation, "Go to implementation" },
