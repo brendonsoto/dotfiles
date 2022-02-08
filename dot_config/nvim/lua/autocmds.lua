@@ -1,5 +1,8 @@
 local cmd = vim.cmd
 
+-- AutoClose quickfix window on selection
+cmd([[autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>]])
+
 -- Disable auto commenting
 cmd([[
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
