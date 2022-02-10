@@ -9,6 +9,12 @@ parser_configs.norg = {
 }
 
 require('nvim-treesitter.configs').setup {
+    autotag = {
+        enable = true,
+    },
+    context_commentstring = {
+        enable = true,
+    },
     ensure_installed = {
         "c", "css", "dockerfile", "graphql", "haskell", "html", "javascript",
         "jsdoc", "json", "lua", "norg", "regex", "ruby", "scss", "tsx",
