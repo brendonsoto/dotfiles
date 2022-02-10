@@ -82,12 +82,16 @@ return require('packer').startup({
         }
 
         use {
-            'neovim/nvim-lspconfig',
-            requires = {'folke/which-key.nvim', 'hrsh7th/nvim-cmp'},
+          'williamboman/nvim-lsp-installer',
+            requires = {
+                'simrat39/rust-tools.nvim',
+                'neovim/nvim-lspconfig',
+                'folke/which-key.nvim',
+                'hrsh7th/nvim-cmp',
+                'williamboman/nvim-lsp-installer',
+            },
             config = function() require('plugins.lsp') end
         }
-
-        use {'williamboman/nvim-lsp-installer'}
 
         use {
             'sbdchd/neoformat',
