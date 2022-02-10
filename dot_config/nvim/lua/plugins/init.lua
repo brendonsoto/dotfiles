@@ -82,13 +82,15 @@ return require('packer').startup({
         }
 
         use {
-          'williamboman/nvim-lsp-installer',
+            'williamboman/nvim-lsp-installer',
             requires = {
-                'simrat39/rust-tools.nvim',
-                'neovim/nvim-lspconfig',
-                'folke/which-key.nvim',
+                'j-hui/fidget.nvim',
+                'ray-x/lsp_signature.nvim',
                 'hrsh7th/nvim-cmp',
-                'williamboman/nvim-lsp-installer',
+                'neovim/nvim-lspconfig',
+                'jose-elias-alvarez/nvim-lsp-ts-utils',
+                'simrat39/rust-tools.nvim',
+                'folke/which-key.nvim',
             },
             config = function() require('plugins.lsp') end
         }

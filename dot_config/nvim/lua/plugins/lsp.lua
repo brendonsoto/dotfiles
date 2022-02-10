@@ -62,6 +62,7 @@ local setup_keymaps = function(_client, bufnr)
 end
 
 local on_attach = function(client, bufnr)
+  require "lsp_signature".on_attach()
   setup_keymaps(client, bufnr)
 end
 
@@ -90,10 +91,21 @@ end
 
 local enhance_server_opts = {
   ["tsserver"] = function(opts)
+    opts.init_options = require("nvim-lsp-ts-utils").init_options
+
+    opts.on_attach = function(client, bufnr)
+      require "lsp_signature".on_attach()
+      local ts_utils = require("nvim-lsp-ts-utils")
+      ts_utils.setup({})
+      ts_utils.setup_client(client)
+      setup_keymaps(client, bufnr)
+    end
+
     opts.filetypes = {
       "javascript", "javascriptreact", "javascript.jsx", "typescript",
       "typescriptreact", "typescript.tsx", "vue"
     }
+
     opts.handlers = {
       ['textDocument/definition'] = function(err, result, method, ...)
         if vim.tbl_islist(result) and #result > 1 then
@@ -158,3 +170,5 @@ lsp_installer.on_server_ready(function(server)
   -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
   server:setup(opts)
 end)
+
+require('fidget').setup {}
