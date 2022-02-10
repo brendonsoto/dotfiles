@@ -26,7 +26,7 @@ return require('packer').startup({
 
         use {
             'windwp/nvim-autopairs',
-            after = 'nvim-cmp',
+            after = {'nvim-cmp'},
             config = function() require('plugins.autopairs') end
         }
 
@@ -67,7 +67,7 @@ return require('packer').startup({
 
         use {
           'https://github.com/kdheepak/lazygit.nvim',
-          after = 'nvim-cmp',
+          requires = {'nvim-cmp'},
           config = function()
             local is_wk_present, wk = pcall(require, "which-key")
             if (is_wk_present == false) then
@@ -135,7 +135,7 @@ return require('packer').startup({
 
         use {
             "folke/trouble.nvim",
-            requires = "kyazdani42/nvim-web-devicons",
+            requires = {"kyazdani42/nvim-web-devicons"},
             config = function() require("trouble").setup {} end
         }
 
