@@ -20,6 +20,19 @@ sudo eopkg install \
 
 sudo eopkg install -c system.devel
 
+# Install font
+if [ ! -d "~/.local/share/fonts" ]
+then
+  mkdir -p ~/.local/share/fonts
+  cd ~/.local/share/fonts
+  curl -fLo "hack.zip" https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
+  unzip hack.zip
+  rm hack.zip
+  fc-cache -f -v
+else
+  echo "Fonts already installed"
+fi
+
 # Install Rust
 if ! command -v rustup &> /dev/null
 then
