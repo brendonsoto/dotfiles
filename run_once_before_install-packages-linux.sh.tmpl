@@ -16,12 +16,40 @@ then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
+echo "Checking if zellij is installed..."
 # Install Zellij
 if ! command -v zellij &> /dev/null
 then
   echo "Installing zellij"
   source $HOME/.cargo/env
   cargo install zellij
+else
+  echo "Zellij is installed already"
+fi
+
+# Install asdf and other langs
+echo "Checking if asdf is installed"
+if ! command -v asdf &> /dev/null
+then
+  echo "Installing asdf"
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
+  source $HOME/.asdf/asdf.sh
+else
+  echo "asdf is already installed!"
+
+fi
+
+# Installing langs
+## Nodejs
+echo "Checking if nodejs is installed"
+if ! command -v node &> /dev/null
+then
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  asdf install nodejs latest
+  asdf global nodejs latest
+  echo "Installed Nodejs LTS and set it to global asdf version"
+else
+  echo "nodejs already installed"
 fi
 
 # Communicate installation complete
