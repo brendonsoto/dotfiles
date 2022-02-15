@@ -6,7 +6,18 @@ sudo eopkg upgrade
 
 # Installing for Solus
 echo "Installing packages and apps"
-sudo eopkg install silver-searcher alacritty bat git lazygit lf neovim ripgrep tmux zsh
+sudo eopkg install \
+  alacritty \
+  bat \
+  git \
+  lazygit \
+  lf \
+  neovim \
+  ripgrep \
+  silver-searcher \
+  tmux \
+  zsh
+
 sudo eopkg install -c system.devel
 
 # Install Rust
