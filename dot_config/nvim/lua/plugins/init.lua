@@ -24,11 +24,11 @@ return require('packer').startup({
             config = function() require('plugins.dashboard') end
         }
 
-        use {
-            'windwp/nvim-autopairs',
-            after = {'nvim-cmp'},
-            config = function() require('plugins.autopairs') end
-        }
+        -- use {
+        --     'windwp/nvim-autopairs',
+        --     after = {'nvim-cmp'},
+        --     config = function() require('plugins.autopairs') end
+        -- }
 
         use {
             'numToStr/Comment.nvim',
@@ -85,7 +85,6 @@ return require('packer').startup({
             'williamboman/nvim-lsp-installer',
             requires = {
                 'j-hui/fidget.nvim',
-                'ray-x/lsp_signature.nvim',
                 'hrsh7th/nvim-cmp',
                 'neovim/nvim-lspconfig',
                 'jose-elias-alvarez/nvim-lsp-ts-utils',
@@ -106,16 +105,11 @@ return require('packer').startup({
             config = function() require('plugins.neorg') end
         }
 
-        use {
-            'blackCauldron7/surround.nvim',
-            config = function()
-                require('surround').setup {mappings_style = "surround"}
-            end
-        }
+        use { 'machakann/vim-sandwich' }
 
         use {'gcmt/taboo.vim'}
 
-        use {'godlygeek/tabular'}
+        -- use {'godlygeek/tabular'}
 
         use {
             'nvim-telescope/telescope.nvim',
@@ -133,11 +127,11 @@ return require('packer').startup({
             config = function() require('plugins.treesitter') end
         }
 
-        use {
-            "folke/trouble.nvim",
-            requires = {"kyazdani42/nvim-web-devicons"},
-            config = function() require("trouble").setup {} end
-        }
+        -- use {
+        --     "folke/trouble.nvim",
+        --     requires = {"kyazdani42/nvim-web-devicons"},
+        --     config = function() require("trouble").setup {} end
+        -- }
 
         -- Key Maps!
         use {
