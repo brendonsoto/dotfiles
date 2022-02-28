@@ -1,5 +1,10 @@
 local lsp_installer = require("nvim-lsp-installer")
 
+lsp_installer.settings({
+  log_level = vim.log.levels.DEBUG
+})
+vim.lsp.set_log_level("debug")
+
 -- Auto install some servers
 local servers = {
   'dockerls',
@@ -90,6 +95,34 @@ local function filterReactDTS(value)
 end
 
 local enhance_server_opts = {
+  ["sumneko_lua"] = function(opts)
+    local runtime_path = vim.split(package.path, ';')
+    table.insert(runtime_path, "lua/?.lua")
+    table.insert(runtime_path, "lua/?/init.lua")
+
+    opts.settings = {
+      Lua = {
+        runtime = {
+          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+          version = 'LuaJIT',
+          -- Setup your lua path
+          path = runtime_path,
+        },
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = {'vim'},
+        },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {
+          enable = false,
+        },
+      },
+    }
+  end,
   ["tsserver"] = function(opts)
     opts.init_options = require("nvim-lsp-ts-utils").init_options
 
@@ -152,6 +185,10 @@ lsp_installer.on_server_ready(function(server)
     on_attach = on_attach,
     capabilities = capabilities,
   }
+
+  if server.name == "graphql" then
+    server:setup({})
+  end
 
   if server.name == "rust_analyzer" then
     require("rust-tools").setup {
