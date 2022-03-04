@@ -67,7 +67,6 @@ local setup_keymaps = function(_client, bufnr)
 end
 
 local on_attach = function(client, bufnr)
-  require "lsp_signature".on_attach()
   setup_keymaps(client, bufnr)
 end
 
@@ -127,7 +126,6 @@ local enhance_server_opts = {
     opts.init_options = require("nvim-lsp-ts-utils").init_options
 
     opts.on_attach = function(client, bufnr)
-      require "lsp_signature".on_attach()
       local ts_utils = require("nvim-lsp-ts-utils")
       ts_utils.setup({})
       ts_utils.setup_client(client)
