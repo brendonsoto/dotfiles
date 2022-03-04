@@ -24,11 +24,11 @@ return require('packer').startup({
             config = function() require('plugins.dashboard') end
         }
 
-        -- use {
-        --     'windwp/nvim-autopairs',
-        --     after = {'nvim-cmp'},
-        --     config = function() require('plugins.autopairs') end
-        -- }
+        use {
+            'windwp/nvim-autopairs',
+            after = {'nvim-cmp'},
+            config = function() require('plugins.autopairs') end
+        }
 
         use {
             'numToStr/Comment.nvim',
