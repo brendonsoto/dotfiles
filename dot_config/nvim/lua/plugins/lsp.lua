@@ -94,6 +94,12 @@ local function filterReactDTS(value)
 end
 
 local enhance_server_opts = {
+  ["eslint"] = function(opts)
+    opts.filetypes = {
+      "graphql", "javascript", "javascriptreact", "javascript.jsx", "typescript",
+      "typescriptreact", "typescript.tsx", "vue"
+    }
+  end,
   ["sumneko_lua"] = function(opts)
     local runtime_path = vim.split(package.path, ';')
     table.insert(runtime_path, "lua/?.lua")
