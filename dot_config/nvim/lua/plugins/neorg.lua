@@ -11,24 +11,19 @@ require('neorg').setup {
           heading = {
             enabled = true,
 
-            level_1 = {enabled = true, icon = "1"},
+            level_1 = {enabled = true, icon = ""},
 
-            level_2 = {enabled = true, icon = " 2"},
+            level_2 = {enabled = true, icon = " "},
 
-            level_3 = {enabled = true, icon = "  3"},
+            level_3 = {enabled = true, icon = "  "},
 
-            level_4 = {enabled = true, icon = "   4"},
+            level_4 = {enabled = true, icon = "   "},
 
-            level_5 = {enabled = true, icon = "    5"},
+            level_5 = {enabled = true, icon = "    "},
 
-            level_6 = {enabled = true, icon = "     6"}
+            level_6 = {enabled = true, icon = "     "}
           },
           marker = {enabled = true, icon = ""},
-          todo = {
-            done = { enabled = true, icon = "X" },
-            pending = { enabled = true, icon = "-" },
-            undone = { enabled = true, icon = " " },
-          }
         },
         conceals = {
           url = true,
