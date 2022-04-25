@@ -8,6 +8,13 @@ then
   export LF_ICONS="ln=:di=:fi=:ex=:*.html=:*.js=:*.jsx=:*.ts=:*.tsx=:*.json=ﬥ:*.rb=:*.hs=:*.norg=:*.vim=:*.vimrc:*.lua=:*.*rc=:Dockerfile=:"
 fi
 
+{{- if eq .chezmoi.os "linux" }}
+# Snap
+if [ -s "/snap/bin" ]; then
+  export PATH="/snap/bin:$PATH"
+fi
+{{- end }}
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 if [ -s "$NVM_DIR/nvm.sh" ]; then
@@ -89,11 +96,11 @@ fi
 # local bin
 if [ -d "$HOME/.local" ]
 then
-  export PATH="${PATH}:$HOME/.local/bin"
+  export PATH="$HOME/.local/bin:$PATH"
 fi
 
 # my scripts
-export PATH="${PATH}:$HOME/dotfiles/scripts"
+export PATH="$HOME/dotfiles/scripts:$PATH"
 
 ##########################################
 #             Aliases
