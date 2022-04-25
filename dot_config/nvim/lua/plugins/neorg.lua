@@ -41,10 +41,8 @@ require('neorg').setup {
       config = {
         -- TODO: Can I use an environment var for this too?
         workspaces = {
-          work = "~/neorg-work",
-          zettle = "~/dotfiles/meine_zettlekasten",
-          zettle2 = "~/dotfiles/zettle2",
-          notes = "~/dotfiles/notes"
+          work = "~/documents/neorg-work",
+          notes = "~/documents/notes",
         },
         autodetect = true,
         autochdir = true
