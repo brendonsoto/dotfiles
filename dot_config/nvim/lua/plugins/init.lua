@@ -121,7 +121,7 @@ return require('packer').startup({
             'nvim-treesitter/nvim-treesitter',
             requires = {
               'JoosepAlviste/nvim-ts-context-commentstring',
-              '/windwp/nvim-ts-autotag',
+              'windwp/nvim-ts-autotag',
             },
             run = ':TSUpdate',
             config = function() require('plugins.treesitter') end
