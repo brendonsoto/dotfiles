@@ -60,6 +60,10 @@ local setup_keymaps = function(_client, bufnr)
     K = { buf.hover, "Hover" },
     ["[d"] = { diagnostic.goto_prev, "Go to prev diagnostic" },
     ["]d"] = { diagnostic.goto_next, "Go to next diagnostic" },
+    ["<leader>"] = {
+      ["ca"] = { buf.code_action, "Code action" },
+      ["fc"] = { buf.formatting, "format code"}
+    }
   }, {
       mode = "n",
       buffer = bufnr
