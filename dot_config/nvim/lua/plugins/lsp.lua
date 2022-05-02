@@ -144,7 +144,7 @@ local enhance_server_opts = {
 
     opts.filetypes = {
       "javascript", "javascriptreact", "javascript.jsx", "typescript",
-      "typescriptreact", "typescript.tsx", "vue"
+      "typescriptreact", "typescript.tsx"
     }
 
     opts.handlers = {
