@@ -66,32 +66,32 @@ return require('packer').startup({
         }
 
         use {
-          'https://github.com/kdheepak/lazygit.nvim',
-          requires = {'nvim-cmp'},
-          config = function()
-            local is_wk_present, wk = pcall(require, "which-key")
-            if (is_wk_present == false) then
-              print("which-key not found")
-              return
-            end
+            'https://github.com/kdheepak/lazygit.nvim',
+            requires = {'nvim-cmp'},
+            config = function()
+                local is_wk_present, wk = pcall(require, "which-key")
+                if (is_wk_present == false) then
+                    print("which-key not found")
+                    return
+                end
 
-            wk.register({
-              g = {':Lazygit<cr>', 'Lazygit'},
-            }, { prefix = '<leader>' })
-          end
+                wk.register({g = {':Lazygit<cr>', 'Lazygit'}},
+                            {prefix = '<leader>'})
+            end
         }
 
         use {
             'williamboman/nvim-lsp-installer',
-            requires = {
-                'j-hui/fidget.nvim',
-                'hrsh7th/nvim-cmp',
+            'j-hui/fidget.nvim',
+            'jose-elias-alvarez/nvim-lsp-ts-utils',
+            'simrat39/rust-tools.nvim',
+            {
                 'neovim/nvim-lspconfig',
-                'jose-elias-alvarez/nvim-lsp-ts-utils',
-                'simrat39/rust-tools.nvim',
-                'folke/which-key.nvim',
-            },
-            config = function() require('plugins.lsp') end
+                requires = {'hrsh7th/nvim-cmp', 'folke/which-key.nvim'},
+                config = function()
+                    require('plugins.lsp')
+                end
+            }
         }
 
         use {
