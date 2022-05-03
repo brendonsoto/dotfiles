@@ -12,7 +12,7 @@ local servers = {
   'solargraph',
   'sumneko_lua',
   'tsserver',
-  'vuels',
+  'volar',
 }
 
 lsp_installer.setup {
