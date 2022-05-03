@@ -105,7 +105,7 @@ return require('packer').startup({
             config = function() require('plugins.neorg') end
         }
 
-        use { 'machakann/vim-sandwich' }
+        use {'machakann/vim-sandwich'}
 
         use {'gcmt/taboo.vim'}
 
@@ -120,8 +120,8 @@ return require('packer').startup({
         use {
             'nvim-treesitter/nvim-treesitter',
             requires = {
-              'JoosepAlviste/nvim-ts-context-commentstring',
-              'windwp/nvim-ts-autotag',
+                'JoosepAlviste/nvim-ts-context-commentstring',
+                'windwp/nvim-ts-autotag'
             },
             run = ':TSUpdate',
             config = function() require('plugins.treesitter') end

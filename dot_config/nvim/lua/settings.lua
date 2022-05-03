@@ -1,5 +1,4 @@
 local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
-local env = vim.env
 local g = vim.g
 local o = vim.o
 local set = vim.opt -- to set options
@@ -51,6 +50,7 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do g["loaded_" .. plugin] = 1 end
 
 -- Set background depending on time of day
+-- This is mostly to hint to me that it's time to go home / stop working
 local current_hour = tonumber(os.date("%H", os.time()))
 local starting_light_hour = 9
 local starting_dark_hour = 12 + 5 -- to use 24 hours
