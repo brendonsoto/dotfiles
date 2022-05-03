@@ -1,9 +1,5 @@
-local lsp_installer = require("nvim-lsp-installer")
-
-lsp_installer.settings({
-  log_level = vim.log.levels.DEBUG
-})
-vim.lsp.set_log_level("debug")
+local lsp_installer = require('nvim-lsp-installer')
+local lspconfig = require('lspconfig')
 
 -- Auto install some servers
 local servers = {
@@ -19,14 +15,17 @@ local servers = {
   'vuels',
 }
 
-for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found and not server:is_installed() then
-    print("Installing " .. name)
-    server:install()
-  end
-end
-
+lsp_installer.setup {
+    ensure_installed = servers,
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+    -- log_level = vim.log.levels.DEBUG -- The default is INFO
+}
 
 -- LSP helpers
 local lsp_get_capabilities = function()
@@ -181,32 +180,14 @@ local enhance_server_opts = {
 
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
-lsp_installer.on_server_ready(function(server)
-  local opts = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+for _, lsp in pairs(servers) do
+    local opts = {on_attach = on_attach, capabilities = capabilities}
 
-  if server.name == "graphql" then
-    server:setup({})
-  end
+    -- if lsp == "graphql" then lspconfig[lsp].setup({}) end
 
-  if server.name == "rust_analyzer" then
-    require("rust-tools").setup {
-      server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
-    }
-    server:attach_buffers()
-    return
-  end
+    if enhance_server_opts[lsp] then enhance_server_opts[lsp](opts) end
 
-  if enhance_server_opts[server.name] then
-    enhance_server_opts[server.name](opts)
-  end
-
-  -- This setup() function will take the provided server configuration and decorate it with the necessary properties
-  -- before passing it onwards to lspconfig.
-  -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-  server:setup(opts)
-end)
+    lspconfig[lsp].setup(opts)
+end
 
 require('fidget').setup {}
