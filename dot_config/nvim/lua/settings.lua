@@ -10,7 +10,7 @@ cmd([[
 g.mapleader = ' '
 
 set.clipboard:append('unnamedplus') -- Use the clipboard register + in addition to the default
-set.completeopt = {'menu', 'menuone', 'noselect'}
+set.completeopt = {'menu', 'menuone', 'noselect'} -- NOTE: from nvim-cmp
 set.expandtab = true
 set.hidden = true
 set.history = 50

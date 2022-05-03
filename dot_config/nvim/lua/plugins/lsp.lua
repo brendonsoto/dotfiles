@@ -39,7 +39,7 @@ local lsp_get_capabilities = function()
     return cmp_nvim_lsp.update_capabilities(capabilities)
 end
 
-local setup_keymaps = function(_client, bufnr)
+local setup_keymaps = function(_, bufnr)
     local is_wk_present, wk = pcall(require, "which-key")
     if (is_wk_present == false) then
         print("which-key not found")
