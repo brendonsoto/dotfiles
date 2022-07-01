@@ -1,15 +1,25 @@
 {{- if (eq .chezmoi.os "darwin") -}}
 #!/bin/bash
 
-# Avoid re-installing brew if already installed
-# Not skipping the entire script since it can upgrade packages too
+# Make brew a requirement prior to run this
+# Not including it because of the differences between M1 and Intel macs
 if ! command -v brew &> /dev/null
 then
-  echo "Installing homebrew"
-# Install homebrew
-  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+  echo "
+
+#################################################
+Ya need homebrew ya dinges!!
+Install it here: https://brew.sh/
+
+BEFORE YOU DO THAT, clear the state of this one-time script so you can re-run this:
+chezmoi state delete-bucket --bucket=scriptState
+#################################################
+
+"
+  return 1 2>/dev/null || exit 1
 fi
 
+# Continue as normal
 echo "Installing packages and some apps"
 brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "homebrew/bundle"
@@ -17,6 +27,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 brew "asciiquarium"
+brew "asdf"
 brew "bat"
 brew "chezmoi"
 brew "coreutils"
@@ -51,20 +62,16 @@ cask "rectangle"
 cask "visual-studio-code"
 EOF
 
-echo "Installing NVM"
-if ! command -v nvm &> /dev/null
-then
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-fi
+# echo "Installing NVM"
+# if ! command -v nvm &> /dev/null
+# then
+#   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# fi
 
 echo "
 
 #################################################
 Packages and apps installed!
-
-Please change the shell to use homebrew's zsh:
-1. add '/usr/local/bin/zsh' to /etc/shells
-2. run 'chsh -s /usr/local/bin/zsh
 
 If there are problems with the setup or script:
 JOT THE PROBLEM DOWN IN YOUR TODO APP!!!!!
