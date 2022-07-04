@@ -16,9 +16,9 @@ require('nvim-treesitter.configs').setup {
         enable = true,
     },
     ensure_installed = {
-        "c", "css", "dockerfile", "graphql", "haskell", "html", "javascript",
+        "c", "css", "dockerfile", "html", "javascript",
         "jsdoc", "json", "lua", "norg", "regex", "ruby", "scss", "tsx",
-        "typescript", "vim", "vue"
+        "typescript", "vim"
     },
     highlight = {
         enable = true,
