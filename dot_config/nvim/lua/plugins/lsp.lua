@@ -5,14 +5,9 @@ local lspconfig = require('lspconfig')
 local servers = {
   'dockerls',
   'eslint',
-  'graphql',
-  'hls',
   'html',
-  'rust_analyzer',
-  'solargraph',
   'sumneko_lua',
   'tsserver',
-  'volar',
 }
 
 lsp_installer.setup {
@@ -150,40 +145,12 @@ local enhance_server_opts = {
             end
         }
     end,
-    -- ["vuels"] = function(opts)
-    --     opts.init_options = {
-    --         config = {
-    --             css = {},
-    --             emmet = {},
-    --             html = {suggest = {}},
-    --             javascript = {format = {}},
-    --             stylusSupremacy = {},
-    --             typescript = {format = {}},
-    --             vetur = {
-    --                 completion = {
-    --                     autoImport = false,
-    --                     tagCasing = "kebab",
-    --                     useScaffoldSnippets = false
-    --                 },
-    --                 format = {
-    --                     enable = true,
-    --                     scriptInitialIndent = false,
-    --                     styleInitialIndent = false
-    --                 },
-    --                 useWorkspaceDependencies = false,
-    --                 validation = {script = true, style = false, template = true}
-    --             }
-    --         }
-    --     }
-    -- end
 }
 
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 for _, lsp in pairs(servers) do
     local opts = {on_attach = on_attach, capabilities = capabilities}
-
-    -- if lsp == "graphql" then lspconfig[lsp].setup({}) end
 
     if enhance_server_opts[lsp] then enhance_server_opts[lsp](opts) end
 
