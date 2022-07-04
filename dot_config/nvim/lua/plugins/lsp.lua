@@ -6,7 +6,7 @@ local servers = {
   'dockerls',
   'eslint',
   'html',
-  'sumneko_lua',
+  -- 'sumneko_lua',
   'tsserver',
 }
 
