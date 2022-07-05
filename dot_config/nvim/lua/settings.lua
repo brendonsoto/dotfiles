@@ -22,6 +22,7 @@ set.linebreak = true
 set.list = true
 set.modeline = false
 set.mouse = "a"
+set.foldenable = false
 -- set.number = true
 set.path = "$PWD/**"
 set.scrolloff = 4
