@@ -139,10 +139,10 @@ return require('packer').startup({
             config = function() require('plugins.which-key') end
         }
 
-        use {
-            'puremourning/vimspector',
-            config = function() require('plugins.vimspector') end
-        }
+        -- use {
+        --     'puremourning/vimspector',
+        --     config = function() require('plugins.vimspector') end
+        -- }
 
         -- Automatically set up configuration after cloning packer.nvim
         if packer_bootstrap then require('packer').sync() end
