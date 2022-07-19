@@ -66,21 +66,6 @@ return require('packer').startup({
         }
 
         use {
-            'https://github.com/kdheepak/lazygit.nvim',
-            requires = {'nvim-cmp'},
-            config = function()
-                local is_wk_present, wk = pcall(require, "which-key")
-                if (is_wk_present == false) then
-                    print("which-key not found")
-                    return
-                end
-
-                wk.register({g = {':Lazygit<cr>', 'Lazygit'}},
-                            {prefix = '<leader>'})
-            end
-        }
-
-        use {
             'williamboman/nvim-lsp-installer',
             'j-hui/fidget.nvim',
             'jose-elias-alvarez/nvim-lsp-ts-utils',
@@ -108,8 +93,6 @@ return require('packer').startup({
         use {'machakann/vim-sandwich'}
 
         use {'gcmt/taboo.vim'}
-
-        -- use {'godlygeek/tabular'}
 
         use {
             'nvim-telescope/telescope.nvim',
@@ -139,10 +122,10 @@ return require('packer').startup({
             config = function() require('plugins.which-key') end
         }
 
-        use {
-            'puremourning/vimspector',
-            config = function() require('plugins.vimspector') end
-        }
+        -- use {
+        --     'puremourning/vimspector',
+        --     config = function() require('plugins.vimspector') end
+        -- }
 
         -- Automatically set up configuration after cloning packer.nvim
         if packer_bootstrap then require('packer').sync() end
