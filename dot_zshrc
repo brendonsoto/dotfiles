@@ -34,6 +34,7 @@ ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[blue]%} %{$fg[yellow]%}↻%{$reset_color%}"
 
 # Aliases
 alias reload=". ~/.zshrc"
+alias lg="lazygit"
 
 # Git completion
 autoload -Uz compinit && compinit
