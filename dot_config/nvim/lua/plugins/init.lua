@@ -40,7 +40,8 @@ return require('packer').startup({
             requires = {
                 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-cmdline',
                 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path',
-                'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip'
+                'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip',
+                'nvim-lspconfig', 'hrsh7th/cmp-omni'
             },
             config = function() require('plugins.cmp') end
         }
