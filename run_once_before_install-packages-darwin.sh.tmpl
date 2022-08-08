@@ -19,6 +19,10 @@ chezmoi state delete-bucket --bucket=scriptState
   return 1 2>/dev/null || exit 1
 fi
 
+if [ ! -f "$HOME/antigen.zsh" ]; then
+  curl -L git.io/antigen > ~/antigen.zsh
+fi
+
 # Continue as normal
 echo "Installing packages and some apps"
 brew bundle --no-lock --file=/dev/stdin <<EOF
@@ -50,17 +54,17 @@ brew "universal-ctags"
 brew "wget"
 brew "zellij"
 brew "zsh"
-cask "alacritty"
-cask "alfred"
-cask "beekeeper-studio"
-cask "chromedriver"
-cask "discord"
-cask "flux"
-cask "licecap"
-cask "ngrok"
-cask "rectangle"
-cask "visual-studio-code"
 EOF
+
+# Casks, but check if they are installed first
+casks=("alacritty" "alfred" "beekeeper-studio" "chromedriver" "discord" "flux" "licecap" "ngrok" "rectangle" "visual-studio-code")
+
+for c in ${casks[@]}; do
+  if ! command -v brew &> /dev/null
+  then
+    brew install --cask $c
+  fi
+done
 
 echo "
 
