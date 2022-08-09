@@ -1,5 +1,5 @@
 local wk = require("which-key")
-local hopConfig = require("plugins.hop")
+local hopConfig = require("user.plugins.hop")
 
 wk.setup {}
 

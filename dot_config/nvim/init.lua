@@ -1,4 +1,4 @@
-require('autocmds')
-require('abbreviations')
-require('settings')
-require('plugins.init')
+require('user.autocmds')
+require('user.abbreviations')
+require('user.settings')
+require('user.plugins.init')
