@@ -1,6 +1,5 @@
 local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local g = vim.g
-local o = vim.o
 local set = vim.opt -- to set options
 
 cmd([[
@@ -59,8 +58,8 @@ local is_day_time = starting_light_hour <= current_hour and current_hour <
                         starting_dark_hour
 
 if (is_day_time) then
-    o.background = "light"
+    set.background = "light"
 else
-    o.background = "dark"
+    set.background = "dark"
 end
 cmd([[highlight Comment cterm=italic]])
