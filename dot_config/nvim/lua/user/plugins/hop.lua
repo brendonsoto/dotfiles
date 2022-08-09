@@ -1,13 +1,8 @@
 local hop = require('hop')
 local hopHint = require('hop.hint')
+local wk = require('which-key')
 
 hop.setup()
-
-local is_wk_present, wk = pcall(require, "which-key")
-if (is_wk_present == false) then
-    print("which-key not found")
-    return
-end
 
 local keymappings = {
   name = "Hop",

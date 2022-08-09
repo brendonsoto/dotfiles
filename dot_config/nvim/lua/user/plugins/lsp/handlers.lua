@@ -1,21 +1,8 @@
 local M = {}
 
--- Uses illuminate to highlight other instances of the currently selected word
-local function setup_highlight_document(client)
-  local status_ok, illuminate = pcall(require, "illuminate")
-  if not status_ok then
-    return
-  end
-  illuminate.on_attach(client)
-end
-
 -- Use which-key to setup keymaps
 local setup_keymaps = function(_, bufnr)
-  local is_wk_present, wk = pcall(require, "which-key")
-  if (is_wk_present == false) then
-    print("which-key not found")
-    return
-  end
+  local wk = require('which-key')
   local buf = vim.lsp.buf
   local diagnostic = vim.diagnostic
 
@@ -45,17 +32,12 @@ M.on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end
   setup_keymaps(bufnr)
-  setup_highlight_document(client)
+  require('illuminate').on_attach(client)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- Setup capabilities using default vim func & cmp
+local client_capabilities = vim.lsp.protocol.make_client_capabilities()
 
--- If cmp is available, use that to replace lsp default capabilities
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if status_ok then
-  M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-else
-  M.capabilities = capabilities
-end
+M.capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
 
 return M

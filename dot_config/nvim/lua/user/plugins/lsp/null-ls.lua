@@ -19,11 +19,11 @@ null_ls.setup({
     builtins.formatting.json_tool,
 
     -- Lua
-    builtins.diagnostics.luacheck,
+    -- builtins.diagnostics.luacheck,
     builtins.formatting.stylua,
 
     -- Python
-    builtins.diagnostics.flake8,
+    -- builtins.diagnostics.flake8,
     builtins.diagnostics.pyproject_flake8,
     builtins.formatting.black,
 

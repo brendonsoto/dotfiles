@@ -1,13 +1,7 @@
-local g = vim.g
-local map = vim.api.nvim_set_keymap
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
-local builtin = require('telescope.builtin')
-local finders = require('telescope.finders')
-local pickers = require('telescope.pickers')
 local previewers = require('telescope.previewers')
-local utils = require('telescope.utils')
 
 -- Taken from the Config recipes
 local new_maker = function(filepath, bufnr, opts)
@@ -40,7 +34,7 @@ telescope.setup {
 local make_markdown_link = function()
   require('telescope.builtin').find_files {
     prompt_title = "Link file",
-    attach_mappings = function(prompt_bufnr, map)
+    attach_mappings = function(prompt_bufnr, _)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
@@ -60,13 +54,7 @@ telescope.load_extension('repo')
 
 
 -- Setup Telescope specific keybindings
-local is_wk_present, wk = pcall(require, "which-key")
-if (is_wk_present == false) then
-    print("which-key not found")
-    return
-end
-
-wk.register({
+require('which-key').register({
   f = {
     ["<space>"] = {'<cmd>Telescope builtin<cr>', 'Telescope Builtin'},
     f = {'<cmd>Telescope find_files<cr>', 'Find files'},

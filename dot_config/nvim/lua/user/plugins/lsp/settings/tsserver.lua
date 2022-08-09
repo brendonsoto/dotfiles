@@ -1,9 +1,4 @@
--- Check if extra modules are in
-local status_ok, _ = pcall(require, "nvim-lsp-ts-utils")
-if not status_ok then
-  print("nvim-lsp-ts-utils not installed")
-  return {}
-end
+local ts_utils = require("nvim-lsp-ts-utils")
 
 -- Helpers
 -- Special stuff for tsserver because react :(
@@ -25,10 +20,9 @@ end
 
 -- Settings
 return {
-  init_options = require("nvim-lsp-ts-utils").init_options,
+  init_options = ts_utils.init_options,
 
   on_attach = function(client, bufnr)
-    local ts_utils = require("nvim-lsp-ts-utils")
     ts_utils.setup({})
     ts_utils.setup_client(client)
     require("user.plugins/lsp.handlers").setup_keymaps(client, bufnr)
