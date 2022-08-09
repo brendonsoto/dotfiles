@@ -94,6 +94,7 @@ return require('packer').startup({
         'RRethy/vim-illuminate',
         'hrsh7th/nvim-cmp',
         'folke/which-key.nvim',
+        'nvim-neorg/neorg-telescope',
       },
       config = function()
         require('user.plugins.lsp')

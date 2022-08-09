@@ -19,7 +19,9 @@ local setup_keymaps = function(_, bufnr)
     ["]d"] = {diagnostic.goto_next, "Go to next diagnostic"},
     ["<leader>"] = {
       ["ca"] = {buf.code_action, "Code action"},
-      ["fc"] = {buf.formatting, "format code"}
+      ["fc"] = {buf.formatting, "format code"},
+      ["dl"] = {require("telescope.builtin").diagnostics, "Diagnostic list"},
+      ["ds"] = {require("telescope.builtin").lsp_document_symbols, "Document Symbols"},
     }
   }, {mode = "n", buffer = bufnr})
 end
