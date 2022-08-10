@@ -16,11 +16,6 @@ null_ls.setup({
     -- JSON
     builtins.formatting.fixjson,
 
-    -- Python
-    -- builtins.diagnostics.flake8,
-    builtins.diagnostics.pyproject_flake8,
-    builtins.formatting.black,
-
     -- Shell
     builtins.diagnostics.shellcheck,
 
