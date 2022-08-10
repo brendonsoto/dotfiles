@@ -1,12 +1,14 @@
 return {
-  filetypes = {
-    "graphql",
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-    "vue",
+  settings = {
+    filetypes = {
+      "graphql",
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+      "vue",
+    }
   }
 }
