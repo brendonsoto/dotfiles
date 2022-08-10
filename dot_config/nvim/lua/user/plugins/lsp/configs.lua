@@ -3,13 +3,24 @@ local mason = require('mason')
 local mason_lspconfig = require('mason-lspconfig')
 
 -- Setup mason
+-- Servers are separated from other tools since lspconfig works on servers
 local servers = {
-  'dockerls',
   'eslint',
   'html',
   'sumneko_lua',
   'tsserver',
 }
+-- Tools are for null-ls usage
+local tools = {
+  'fixjson',
+  'hadolint',
+  'shellcheck',
+  'yamllint',
+}
+local servers_and_tools = {}
+
+for _, v in pairs(servers) do table.insert(servers_and_tools, v) end
+for _, v in pairs(tools) do table.insert(servers_and_tools, v) end
 
 mason.setup({
   ui = {
@@ -22,7 +33,7 @@ mason.setup({
 })
 
 mason_lspconfig.setup({
-  ensure_installed = servers,
+  ensure_installed = servers_and_tools,
   automatic_installation = true,
 })
 

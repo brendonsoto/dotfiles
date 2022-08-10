@@ -1,6 +1,10 @@
 local null_ls = require('null-ls')
 local builtins = null_ls.builtins
 
+-- NOTE to self:
+-- If you're wondering "where are the tools for other langs I use?"
+-- The lang servers take care of it.
+-- null_ls is for injecting non-LSP diagnostics and more into the editor
 null_ls.setup({
   sources = {
     -- General
@@ -9,18 +13,8 @@ null_ls.setup({
     -- Docker
     builtins.diagnostics.hadolint,
 
-    -- JS/TS
-    builtins.diagnostics.eslint,
-    builtins.diagnostics.tsc,
-    builtins.formatting.eslint,
-
     -- JSON
-    builtins.diagnostics.jsonlint,
-    builtins.formatting.json_tool,
-
-    -- Lua
-    -- builtins.diagnostics.luacheck,
-    builtins.formatting.stylua,
+    builtins.formatting.fixjson,
 
     -- Python
     -- builtins.diagnostics.flake8,
