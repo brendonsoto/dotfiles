@@ -1,5 +1,3 @@
-local ts_utils = require("nvim-lsp-ts-utils")
-
 -- Helpers
 -- Special stuff for tsserver because react :(
 -- Kudos: https://github.com/typescript-language-server/typescript-language-server/issues/216#issuecomment-1005272952
@@ -20,35 +18,33 @@ end
 
 -- Settings
 return {
-  init_options = ts_utils.init_options,
+  settings = {
+    on_attach = function(client, bufnr)
+      require("user.plugins.lsp.handlers").setup_keymaps(client, bufnr)
+    end,
 
-  on_attach = function(client, bufnr)
-    ts_utils.setup({})
-    ts_utils.setup_client(client)
-    require("user.plugins/lsp.handlers").setup_keymaps(client, bufnr)
-  end,
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+    },
 
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-  },
+    handlers = {
+      ['textDocument/definition'] = function(err, result, method, ...)
+        if vim.tbl_islist(result) and #result > 1 then
+          local filtered_result = filter(result, filterReactDTS)
+          return vim.lsp.handlers['textDocument/definition'](err,
+            filtered_result,
+            method,
+            ...)
+        end
 
-  handlers = {
-    ['textDocument/definition'] = function(err, result, method, ...)
-      if vim.tbl_islist(result) and #result > 1 then
-        local filtered_result = filter(result, filterReactDTS)
-        return vim.lsp.handlers['textDocument/definition'](err,
-          filtered_result,
-          method,
+        vim.lsp.handlers['textDocument/definition'](err, result, method,
           ...)
       end
-
-      vim.lsp.handlers['textDocument/definition'](err, result, method,
-        ...)
-    end
-  },
+    },
+  }
 }
