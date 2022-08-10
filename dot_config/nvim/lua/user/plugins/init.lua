@@ -51,14 +51,6 @@ return require('packer').startup({
     }
 
     use {
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-      config = function()
-        require("lsp_lines").setup()
-        vim.diagnostic.config({ virtual_text = false })
-      end,
-    }
-
-    use {
       'is0n/fm-nvim',
       requires = { 'folke/which-key.nvim' },
       config = function() require('user.plugins.lf') end
@@ -94,10 +86,10 @@ return require('packer').startup({
     use {
       'neovim/nvim-lspconfig',
       requires = {
+        'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
         'nvim-lua/plenary.nvim',
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
-        'jose-elias-alvarez/nvim-lsp-ts-utils',
         'jose-elias-alvarez/null-ls.nvim',
         'RRethy/vim-illuminate',
         'hrsh7th/nvim-cmp',
