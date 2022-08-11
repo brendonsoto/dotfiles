@@ -86,7 +86,6 @@ return require('packer').startup({
     use {
       'neovim/nvim-lspconfig',
       requires = {
-        'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
         'nvim-lua/plenary.nvim',
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
