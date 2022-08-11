@@ -61,6 +61,7 @@ require('which-key').register({
     g = {'<cmd>Telescope live_grep<cr>', 'Live grep'},
     b = {'<cmd>Telescope buffers<cr>', 'Find Buffer'},
     h = {'<cmd>Telescope help_tags<cr>', 'Find help tag'},
+    o = {'<cmd>Telescope oldfiles<cr>', 'Search recent/old files'},
     l = {make_markdown_link, 'Make Markdown Link'}
     -- p = { '<cmd>Telescope projects<cr>', 'Find projects' },
     -- ['ts'] = {'<cmd>Telescope treesitter<cr>', 'Telescope Treesitter?'}
