@@ -19,10 +19,6 @@ end
 -- Settings
 return {
   settings = {
-    on_attach = function(client, bufnr)
-      require("user.plugins.lsp.handlers").setup_keymaps(client, bufnr)
-    end,
-
     filetypes = {
       "javascript",
       "javascriptreact",

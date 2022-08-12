@@ -1,5 +1,7 @@
 local wk = require("which-key")
 local hopConfig = require("user.plugins.hop")
+local buf = vim.lsp.buf
+local diagnostic = vim.diagnostic
 
 wk.setup {}
 
@@ -50,7 +52,24 @@ wk.register({
         name = 'next...',
         b = {':bnext<cr>', 'Next buffer'},
         t = {':tabn<cr>', 'Next tab'}
-    }
+    },
+
+    -- LSP ish
+    g = {
+      name = 'LSP go to...',
+      d = {buf.definition, "Go to definition"},
+      D = {buf.declaration, "Go to declaration"},
+      i = {buf.implementation, "Go to implementation"},
+      r = {buf.references, "See references"},
+      t = {buf.type_definition, "Go to type definition"}
+    },
+    K = {buf.hover, "Hover"},
+    ["[d"] = {diagnostic.goto_prev, "Go to prev diagnostic"},
+    ["]d"] = {diagnostic.goto_next, "Go to next diagnostic"},
+    ["<leader>"] = {
+      ["ca"] = {buf.code_action, "Code action"},
+      ["fc"] = {buf.formatting, "format code"},
+    },
 })
 
 wk.register({
