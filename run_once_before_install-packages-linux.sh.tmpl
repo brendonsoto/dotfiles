@@ -72,10 +72,16 @@ fc-cache -f -v
 echo "Finished checking fonts"
 
 # Install Rust
-if ! command -v rustup &> /dev/null
+## if ! command -v rustup &> /dev/null
+## then
+##   echo "Installing rustup"
+##   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+## fi
+
+echo "Installing Antigen for zsh plugin management if not already installed..."
+if [[ ! -f ~/antigen.zsh ]];
 then
-  echo "Installing rustup"
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  curl -L git.io/antigen > ~/antigen.zsh
 fi
 
 echo "Checking if zellij is installed..."
