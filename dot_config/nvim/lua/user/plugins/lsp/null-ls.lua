@@ -6,6 +6,7 @@ local builtins = null_ls.builtins
 -- The lang servers take care of it.
 -- null_ls is for injecting non-LSP diagnostics and more into the editor
 null_ls.setup({
+  debug = true,
   sources = {
     -- General
     builtins.completion.spell,
@@ -20,6 +21,8 @@ null_ls.setup({
     builtins.diagnostics.shellcheck,
 
     -- YAML
-    builtins.diagnostics.yamllint,
+    builtins.diagnostics.yamllint.with({
+      extra_args = { "-c", vim.fn.expand("~/.config/yamllint/my_rules.yml" )}
+    }),
   },
 })
