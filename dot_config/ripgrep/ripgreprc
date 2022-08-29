@@ -1,0 +1,13 @@
+# Adding path to an ignore file
+--ignore-file ~/.ignore
+
+# Don't let ripgrep vomit really long lines to my terminal, and show a preview.
+--max-columns=150
+--max-columns-preview
+
+# Case-insensitive when using all lowercase letters
+--smart-case
+
+# Add a type to easily ignore or target test files
+--type-add
+test:*.test.{js,jsx,ts,tsx}*

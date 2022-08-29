@@ -19,6 +19,9 @@ fi
 # Python
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
+# Ripgrep
+export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/ripgreprc
+
 # Ruby
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
@@ -63,7 +66,6 @@ export PATH="$HOME/dotfiles/scripts:$PATH"
 
 # Useful Commands
 alias rm="rm -i" # always ask, just in case
-alias rg="rg --ignore-file ~/.ignore"
 alias cg="curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET"
 alias pms="ps -ax -u `whoami` -o pid,command,state,lstart,etime,time,%cpu,%mem"
 
