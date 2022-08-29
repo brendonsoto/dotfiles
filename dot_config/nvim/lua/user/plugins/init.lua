@@ -102,6 +102,8 @@ return require('packer').startup({
 
     use {
       'vhyrro/neorg',
+      -- THIS IS ONLY UNTIL either neovim 0.8 is out or an alternative to 0.0.13 breaking on neovim 0.7 is known
+      tag = '0.0.12',
       requires = { 'nvim-lua/plenary.nvim', 'nvim-neorg/neorg-telescope' },
       config = function() require('user.plugins.neorg') end
     }
