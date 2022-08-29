@@ -101,6 +101,12 @@ return require('packer').startup({
     }
 
     use {
+      'preservim/vim-markdown',
+      requires = { 'godlygeek/tabular', 'folke/which-key.nvim' },
+      config = function() require('user.plugins.vim-markdown') end
+    }
+
+    use {
       'vhyrro/neorg',
       -- THIS IS ONLY UNTIL either neovim 0.8 is out or an alternative to 0.0.13 breaking on neovim 0.7 is known
       tag = '0.0.12',
