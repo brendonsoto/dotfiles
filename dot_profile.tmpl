@@ -148,7 +148,7 @@ export HISTCONTROL=ignoredups
 # @example
 #   notify_when_done npm install
 function notify_when_done() {
-  $@ || osascript -e 'display alert "Oh no!" message "Something dun gon goofd up! Check your terminal."'
+  "$@" || osascript -e 'display alert "Oh no!" message "Something dun gon goofd up! Check your terminal."'
   osascript -e 'display alert "Process finished!" message "check your terminal"'
 }
 {{- end }}
