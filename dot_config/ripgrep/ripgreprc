@@ -8,3 +8,6 @@
 # Add a type to easily ignore or target test files
 --type-add
 test:*.test.{js,jsx,ts,tsx}*
+
+# include hidden files -- may regret later but some hidden dirs you use
+--hidden
