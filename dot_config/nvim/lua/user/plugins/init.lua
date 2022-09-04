@@ -24,6 +24,8 @@ return require('packer').startup({
       config = function() require('user.plugins.dashboard') end
     }
 
+    use { 'gpanders/editorconfig.nvim' }
+
     use {
       'windwp/nvim-autopairs',
       after = { 'nvim-cmp' },
