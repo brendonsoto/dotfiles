@@ -1,4 +1,5 @@
 email = "brendon.soto@gmail.com"
+force_dark = true
 
 [alacritty.tokyo_night.day]
 primary.background = "'0xe1e2e7'"
