@@ -26,36 +26,36 @@ sudo eopkg install -c system.devel
 echo "Checking fonts..."
 
 # make local dir for fonts if it doesn't exist
-if [ ! -d "~/.local/share/fonts" ]
+if [ ! -d "$HOME/.local/share/fonts" ]
 then
   mkdir -p ~/.local/share/fonts
   echo "Created ~/.local/share/fonts"
 fi
 
-cd ~/.local/share/fonts
-
 # check for fonts existance before fetching
-if ! ls "~/.local/share/fonts/Hack*" &>/dev/null
+if [ ! -e "$(find "$HOME"/.local/share/fonts/ -maxdepth 1 -name 'Hack*' -print -quit)" ]
 then
   # Hack
   echo "Installing Hack font"
+  cd ~/.local/share/fonts || return
   curl -fLo "hack.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
   unzip hack.zip
   rm hack.zip
   echo "Finished installing Hack font"
 fi
 
-if ! ls "~/.local/share/fonts/Sauce\ Code\ Pro*" &>/dev/null
+if [ ! -e "$(find "$HOME"/.local/share/fonts/ -maxdepth 1 -name 'Sauce\ Code\ Pro*' -print -quit)" ]
 then
   # SourceCodePro
   echo "Installing SourceCodePro font"
+  cd ~/.local/share/fonts || return
   curl -fLo "source-code-pro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip
   unzip source-code-pro.zip
   rm source-code-pro.zip
   echo "Finished installing SourceCodePro font"
 fi
 
-if ! ls "~/.local/share/fonts/*Windows*" &>/dev/null
+if [ ! -e "$(find "$HOME"/.local/share/fonts/ -maxdepth 1 -name '*Windows' -print -quit)" ]
 then
   # Delete all non-mono fonts
   # This is because the nerd-fonts come w/ multiple versions including windows compatible
@@ -71,46 +71,21 @@ echo "Resetting font cache"
 fc-cache -f -v
 echo "Finished checking fonts"
 
-# Install Rust
-## if ! command -v rustup &> /dev/null
-## then
-##   echo "Installing rustup"
-##   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-## fi
-
-echo "Installing Antigen for zsh plugin management if not already installed..."
-if [[ ! -f ~/antigen.zsh ]];
-then
-  curl -L git.io/antigen > ~/antigen.zsh
-fi
-
-echo "Checking if zellij is installed..."
-# Install Zellij
-if ! command -v zellij &> /dev/null
-then
-  echo "Installing zellij"
-  source $HOME/.cargo/env
-  cargo install zellij
-else
-  echo "Zellij is installed already"
-fi
-
 # Install asdf and other langs
 echo "Checking if asdf is installed"
-if ! command -v asdf &> /dev/null
+if [ -z "$(command -v asdf)" ]
 then
   echo "Installing asdf"
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
-  source $HOME/.asdf/asdf.sh
+  . "$HOME/.asdf/asdf.sh"
 else
   echo "asdf is already installed!"
-
 fi
 
 # Installing langs
 ## Nodejs
 echo "Checking if nodejs is installed"
-if ! command -v node &> /dev/null
+if [ -z "$(command -v node)" ]
 then
   asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   asdf install nodejs latest
@@ -122,7 +97,7 @@ fi
 
 # Communicate installation complete
 
-echo -e "\033[0;35m
+printf "\033[0;35m
 
 #################################################
 Packages and apps installed!
@@ -135,4 +110,3 @@ Your future and past selves thank you.
 \033[0m
 "
 {{ end -}}
-

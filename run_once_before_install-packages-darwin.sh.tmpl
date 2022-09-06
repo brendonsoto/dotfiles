@@ -3,24 +3,21 @@
 
 # Make brew a requirement prior to run this
 # Not including it because of the differences between M1 and Intel macs
-if ! command -v brew &> /dev/null
+if [ -z "$(command -v brew)" ]
 then
-  echo "
+  printf "\033[0;35m
 
-#################################################
-Ya need homebrew ya dinges!!
-Install it here: https://brew.sh/
+  #################################################
+  Ya need homebrew ya dinges!!
+  Install it here: https://brew.sh/
 
-BEFORE YOU DO THAT, clear the state of this one-time script so you can re-run this:
-chezmoi state delete-bucket --bucket=scriptState
-#################################################
+  BEFORE YOU DO THAT, clear the state of this one-time script so you can re-run this:
+  chezmoi state delete-bucket --bucket=scriptState
+  #################################################
 
-"
+  "
+
   return 1 2>/dev/null || exit 1
-fi
-
-if [ ! -f "$HOME/antigen.zsh" ]; then
-  curl -L git.io/antigen > ~/antigen.zsh
 fi
 
 # Continue as normal
@@ -59,14 +56,14 @@ EOF
 # Casks, but check if they are installed first
 casks=("alacritty" "alfred" "beekeeper-studio" "chromedriver" "discord" "flux" "licecap" "ngrok" "rectangle" "visual-studio-code")
 
-for c in ${casks[@]}; do
+for c in "${casks[@]}"; do
   if ! command -v brew &> /dev/null
   then
-    brew install --cask $c
+    brew install --cask "$c"
   fi
 done
 
-echo "
+printf "\033[0;35m
 
 #################################################
 Packages and apps installed!
@@ -76,6 +73,6 @@ JOT THE PROBLEM DOWN IN YOUR TODO APP!!!!!
 Before you forget.
 Your future and past selves thank you.
 #################################################
-
+\033[0m
 "
 {{ end -}}
