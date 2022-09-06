@@ -1,10 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Antigen
-# Source the main file and then setup antigen to install plugins and use a cache
-source ~/antigen.zsh
-antigen init ~/.antigenrc
+# This is needed before other
+autoload -Uz compinit && compinit
+
+# Antidote
+source ~/.antidote/antidote.zsh
+antidote load
 
 ## Themeing
 # My theme settings. Putting them here instead of a .zsh-theme file since it's small and convenient
@@ -28,9 +30,6 @@ ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[blue]%} %{$fg[yellow]%}↻%{$reset_color%}"
 # Aliases
 alias reload=". ~/.zshrc"
 alias lg="lazygit"
-
-# Git completion
-autoload -Uz compinit && compinit
 
 # Don't share history between tabs
 unsetopt inc_append_history
