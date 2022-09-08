@@ -8,15 +8,8 @@ autoload -Uz compinit && compinit
 source ~/.antidote/antidote.zsh
 antidote load
 
-## Themeing
-# My theme settings. Putting them here instead of a .zsh-theme file since it's small and convenient
-PROMPT='%{$fg_bold[blue]%}%{$fg[blue]%}%c%{$fg_bold[blue]%}$(git_prompt_info)$(git_prompt_ahead)%{$fg_bold[blue]%} λ %{$reset_color%}'
-
-ZSH_THEME_GIT_PROMPT_PREFIX=" (%{$fg[magenta]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[red]%}Δ%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
-ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[blue]%} %{$fg[yellow]%}↻%{$reset_color%}"
+# Starship -- theming
+eval "$(starship init zsh)"
 
 # My Stuff
 [ -f ~/.profile ] && source ~/.profile
