@@ -33,29 +33,9 @@ then
 fi
 
 # check for fonts existance before fetching
-if [ ! -e "$(find "$HOME"/.local/share/fonts/ -maxdepth 1 -name 'Hack*' -print -quit)" ]
-then
-  # Hack
-  echo "Installing Hack font"
-  cd ~/.local/share/fonts || return
-  curl -fLo "hack.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
-  unzip hack.zip
-  rm hack.zip
-  echo "Finished installing Hack font"
-fi
+were_fonts_installed=0
 
-if [ ! -e "$(find "$HOME"/.local/share/fonts/ -maxdepth 1 -name 'Sauce\ Code\ Pro*' -print -quit)" ]
-then
-  # SourceCodePro
-  echo "Installing SourceCodePro font"
-  cd ~/.local/share/fonts || return
-  curl -fLo "source-code-pro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip
-  unzip source-code-pro.zip
-  rm source-code-pro.zip
-  echo "Finished installing SourceCodePro font"
-fi
-
-if [ ! -e "$(find "$HOME"/.local/share/fonts/ -maxdepth 1 -name '*Windows' -print -quit)" ]
+if [ -e "$(find "$HOME"/.local/share/fonts/ -maxdepth 1 -name '*Windows' -print -quit)" ]
 then
   # Delete all non-mono fonts
   # This is because the nerd-fonts come w/ multiple versions including windows compatible
@@ -67,9 +47,14 @@ then
   echo "Finished removing non mono fonts"
 fi
 
-echo "Resetting font cache"
-fc-cache -f -v
-echo "Finished checking fonts"
+if [ ! $were_fonts_installed ]
+then
+  echo "Resetting font cache"
+  fc-cache -f -v
+  echo "Finished checking fonts"
+fi
+
+echo "Done with fonts"
 
 # Install asdf and other langs
 echo "Checking if asdf is installed"
