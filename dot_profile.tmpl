@@ -34,6 +34,12 @@ if [ -s "/snap/bin" ]; then
 fi
 {{- end }}
 
+# Zig
+if [ -d "$HOME"/Downloads/zig-linux-x86_64-0.10.0-dev.3880+e2bb92b2e:"$PATH" ]
+then
+  export PATH="$HOME/Downloads/zig-linux-x86_64-0.10.0-dev.3880+e2bb92b2e:$PATH"
+fi
+
 ##########################################
 #             Path Addendums
 ##########################################
