@@ -39,7 +39,7 @@ fi
 ##########################################
 
 # Set editor to either neovim or vim
-if command -v nvim &>/dev/null
+if [ -n "$(command -v nvim)" ]
 then
   export EDITOR=nvim
   alias v="nvim"
@@ -67,7 +67,7 @@ export PATH="$HOME/dotfiles/scripts:$PATH"
 # Useful Commands
 alias rm="rm -i" # always ask, just in case
 alias cg="curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET"
-alias pms="ps -ax -u `whoami` -o pid,command,state,lstart,etime,time,%cpu,%mem"
+alias pms="ps -ax -u $(whoami) -o pid,command,state,lstart,etime,time,%cpu,%mem"
 
 # ls with colors!
 {{ if eq .chezmoi.os "darwin" }}
@@ -87,9 +87,9 @@ alias grh="git reset --hard"
 alias grm="git rebase main"
 alias gcp="git cherry-pick"
 
-function gcm() {
+gcm() {
   branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
-  git checkout $branch
+  git checkout "$branch"
 }
 
 # Python Simple server in current dir
@@ -101,10 +101,10 @@ alias brewm1="arch -x86_64 brew"
 ##########################################
 #             FZF
 ##########################################
-if command -v fzf &>/dev/null
+if [ -n "$(command -v fzf)" ]
 then
 # Set fzf to use ag
-  if command -v ag &>/dev/null
+  if [ -n "$(command -v ag)" ]
   then
     export FZF_DEFAULT_COMMAND="ag -p ~/dotfiles/.ignore -g ''"
     export FZF_CTRL_T_COMMAND="ag -p ~/dotfiles/.ignore -g ''"
@@ -117,7 +117,7 @@ then
   }
 
   _fzf_compgen_dir() {
-    fd --type d --hidden --follow --exclude '.git' . $1
+    fd --type d --hidden --follow --exclude '.git' . "$1"
   }
 fi
 
@@ -125,13 +125,13 @@ fi
 #             LF
 #########################################
 # LF
-if command -v lf &>/dev/null
+if [ -n "$(command -v lf)" ]
 then
   # For what the keys mean, check out https://github.com/gokcehan/lf/blob/aebff483a79edbde020a63816acbceb3278ed3e6/icons.go#L79
   export LF_ICONS="ln=:di=:fi=:ex=:*.html=:*.js=:*.jsx=:*.ts=:*.tsx=:*.json=ﬥ:*.rb=:*.hs=:*.norg=:*.vim=:*.vimrc:*.lua=:*.*rc=:Dockerfile=:"
 
   LFCD="$HOME/.config/lf/lfcd.sh"
-  source "$LFCD"
+  . "$LFCD"
   alias lf="lfcd"
 fi
 
@@ -157,6 +157,7 @@ function notify_when_done() {
 #             For fun :)
 ##########################################
 # Launch an aquarium on startup on non tmux!
-if ! { [ -n "$TMUX" ]; } && command -v asciiquarium &>/dev/null; then
+if [ -z "$TMUX" ] && [ "$(command -v asciiquarium)" ]
+then
   asciiquarium
 fi
