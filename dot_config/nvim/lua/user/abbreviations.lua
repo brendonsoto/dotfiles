@@ -12,3 +12,7 @@ cmd([[ab :sweat_smile: 😅]])
 cmd([[ab :tada: 🎉]])
 cmd([[ab :thinking_face: 🤔]])
 cmd([[ab :thumbs_up: 👍]])
+
+-- Stuff I can't spell right...
+cmd([[ab teh the]])
+cmd([[ab fo of]])
