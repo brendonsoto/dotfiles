@@ -146,6 +146,8 @@ return require('packer').startup({
       config = function() require('user.plugins.which-key') end
     }
 
+    use { 'ziglang/zig.vim' }
+
     -- Automatically set up configuration after cloning packer.nvim
     if packer_bootstrap then require('packer').sync() end
   end,
