@@ -11,18 +11,11 @@ antidote load
 # Starship -- theming
 eval "$(starship init zsh)"
 
-# My Stuff
-[ -f ~/.profile ] && source ~/.profile
+# Load Stuff
+[ -f ~/.config/shell/main ] && . ~/.config/shell/main
+[ -f ~/.config/shell/work.zsh ] && . ~/.config/shell/work.zsh
 
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Work related configs
-[ -f ~/.work.zsh ] && source ~/.work.zsh
-
-# Aliases
 alias reload=". ~/.zshrc"
-alias lg="lazygit"
 
 # Don't share history between tabs
 unsetopt inc_append_history

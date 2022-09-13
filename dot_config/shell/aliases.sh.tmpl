@@ -1,0 +1,19 @@
+# Useful Commands
+alias rm="rm -i" # always ask, just in case
+alias cg="curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET"
+alias pms="ps -ax -u \$(whoami) -o pid,command,state,lstart,etime,time,%cpu,%mem"
+
+# ls with colors!
+{{ if eq .chezmoi.os "darwin" }}
+alias ls="ls -aFG" # list hidden files; add colors and file type
+
+# Homebrew - for M1
+alias brewm1="arch -x86_64 brew"
+{{ else }}
+alias ls="ls -aF --color" # list hidden files; add colors and file type
+
+alias wifiSearch="sudo iw dev wlp2s0 scan | less -pSSID"
+{{ end }}
+
+# Python Simple server in current dir
+alias simp="python -m SimpleHTTPServer 8000"

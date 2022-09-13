@@ -1,0 +1,13 @@
+prev_dir=$(pwd)
+cd "$HOME/.config/shell"
+
+. ./path_addons.sh
+. ./aliases.sh
+. ./git.sh
+. ./helpful.sh
+. ./nvim.sh
+. ./lf.sh
+. ./fzf.sh
+. ./fun.sh
+
+cd "$prev_dir"
