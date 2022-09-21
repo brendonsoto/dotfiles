@@ -24,6 +24,10 @@ wk.register({
         y = {'y "+y', 'Yank from clipboard'},
         p = {'p "+p', 'Paste from clipboard'},
 
+        -- Paste but replace contents of the delete buffer
+        -- Kudos Primeagen
+        P = {'"_dP', 'Paste w/o worrying about delete buffer'},
+
         -- Misc
         ['/'] = {':nohl<cr>', 'Undo highlighting'},
     }
