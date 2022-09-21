@@ -1,13 +1,22 @@
+# Dunno where this script will be called so change dirs to here
+# for launching the rest of the scripts
 prev_dir=$(pwd)
 cd "$HOME/.config/shell"
 
+# General
 . ./path_addons.sh
 . ./aliases.sh
-. ./git.sh
 . ./helpful.sh
-. ./nvim.sh
-. ./lf.sh
-. ./fzf.sh
 . ./fun.sh
 
+# Tool specific
+. ./git.sh
+. ./lf.sh
+. ./nvim.sh
+. ./fzf.sh
+
+# Misc -- For anything temp
+[ -f ./misc.sh ] && . ./misc.sh
+
+# Similar to the top, cd back to the OG dir
 cd "$prev_dir"
