@@ -151,11 +151,4 @@ return require('packer').startup({
     -- Automatically set up configuration after cloning packer.nvim
     if packer_bootstrap then require('packer').sync() end
   end,
-  config = {
-    display = {
-      open_fn = function()
-        return require('packer.util').float({border = 'rounded'})
-      end
-    }
-  }
 })
