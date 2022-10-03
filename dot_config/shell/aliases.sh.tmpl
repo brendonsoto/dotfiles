@@ -2,6 +2,7 @@
 alias rm="rm -i" # always ask, just in case
 alias cg="curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET"
 alias pms="ps -ax -u \$(whoami) -o pid,command,state,lstart,etime,time,%cpu,%mem"
+alias dirs="dirs -v" # just always list numbers w/ dirs
 
 # ls with colors!
 {{ if eq .chezmoi.os "darwin" }}
