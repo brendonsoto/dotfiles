@@ -3,7 +3,7 @@ local M = {}
 M.on_attach = function(client, bufnr)
   -- TODO: refactor this into a method that checks if string in list
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end
   require('illuminate').on_attach(client)
   require('aerial').on_attach(client, bufnr)
