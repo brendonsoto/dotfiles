@@ -20,6 +20,12 @@ return require('packer').startup({
     }
 
     use {
+      'stevearc/aerial.nvim',
+      after = { 'neovim/nvim-lspconfig' },
+      config = function() require('aerial').setup() end
+    }
+
+    use {
       'glepnir/dashboard-nvim',
       config = function() require('user.plugins.dashboard') end
     }

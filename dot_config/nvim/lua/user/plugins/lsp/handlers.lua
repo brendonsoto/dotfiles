@@ -6,6 +6,7 @@ M.on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end
   require('illuminate').on_attach(client)
+  require('aerial').on_attach(client, bufnr)
 end
 
 -- Setup capabilities using default vim func & cmp
