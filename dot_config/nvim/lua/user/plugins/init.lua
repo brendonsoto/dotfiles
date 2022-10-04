@@ -21,7 +21,7 @@ return require('packer').startup({
 
     use {
       'stevearc/aerial.nvim',
-      after = { 'neovim/nvim-lspconfig' },
+      requires = { 'neovim/nvim-lspconfig' },
       config = function() require('aerial').setup() end
     }
 
