@@ -21,8 +21,12 @@ return require('packer').startup({
 
     use {
       'stevearc/aerial.nvim',
-      requires = { 'neovim/nvim-lspconfig' },
-      config = function() require('aerial').setup() end
+      after = {
+        'nvim-treesitter',
+        'which-key.nvim',
+        'telescope.nvim',
+      },
+      config = function() require('user.plugins.aerial') end
     }
 
     use {
