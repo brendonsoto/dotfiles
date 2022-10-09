@@ -4,12 +4,12 @@ local cmp = require('cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 require("nvim-autopairs").setup({
+    -- Use treesitter to check for pairs
     check_ts = true,
+
+    -- if there's a closing pair char on the line, don't add a pair
     enable_check_bracket_line = false,
-    ignored_next_char = "[%w%.]", -- will ignore alphanumeric and `.` symbol
-    ts_config = {
-        lua = {'string'}, -- it will not add a pair on that treesitter node
-        javascript = {'template_string'},
-        java = false -- don't check treesitter on java
-    }
+
+    -- This is to not add a pair when there's text after the cursor
+    ignored_next_char = "[%w%.]",
 })
