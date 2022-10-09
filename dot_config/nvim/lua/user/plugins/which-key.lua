@@ -1,5 +1,4 @@
 local wk = require("which-key")
-local hopConfig = require("user.plugins.hop")
 local buf = vim.lsp.buf
 local diagnostic = vim.diagnostic
 
