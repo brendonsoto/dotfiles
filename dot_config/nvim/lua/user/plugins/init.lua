@@ -68,8 +68,6 @@ return require('packer').startup({
       config = function() require('user.plugins.lf') end
     }
 
-    use { 'tpope/vim-fugitive' }
-
     use {
       'lewis6991/gitsigns.nvim',
       requires = { 'nvim-lua/plenary.nvim', 'folke/which-key.nvim' },
