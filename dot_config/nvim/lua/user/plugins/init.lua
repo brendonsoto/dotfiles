@@ -77,13 +77,6 @@ return require('packer').startup({
     }
 
     use {
-      'phaazon/hop.nvim',
-      branch = 'v1',
-      requires = { 'folke/which-key.nvim' },
-      config = function() require('user.plugins.hop') end
-    }
-
-    use {
         'lukas-reineke/indent-blankline.nvim',
         config = function() require('user.plugins.indent-blankline') end
     }
