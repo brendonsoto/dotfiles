@@ -3,7 +3,6 @@ zsh-users/zsh-completions
 ohmyzsh/ohmyzsh path:lib
 ohmyzsh/ohmyzsh path:plugins/asdf
 ohmyzsh/ohmyzsh path:plugins/docker
-ohmyzsh/ohmyzsh path:plugins/fd
 ohmyzsh/ohmyzsh path:plugins/npm
 ohmyzsh/ohmyzsh path:plugins/ripgrep
 ohmyzsh/ohmyzsh path:plugins/safe-paste
