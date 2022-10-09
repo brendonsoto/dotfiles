@@ -9,7 +9,11 @@ require('gitsigns').setup {
   },
   on_attach = function(_)
     require('which-key').register({
-      b = { '<cmd>Gitsigns toggle_current_line_blame<cr>', 'Toggle Git blame' }
-    }, { prefix = '<leader>g' })
+      [']h'] = { '<cmd>Gitsigns next_hunk<cr>', 'Git next hunk' },
+      ['[h'] = { '<cmd>Gitsigns prev_hunk<cr>', 'Git next hunk' },
+      ['gtb'] = { '<cmd>Gitsigns toggle_current_line_blame<cr>', 'Git Toggle blame' },
+      ['gsh'] = { '<cmd>Gitsigns stage_hunk<cr>', 'Git stage hunk' },
+      ['guh'] = { '<cmd>Gitsigns undo_stage_hunk<cr>', 'Undo Git stage hunk' },
+    })
   end
 }
