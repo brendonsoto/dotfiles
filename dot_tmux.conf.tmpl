@@ -32,7 +32,11 @@ bind -N "Create and name a new winow" C command-prompt -p "Name of new window: "
 
 #===== Options =====#
 ## Server Options
+{{- if eq .chezmoi.os "darwin" }}
+set -g default-terminal "xterm-256color"
+{{- else }}
 set -g default-terminal "tmux-256color"
+{{- end }}
 set -g escape-time 0
 set -g focus-events on
 set -sa terminal-overrides ",xterm-256color:RGB"
