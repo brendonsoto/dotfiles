@@ -4,6 +4,8 @@ ohmyzsh/ohmyzsh path:lib
 ohmyzsh/ohmyzsh path:plugins/asdf
 ohmyzsh/ohmyzsh path:plugins/docker
 ohmyzsh/ohmyzsh path:plugins/npm
-ohmyzsh/ohmyzsh path:plugins/ripgrep
 ohmyzsh/ohmyzsh path:plugins/safe-paste
 ohmyzsh/ohmyzsh path:plugins/vi-mode
+
+ohmyzsh/ohmyzsh path:plugins/fd kind:fpath
+ohmyzsh/ohmyzsh path:plugins/ripgrep kind:fpath
