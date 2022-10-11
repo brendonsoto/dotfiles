@@ -1,53 +1,89 @@
 #===== Keys =====#
 # easy reload config
-unbind r
-bind r source-file ~/.tmux.conf
+bind -N "Reload tmux config" r source-file ~/.tmux.conf; display "~/.tmux.conf sourced!"
 
-# easy activation
+# set prefix key (the key/code to tell tmux "do this") to C-a
 set -g prefix C-a
 unbind C-b
-bind C-a send-prefix
+bind -N "Send Prefix" C-a send-prefix
 
-# Fast pane-switching
-bind h select-pane -L
-bind l select-pane -R
-bind k select-pane -U
-bind j select-pane -D
+# Pane-switching vim style
+bind -N "Select pane L" h select-pane -L
+bind -N "Select pane R" l select-pane -R
+bind -N "Select pane U" k select-pane -U
+bind -N "Select pane D" j select-pane -D
+
+# Resizing similar to vim keys
+unbind L
+bind -N "Resize pane L" H resize-pane -L 10
+bind -N "Resize pane R" L resize-pane -R 10
+bind -N "Resize pane U" K resize-pane -U 10
+bind -N "Resize pane D" J resize-pane -D 10
 
 # Splitting windows
-bind C-h split-window -v
-bind C-v split-window -h
+bind -N "Create a vertical window split" C-h split-window -v
+bind -N "Create a horizontal window split" C-v split-window -h
+unbind \"
+unbind %
 
 # Get name when creating new window
-bind C command-prompt -p "Name of new window: " "new-window -n '%%'"
+bind -N "Create and name a new winow" C command-prompt -p "Name of new window: " "new-window -n '%%'"
 
 
 #===== Options =====#
-set-option -g base-index 1
-set-option -g escape-time 0
-set-option -g status-keys vi
-set-option -g visual-bell on
-set-option -g default-terminal "tmux-256color"
-set-option -sa terminal-overrides ",xterm-256color:RGB"
+## Server Options
+set -g default-terminal "tmux-256color"
+set -g escape-time 0
+set -g focus-events on
+set -sa terminal-overrides ",xterm-256color:RGB"
+
+## Session Options
+set -g base-index 1
+set -g renumber-windows on
+set -g status-keys vi
+set -g visual-activity on
+set -g visual-bell on
+set -g status-position top
+
+## Window options
+set -g clock-mode-style 24
+set -g mode-keys vi
+set -g monitor-activity on
+set -g monitor-bell on
 
 # Copy mode with vim
-set-window-option -g mode-keys vi
-bind -T copy-mode-vi v send-keys -X begin-selection
-bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+bind -N "Copy mode: begin Vim selection" -T copy-mode-vi v send-keys -X begin-selection
+bind -N "Copy mode: yank" -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
 
-#===== Appearance + Colors!!! =====#
+#===== Styling and Formatting =====#
+set -g window-status-current-format "<#I:#W>"
+set -g window-status-current-style "fg=#83a598"
+
+set -g status "on"
 set -g status-left ""
 set -g status-right ""
 set -g status-justify centre
-set -g status-position top
-set -g window-status-current-format "<#I:#W>"
-set-option -g focus-events on
-set -g window-status-current-style "fg=#83a598"
 
-{{ $currentHour := (now | date "15") | atoi }}
-{{- if (and (ge $currentHour 9) (lt $currentHour 17)) -}}
-{{ template "tmux_tokyonight_day" }}
-{{- else -}}
-{{ template "tmux_tokyonight_storm" }}
-{{- end -}}
+##
+# TODO
+# How to make messages just in middle?
+# And last for a few seconds?
+# Replace icons for what's active or not with no icon, colors only
+
+# TokyoNight colors for Tmux
+set -g mode-style "fg=#7aa2f7,bg=#3b4261" # what is mode?
+
+set -g message-style "fg=#7aa2f7,bg=#3b4261"
+set -g message-command-style "fg=#7aa2f7,bg=#3b4261"
+
+set -g pane-border-style "fg=#3b4261"
+set -g pane-active-border-style "fg=#7aa2f7"
+
+set -g status-style "fg=#7aa2f7,bg=#1f2335"
+
+set -g status-left-style NONE
+set -g status-right-style NONE
+
+setw -g window-status-format "#[default] #I: #W #F "
+setw -g window-status-current-format "#[fg=#8aa2f7,bg=#3b4261,bold] #I: #W #F "
