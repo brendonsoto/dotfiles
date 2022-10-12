@@ -68,12 +68,12 @@ bind -N "Copy mode: yank" -T copy-mode-vi y send-keys -X copy-selection-and-canc
 #===== Styling and Formatting =====#
 # TokyoNight colors for Tmux
 # General status
-set -g mode-style "fg=#7aa2f7,bg=#3b4261" # what is mode?
+set -g mode-style "fg=#7aa2f7,bg=#414868" # what is mode?
 set -g status "on"
 set -g status-interval 2
 set -g status-justify absolute-centre
 set -g status-position top
-set -g status-style "fg=#7aa2f7,bg=#1f2335"
+set -g status-style "fg=#7aa2f7,bg=#414869"
 
 # Status Left -- The session path
 set -g status-left-style NONE
@@ -96,12 +96,11 @@ set -g window-status-current-style "fg=#83a598"
 
 # Status Right -- empty
 set -g status-right-style NONE
-set -g status-right ""
+set -g status-right "#[fg=#e0af68]"
 
 # Messages
 set -g display-time 2000 # 2 seconds
-set -g message-style "fg=#7aa2f7,bg=#3b4261"
-set -g message-command-style "fg=#7aa2f7,bg=#3b4261"
+set -g message-style "fg=#ff9e64,bg=#414868"
 
 # Panes
 set -g pane-border-style "fg=#3b4261"
