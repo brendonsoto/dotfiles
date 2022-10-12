@@ -7,9 +7,6 @@ cd "$HOME/.config/shell"
 . ./path_addons.sh
 . ./aliases.sh
 . ./helpful.sh
-. ./nvim.sh
-. ./lf.sh
-. ./fzf.sh
 . ./fun.sh
 
 # Tool specific
@@ -17,6 +14,7 @@ cd "$HOME/.config/shell"
 . ./lf.sh
 . ./nvim.sh
 . ./fzf.sh
+. ./tmuxp.sh
 
 # Misc -- For anything temp
 [ -f ./misc.sh ] && . ./misc.sh
