@@ -94,12 +94,9 @@ setw -ag window-status-current-format "#{?window_zoomed_flag,,שּ}"
 setw -ag window-status-current-format " "
 set -g window-status-current-style "fg=#83a598"
 
-# Status Right -- mem-cpu-load
+# Status Right -- empty
 set -g status-right-style NONE
-set -g status-right "#[fg=#e0af68]"
-set -ag status-right "#($TMUX_PLUGIN_MANAGER_PATH/tmux-mem-cpu-load/tmux-mem-cpu-load --interval 2)"
-set -ag status-right " "
-set -g status-right-length 60
+set -g status-right ""
 
 # Messages
 set -g display-time 2000 # 2 seconds
@@ -109,15 +106,3 @@ set -g message-command-style "fg=#7aa2f7,bg=#3b4261"
 # Panes
 set -g pane-border-style "fg=#3b4261"
 set -g pane-active-border-style "fg=#7aa2f7"
-
-
-##
-# TODO
-# How to make messages just in middle?
-
-# Plugins
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'thewtex/tmux-mem-cpu-load'
-set -g @plugin 'ChanderG/tmux-notify'
-
-run '~/.tmux/plugins/tpm/tpm'
