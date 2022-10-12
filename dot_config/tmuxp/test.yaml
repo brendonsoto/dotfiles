@@ -1,7 +1,0 @@
-session_name: tmuxp_test
-windows:
-  - window_name: dev
-  - window_name: build+test
-    panes:
-      - blank
-      - blank
