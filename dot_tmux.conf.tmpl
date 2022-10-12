@@ -7,11 +7,17 @@ set -g prefix C-a
 unbind C-b
 bind -N "Send Prefix" C-a send-prefix
 
+# Holding C-* while hitting 'n' or 'p' for a bit faster switching
+unbind n
+unbind p
+bind -N "Next window" C-n next-window
+bind -N "Prev window" C-p previous-window
+
 # Pane-switching vim style
-bind -N "Select pane L" h select-pane -L
-bind -N "Select pane R" l select-pane -R
-bind -N "Select pane U" k select-pane -U
-bind -N "Select pane D" j select-pane -D
+bind -N "Select pane L" C-h select-pane -L
+bind -N "Select pane R" C-l select-pane -R
+bind -N "Select pane U" C-k select-pane -U
+bind -N "Select pane D" C-j select-pane -D
 
 # Resizing similar to vim keys
 unbind L
@@ -21,8 +27,8 @@ bind -N "Resize pane U" K resize-pane -U 10
 bind -N "Resize pane D" J resize-pane -D 10
 
 # Splitting windows
-bind -N "Create a vertical window split" C-h split-window -v
-bind -N "Create a horizontal window split" C-v split-window -h
+bind -N "Split window horizontally" - split-window -v
+bind -N "Split window vertically" | split-window -h
 unbind \"
 unbind %
 
@@ -35,11 +41,11 @@ bind -N "Create and name a new winow" C command-prompt -p "Name of new window: "
 {{- if eq .chezmoi.os "darwin" }}
 set -g default-terminal "xterm-256color"
 {{- else }}
-set -g default-terminal "tmux-256color"
+set -g default-terminal "screen-256color"
 {{- end }}
 set -g escape-time 0
 set -g focus-events on
-set -sa terminal-overrides ",xterm-256color:RGB"
+set -g terminal-overrides "screen-256color"
 
 ## Session Options
 set -g base-index 1
@@ -47,7 +53,6 @@ set -g renumber-windows on
 set -g status-keys vi
 set -g visual-activity on
 set -g visual-bell on
-set -g status-position top
 
 ## Window options
 set -g clock-mode-style 24
@@ -61,33 +66,58 @@ bind -N "Copy mode: yank" -T copy-mode-vi y send-keys -X copy-selection-and-canc
 
 
 #===== Styling and Formatting =====#
-set -g window-status-current-format "<#I:#W>"
+# TokyoNight colors for Tmux
+# General status
+set -g mode-style "fg=#7aa2f7,bg=#3b4261" # what is mode?
+set -g status "on"
+set -g status-interval 2
+set -g status-justify absolute-centre
+set -g status-position top
+set -g status-style "fg=#7aa2f7,bg=#1f2335"
+
+# Status Left -- The session path
+set -g status-left-style NONE
+set -g status-left "#[fg=#e0af68] #{s|$HOME|~|:session_path}"
+set -g status-left-length 30
+
+# Windows
+setw -g window-status-separator ""
+
+setw -g window-status-format "#[fg=#7aa2f7,dim] "
+setw -ag window-status-format "#I #W " # show window index & name
+setw -ag window-status-format "#{?window_activity_flag,,_}"
+setw -ag window-status-format " "
+
+setw -g window-status-current-format "#[fg=#7dcfff,bold] "
+setw -ag window-status-current-format " #W "
+setw -ag window-status-current-format "#{?window_zoomed_flag,,שּ}"
+setw -ag window-status-current-format " "
 set -g window-status-current-style "fg=#83a598"
 
-set -g status "on"
-set -g status-left ""
-set -g status-right ""
-set -g status-justify centre
+# Status Right -- mem-cpu-load
+set -g status-right-style NONE
+set -g status-right "#[fg=#e0af68]"
+set -ag status-right "#($TMUX_PLUGIN_MANAGER_PATH/tmux-mem-cpu-load/tmux-mem-cpu-load --interval 2)"
+set -ag status-right " "
+set -g status-right-length 60
+
+# Messages
+set -g display-time 2000 # 2 seconds
+set -g message-style "fg=#7aa2f7,bg=#3b4261"
+set -g message-command-style "fg=#7aa2f7,bg=#3b4261"
+
+# Panes
+set -g pane-border-style "fg=#3b4261"
+set -g pane-active-border-style "fg=#7aa2f7"
+
 
 ##
 # TODO
 # How to make messages just in middle?
-# And last for a few seconds?
-# Replace icons for what's active or not with no icon, colors only
 
-# TokyoNight colors for Tmux
-set -g mode-style "fg=#7aa2f7,bg=#3b4261" # what is mode?
+# Plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'thewtex/tmux-mem-cpu-load'
+set -g @plugin 'ChanderG/tmux-notify'
 
-set -g message-style "fg=#7aa2f7,bg=#3b4261"
-set -g message-command-style "fg=#7aa2f7,bg=#3b4261"
-
-set -g pane-border-style "fg=#3b4261"
-set -g pane-active-border-style "fg=#7aa2f7"
-
-set -g status-style "fg=#7aa2f7,bg=#1f2335"
-
-set -g status-left-style NONE
-set -g status-right-style NONE
-
-setw -g window-status-format "#[default] #I: #W #F "
-setw -g window-status-current-format "#[fg=#8aa2f7,bg=#3b4261,bold] #I: #W #F "
+run '~/.tmux/plugins/tpm/tpm'
