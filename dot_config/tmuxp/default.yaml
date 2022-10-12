@@ -5,6 +5,8 @@ start_directory: "${DIR}"
 windows:
   - window_name: dev
   - window_name: build+test
-    panes:
-      - blank
-      - blank
+  # This portion is broken -- results in a pane w/ a width of 1 or 2 columns
+  #   layout: main-vertical
+  #   panes:
+  #     - blank
+  #     - blank
