@@ -15,6 +15,7 @@ cd "$HOME/.config/shell"
 . ./nvim.sh
 . ./fzf.sh
 . ./tmuxp.sh
+. ./rust.sh
 
 # Misc -- For anything temp
 [ -f ./misc.sh ] && . ./misc.sh

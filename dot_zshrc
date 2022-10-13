@@ -23,3 +23,5 @@ unsetopt share_history
 
 # Prevent repeats in PATH
 typeset -U PATH
+
+source /home/queen_teen_princex/.config/broot/launcher/bash/br
