@@ -10,6 +10,7 @@ cd "$HOME/.config/shell"
 . ./fun.sh
 
 # Tool specific
+. ./br.sh
 . ./git.sh
 . ./lf.sh
 . ./nvim.sh
