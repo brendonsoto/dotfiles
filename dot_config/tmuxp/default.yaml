@@ -1,6 +1,6 @@
 ---
 # To set DIR: DIR=$HOME/Documents tmuxp load test
-session_name: default
+session_name: "${SESH_NAME}"
 start_directory: "${DIR}"
 windows:
   - window_name: dev
