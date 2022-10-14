@@ -138,7 +138,7 @@
             invocation: tmuxp
             apply_to: "directory"
             from_shell: true
-            external: "DIR={directory} tmuxp load default"
+            external: "mk_tmux_sesh {directory}"
         }
     ]
 
