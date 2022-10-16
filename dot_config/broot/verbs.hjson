@@ -35,9 +35,10 @@
         #  execution: nvim +{line} {file}
         {
             invocation: edit
-            shortcut: e
+            shortcut: enter
+            key: enter
             execution: "$EDITOR +{line} {file}"
-            leave_broot: false
+            leave_broot: true
         }
 
         # A convenient shortcut to create new text files in
