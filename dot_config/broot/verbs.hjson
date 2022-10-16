@@ -35,10 +35,33 @@
         #  execution: nvim +{line} {file}
         {
             invocation: edit
+            apply_to: file
             shortcut: enter
             key: enter
             execution: "$EDITOR +{line} {file}"
             leave_broot: true
+        }
+        {
+            name: "switch to directory"
+            apply_to: directory
+            key: enter
+            execution: ":open_stay"
+            leave_broot: false
+        }
+
+        {
+            name: "move into directory"
+            apply_to: directory
+            key: ctrl-l
+            execution: ":root_down"
+            leave_broot: false
+        }
+        {
+            name: "move up directory tree"
+            apply_to: directory
+            key: ctrl-h
+            execution: ":root_up"
+            leave_broot: false
         }
 
         # A convenient shortcut to create new text files in
