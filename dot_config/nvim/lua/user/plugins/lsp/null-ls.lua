@@ -14,10 +14,20 @@ null_ls.setup({
     -- Docker
     builtins.diagnostics.hadolint,
 
+    -- ESLint
+    builtins.code_actions.eslint,
+    builtins.diagnostics.eslint,
+    builtins.formatting.eslint,
+    -- builtins.code_actions.eslint_d,
+    -- builtins.diagnostics.eslint_d,
+    -- builtins.formatting.eslint_d,
+
     -- JSON
-    builtins.formatting.fixjson,
+    -- builtins.formatting.fixjson,
+    builtins.formatting.jq,
 
     -- Shell
+    builtins.code_actions.shellcheck,
     builtins.diagnostics.shellcheck,
 
     -- YAML
