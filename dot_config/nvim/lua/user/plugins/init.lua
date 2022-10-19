@@ -65,7 +65,7 @@ return require('packer').startup({
     use {
       'is0n/fm-nvim',
       requires = { 'folke/which-key.nvim' },
-      config = function() require('user.plugins.lf') end
+      config = function() require('user.plugins.fm') end
     }
 
     use {

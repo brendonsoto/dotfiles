@@ -12,13 +12,11 @@ require('fm-nvim').setup {
     -- Terminal commands used w/ file manager
     cmds = {
         lf_cmd = "lf", -- eg: lf_cmd = "lf -command 'set hidden'"
-        -- nnn_cmd    = "nnn",
-        -- xplr_cmd   = "xplr",
-        -- vifm_cmd   = "vifm",
-        -- ranger_cmd = "ranger"
     },
 }
 
 require('which-key').register({
   ['fm'] = {':Lf %:p:h<cr>', 'File browser (using lf)'},
+  ['lf'] = {':Lf %:p:h<cr>', 'File browser (using lf)'},
+  b = { ':Broot<cr>', 'Broot' }
 }, { prefix = '<leader>'})

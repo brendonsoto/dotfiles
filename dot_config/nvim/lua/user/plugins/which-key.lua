@@ -94,11 +94,3 @@ wk.register({
 wk.register({
   name = 'find stuff'
 }, { prefix = '<leader>f' })
-
--- Broot stuff
-if (vim.fn.executable('broot') == 1) then
-  wk.register({
-    name = 'Broot',
-    b = { ':Broot<cr>', 'Broot' }
-  }, { prefix = '<leader>' })
-end
