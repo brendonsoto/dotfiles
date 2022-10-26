@@ -16,7 +16,7 @@ require('fm-nvim').setup {
 }
 
 require('which-key').register({
-  ['fm'] = {':Lf %:p:h<cr>', 'File browser (using lf)'},
+  ['fm'] = {':Broot<cr>', 'File browser (using Broot)'},
   ['lf'] = {':Lf %:p:h<cr>', 'File browser (using lf)'},
   b = { ':Broot<cr>', 'Broot' }
 }, { prefix = '<leader>'})
