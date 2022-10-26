@@ -34,8 +34,8 @@ wk.register({
 
 wk.register({
     name = 'normal mode stuff',
-    j = {'gj', 'Move down a line'},
-    k = {'gk', 'Move up a line'},
+    -- j = {'gj', 'Move down a line'},
+    -- k = {'gk', 'Move up a line'},
 
     -- Window stuff
     s = {
