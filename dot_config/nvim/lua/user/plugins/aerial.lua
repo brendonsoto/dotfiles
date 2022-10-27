@@ -1,5 +1,5 @@
 require('aerial').setup({
-  default_bindings = false,
+  keymaps = false,
   on_attach = function()
     require('which-key').register({
       name = 'Aerial',
