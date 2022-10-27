@@ -91,11 +91,11 @@ notARepository: 'prompt' # one of: 'prompt' | 'create' | 'skip'
 promptToReturnFromSubprocess: true # display confirmation when subprocess terminates
 keybinding:
   universal:
-    quit: 'q'
+    # quit: 'q'
     # quit-alt1: '<c-c>' # alternative/alias of quit
-    return: '<c-c>' # return to previous menu, will quit if there's nowhere to return
-    quitWithoutChangingDirectory: 'Q'
-    togglePanel: '<tab>' # goto the next panel
+    return: 'q' # return to previous menu, will quit if there's nowhere to return
+    # quitWithoutChangingDirectory: 'Q'
+    # togglePanel: '<tab>' # goto the next panel
     prevItem: 'k' # go one line up
     nextItem: 'j' # go one line down
     prevItem-alt: '<up>' # go one line up
@@ -113,48 +113,48 @@ keybinding:
     jumpToBlock: ['1', '2', '3', '4', '5'] # goto the Nth block / panel
     nextMatch: 'n'
     prevMatch: 'N'
-    optionMenu: 'x' # show help menu
-    optionMenu-alt1: '?' # show help menu
+    optionMenu: '?' # show help menu
+    optionMenu-alt1: 'x' # show help menu
     select: '<space>'
     goInto: '<enter>'
-    openRecentRepos: '<c-r>'
+    # openRecentRepos: '<c-r>'
     confirm: '<enter>'
-    confirm-alt1: 'y'
+    # confirm-alt1: 'y'
     remove: 'd'
-    new: 'n'
-    edit: 'e'
-    openFile: 'o'
-    scrollUpMain: '<pgup>' # main panel scroll up
-    scrollDownMain: '<pgdown>' # main panel scroll down
-    scrollUpMain-alt1: 'K' # main panel scroll up
-    scrollDownMain-alt1: 'J' # main panel scroll down
-    scrollUpMain-alt2: '<c-u>' # main panel scroll up
-    scrollDownMain-alt2: '<c-d>' # main panel scroll down
+    # new: 'n'
+    # edit: 'e'
+    # openFile: 'o'
+    scrollUpMain: '<c-u>' # main panel scroll up
+    scrollDownMain: '<c-d>' # main panel scroll down
+    # scrollUpMain-alt1: 'K' # main panel scroll up
+    # scrollDownMain-alt1: 'J' # main panel scroll down
+    # scrollUpMain-alt2: '<pgup>' # main panel scroll up
+    # scrollDownMain-alt2: '<pgdown>' # main panel scroll down
     executeCustomCommand: ':'
     createRebaseOptionsMenu: 'm'
-    pushFiles: 'p'
-    pullFiles: 'P'
+    pushFiles: 'P'
+    # pullFiles: 'P'
     refresh: 'R'
     createPatchOptionsMenu: '<c-p>'
     nextTab: ']'
     prevTab: '['
-    nextScreenMode: '+'
-    prevScreenMode: '_'
+    nextScreenMode: '<tab>'
+    # prevScreenMode: '<s-tab>'
     undo: 'z'
     redo: '<c-z>'
-    filteringMenu: '<c-s>'
+    # filteringMenu: '<c-s>'
     diffingMenu: 'W'
-    diffingMenu-alt: '<c-e>' # deprecated
-    copyToClipboard: '<c-o>'
+    # diffingMenu-alt: '<c-e>' # deprecated
+    # copyToClipboard: '<c-o>'
     submitEditorText: '<enter>'
-    appendNewline: '<a-enter>'
-    extrasMenu: '@'
-    toggleWhitespaceInDiffView: '<c-w>'
+    # appendNewline: '<a-enter>'
+    # extrasMenu: '@'
+    # toggleWhitespaceInDiffView: '<c-w>'
     increaseContextInDiffView: '}'
     decreaseContextInDiffView: '{'
-  status:
-    checkForUpdate: 'u'
-    recentRepos: '<enter>'
+  # status:
+  #   checkForUpdate: 'u'
+  #   recentRepos: '<enter>'
   files:
     commitChanges: 'c'
     commitChangesWithoutHook: 'w' # commit changes without pre-commit hook
@@ -171,24 +171,24 @@ keybinding:
   branches:
     createPullRequest: 'o'
     viewPullRequestOptions: 'O'
-    checkoutBranchByName: 'c'
-    forceCheckoutBranch: 'F'
+    # checkoutBranchByName: 'c'
+    # forceCheckoutBranch: 'F'
     rebaseBranch: 'r'
     renameBranch: 'R'
-    mergeIntoCurrentBranch: 'M'
-    viewGitFlowOptions: 'i'
+    # mergeIntoCurrentBranch: 'M'
+    # viewGitFlowOptions: 'i'
     fastForward: 'f' # fast-forward this branch from its upstream
     pushTag: 'P'
-    setUpstream: 'u' # set as upstream of checked-out branch
+    # setUpstream: 'u' # set as upstream of checked-out branch
     fetchRemote: 'f'
   commits:
     squashDown: 's'
-    renameCommit: 'r'
+    # renameCommit: 'r'
     renameCommitWithEditor: 'R'
     viewResetOptions: 'g'
-    markCommitAsFixup: 'f'
-    createFixupCommit: 'F' # create fixup commit for this commit
-    squashAboveCommits: 'S'
+    # markCommitAsFixup: 'f'
+    # createFixupCommit: 'F' # create fixup commit for this commit
+    # squashAboveCommits: 'S'
     moveDownCommit: '<c-j>' # move commit down one
     moveUpCommit: '<c-k>' # move commit up one
     amendToCommit: 'A'
@@ -196,7 +196,7 @@ keybinding:
     revertCommit: 't'
     cherryPickCopy: 'c'
     cherryPickCopyRange: 'C'
-    pasteCommits: 'v'
+    # pasteCommits: 'v'
     tagCommit: 'T'
     checkoutCommit: '<space>'
     resetCherryPick: '<c-R>'
@@ -205,13 +205,13 @@ keybinding:
     viewBisectOptions: 'b'
   stash:
     popStash: 'g'
-  commitFiles:
-    checkoutCommitFile: 'c'
-  main:
-    toggleDragSelect: 'v'
-    toggleDragSelect-alt: 'V'
-    toggleSelectHunk: 'a'
-    pickBothHunks: 'b'
+  # commitFiles:
+  #   checkoutCommitFile: 'c'
+  # main:
+  #   toggleDragSelect: 'v'
+  #   toggleDragSelect-alt: 'V'
+  #   toggleSelectHunk: 'a'
+  #   pickBothHunks: 'b'
   submodules:
     init: 'i'
     update: 'u'
