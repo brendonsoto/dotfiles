@@ -74,6 +74,8 @@ return require('packer').startup({
       config = function() require('user.plugins.gitsigns') end
     }
 
+    use { 'junegunn/goyo.vim' }
+
     use {
         'lukas-reineke/indent-blankline.nvim',
         config = function() require('user.plugins.indent-blankline') end
