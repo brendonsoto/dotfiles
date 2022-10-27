@@ -18,8 +18,12 @@ eval "$(starship init zsh)"
 alias reload=". ~/.zshrc"
 
 # Don't share history between tabs
-unsetopt inc_append_history
+# unsetopt inc_append_history
 unsetopt share_history
 
 # Prevent repeats in PATH
 typeset -U PATH
+
+# Bind Vi j/k keys to mimic up and down
+zvm_bindkey vicmd 'k' up-line-or-search
+zvm_bindkey vicmd 'j' down-line-or-search
