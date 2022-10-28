@@ -1,18 +1,13 @@
 require('fm-nvim').setup {
+  ui = {
     -- Border around floating window
-    border = "rounded", -- opts: 'rounded'; 'double'; 'single'; 'solid'; 'shawdow'
+    border = "double", -- opts: 'rounded'; 'double'; 'single'; 'solid'; 'shawdow'
 
     -- Percentage (0.8 = 80%)
-    height = 0.8,
-    width = 0.8,
-
-    -- Command used to open files
-    edit_cmd = "edit", -- opts: 'tabedit'; 'split'; 'pedit'; etc...
-
-    -- Terminal commands used w/ file manager
-    cmds = {
-        lf_cmd = "lf", -- eg: lf_cmd = "lf -command 'set hidden'"
-    },
+    height = 1,
+    width = 1,
+  },
+  broot_conf = '$HOME/.config/broot/conf.hjson',
 }
 
 require('which-key').register({
