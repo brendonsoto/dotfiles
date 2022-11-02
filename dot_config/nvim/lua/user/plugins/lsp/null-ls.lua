@@ -15,9 +15,9 @@ null_ls.setup({
     builtins.diagnostics.hadolint,
 
     -- ESLint
-    builtins.code_actions.eslint,
-    builtins.diagnostics.eslint,
-    builtins.formatting.eslint,
+    -- builtins.code_actions.eslint,
+    -- builtins.diagnostics.eslint,
+    -- builtins.formatting.eslint,
     -- builtins.code_actions.eslint_d,
     -- builtins.diagnostics.eslint_d,
     -- builtins.formatting.eslint_d,
