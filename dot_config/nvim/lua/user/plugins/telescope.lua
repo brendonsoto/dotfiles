@@ -50,6 +50,41 @@ local make_markdown_link = function()
   }
 end
 
+-- Manage sessions
+local pick_session = function()
+  local sessions_dir = '$HOME/.config/nvim/sessions'
+
+  require('telescope.builtin').find_files {
+    prompt_title = 'Sessions (Creates one if input doesn\'t exist)',
+    cwd = sessions_dir,
+    attach_mappings = function(prompt_bufnr, _)
+      actions.select_default:replace(function()
+        actions.close(prompt_bufnr)
+        local selection = action_state.get_selected_entry()
+
+        -- If the selection isn't an existin file, create a new one
+        if selection == nil then
+          local new_file = action_state.get_current_line()
+          local filepath = sessions_dir .. '/' .. new_file
+
+          -- Accomodate my laziness of not wanting to add the file extension
+          if string.find(new_file, '.vim') == nil then
+            filepath = filepath .. '.vim'
+          end
+
+          vim.cmd.mksession(filepath)
+          print('Made new session file: ' .. filepath)
+        else
+          local filename = selection[1]
+          local filepath = sessions_dir .. '/' .. filename
+          vim.cmd.source(filepath) -- same as `:Source <session.vim>`
+        end
+      end)
+      return true
+    end
+  }
+end
+
 telescope.load_extension('repo')
 
 
@@ -65,6 +100,7 @@ require('which-key').register({
     ["dl"] = {'<cmd>Telescope diagnostics<cr>', 'Diagnostic list'},
     ["ds"] = {'<cmd>Telescope lsp_document_symbols<cr>', 'Document Symbols'},
     l = {make_markdown_link, 'Make Markdown Link'},
+    s = {pick_session, 'Pick Session'},
     -- p = { '<cmd>Telescope projects<cr>', 'Find projects' },
     -- ['ts'] = {'<cmd>Telescope treesitter<cr>', 'Telescope Treesitter?'}
   },
