@@ -30,13 +30,13 @@ return require('packer').startup({
       config = function() require('user.plugins.dashboard') end
     }
 
-    use { 'gpanders/editorconfig.nvim' }
+    use 'gpanders/editorconfig.nvim'
 
     -- Like Surround.vim
-    use { 'machakann/vim-sandwich' }
+    use 'machakann/vim-sandwich'
 
     -- For naming tabs!
-    use { 'gcmt/taboo.vim' }
+    use 'gcmt/taboo.vim'
 
     -- Key Maps!
     -- I use this in the configs of a bunch of other plugins so it's here near
@@ -68,10 +68,10 @@ return require('packer').startup({
       'j-hui/fidget.nvim',
       config = function() require('fidget').setup({}) end
     }
-    use { 'williamboman/mason.nvim' }
-    use { 'williamboman/mason-lspconfig.nvim' }
-    use { 'jose-elias-alvarez/null-ls.nvim' }
-    use { 'RRethy/vim-illuminate' }
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    use 'jose-elias-alvarez/null-ls.nvim'
+    use 'RRethy/vim-illuminate'
     use {
       'neovim/nvim-lspconfig',
       after = {
