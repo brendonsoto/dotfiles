@@ -85,8 +85,6 @@ local pick_session = function()
   }
 end
 
-telescope.load_extension('repo')
-
 
 -- Setup Telescope specific keybindings
 require('which-key').register({
