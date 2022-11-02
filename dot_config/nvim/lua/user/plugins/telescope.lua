@@ -91,7 +91,7 @@ require('which-key').register({
   f = {
     ["<space>"] = {'<cmd>Telescope builtin<cr>', 'Telescope Builtin'},
     b = {'<cmd>Telescope buffers<cr>', 'Find Buffer'},
-    d = {'<cmd>Telescope definitions<cr>', '(LSP) Definitions'},
+    d = {'<cmd>Telescope lsp_definitions<cr>', '(LSP) Definitions'},
     f = {'<cmd>Telescope find_files<cr>', 'Files'},
     h = {'<cmd>Telescope help_tags<cr>', 'Help tag'},
     i = {'<cmd>Telescope lsp_implementations<cr>', '(LSP) Implementations'},
