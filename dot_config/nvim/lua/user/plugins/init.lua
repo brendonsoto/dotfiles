@@ -20,16 +20,6 @@ return require('packer').startup({
     }
 
     use {
-      'stevearc/aerial.nvim',
-      after = {
-        'nvim-treesitter',
-        'which-key.nvim',
-        'telescope.nvim',
-      },
-      config = function() require('user.plugins.aerial') end
-    }
-
-    use {
       'glepnir/dashboard-nvim',
       config = function() require('user.plugins.dashboard') end
     }
