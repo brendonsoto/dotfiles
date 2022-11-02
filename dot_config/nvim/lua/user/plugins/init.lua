@@ -113,7 +113,9 @@ return require('packer').startup({
 
     use {
       'vhyrro/neorg',
-      requires = { 'nvim-lua/plenary.nvim', 'nvim-neorg/neorg-telescope' },
+      run = ':Neorg sync-parsers',
+      requires = 'nvim-lua/plenary.nvim',
+      after = { 'neorg-telescope', 'nvim-treesitter' },
       config = function() require('user.plugins.neorg') end
     }
 
