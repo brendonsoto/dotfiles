@@ -1,6 +1,7 @@
 *.norg
 README.md
 FIXME.md
+IDEAS.md
 
 # Oh-my-zsh related
 .oh-my-zsh/cache
