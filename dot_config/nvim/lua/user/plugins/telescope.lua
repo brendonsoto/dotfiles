@@ -92,16 +92,21 @@ telescope.load_extension('repo')
 require('which-key').register({
   f = {
     ["<space>"] = {'<cmd>Telescope builtin<cr>', 'Telescope Builtin'},
-    f = {'<cmd>Telescope find_files<cr>', 'Find files'},
-    g = {'<cmd>Telescope live_grep<cr>', 'Live grep'},
     b = {'<cmd>Telescope buffers<cr>', 'Find Buffer'},
-    h = {'<cmd>Telescope help_tags<cr>', 'Find help tag'},
-    o = {'<cmd>Telescope oldfiles<cr>', 'Search recent/old files'},
-    ["dl"] = {'<cmd>Telescope diagnostics<cr>', 'Diagnostic list'},
-    ["ds"] = {'<cmd>Telescope lsp_document_symbols<cr>', 'Document Symbols'},
+    d = {'<cmd>Telescope definitions<cr>', '(LSP) Definitions'},
+    f = {'<cmd>Telescope find_files<cr>', 'Files'},
+    h = {'<cmd>Telescope help_tags<cr>', 'Help tag'},
+    i = {'<cmd>Telescope lsp_implementations<cr>', '(LSP) Implementations'},
+    j = {'<cmd>Telescope jumplist<cr>', 'Jumplist'},
     l = {make_markdown_link, 'Make Markdown Link'},
-    s = {pick_session, 'Pick Session'},
+    o = {'<cmd>Telescope oldfiles<cr>', 'Old files'},
+    r = {'<cmd>Telescope lsp_references<cr>', '(LSP) Find References'},
+    s = {'<cmd>Telescope lsp_document_symbols<cr>', '(LSP) Document Symbols'},
+    t = {'<cmd>Telescope lsp_type_definitions<cr>', '(LSP) Type Definitions'},
+    x = {'<cmd>Telescope diagnostics<cr>', '(LSP) Diagnostic list'},
     -- p = { '<cmd>Telescope projects<cr>', 'Find projects' },
     -- ['ts'] = {'<cmd>Telescope treesitter<cr>', 'Telescope Treesitter?'}
   },
+  g = {'<cmd>Telescope live_grep<cr>', 'Live grep'},
+  s = {pick_session, 'Pick Session'},
 }, { prefix = '<leader>'})
