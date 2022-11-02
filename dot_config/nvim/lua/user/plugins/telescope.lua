@@ -2,6 +2,7 @@ local telescope = require('telescope')
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 local previewers = require('telescope.previewers')
+local builtin = require('telescope.builtin')
 
 -- Taken from the Config recipes
 local new_maker = function(filepath, bufnr, opts)
@@ -89,22 +90,20 @@ end
 -- Setup Telescope specific keybindings
 require('which-key').register({
   f = {
-    ["<space>"] = {'<cmd>Telescope builtin<cr>', 'Telescope Builtin'},
-    b = {'<cmd>Telescope buffers<cr>', 'Find Buffer'},
-    d = {'<cmd>Telescope lsp_definitions<cr>', '(LSP) Definitions'},
-    f = {'<cmd>Telescope find_files<cr>', 'Files'},
-    h = {'<cmd>Telescope help_tags<cr>', 'Help tag'},
-    i = {'<cmd>Telescope lsp_implementations<cr>', '(LSP) Implementations'},
-    j = {'<cmd>Telescope jumplist<cr>', 'Jumplist'},
+    ["<space>"] = {builtin.builtin, 'Telescope Builtin'},
+    b = {builtin.buffers, 'Find Buffer'},
+    d = {builtin.lsp_definitions, '(LSP) Definitions'},
+    f = {builtin.find_files, 'Files'},
+    h = {builtin.help_tags, 'Help tag'},
+    i = {builtin.lsp_implementations, '(LSP) Implementations'},
+    j = {builtin.jumplist, 'Jumplist'},
     l = {make_markdown_link, 'Make Markdown Link'},
-    o = {'<cmd>Telescope oldfiles<cr>', 'Old files'},
-    r = {'<cmd>Telescope lsp_references<cr>', '(LSP) Find References'},
-    s = {'<cmd>Telescope lsp_document_symbols<cr>', '(LSP) Document Symbols'},
-    t = {'<cmd>Telescope lsp_type_definitions<cr>', '(LSP) Type Definitions'},
-    x = {'<cmd>Telescope diagnostics<cr>', '(LSP) Diagnostic list'},
-    -- p = { '<cmd>Telescope projects<cr>', 'Find projects' },
-    -- ['ts'] = {'<cmd>Telescope treesitter<cr>', 'Telescope Treesitter?'}
+    o = {builtin.oldfiles, 'Old files'},
+    r = {builtin.lsp_references, '(LSP) Find References'},
+    s = {builtin.lsp_document_symbols, '(LSP) Document Symbols'},
+    t = {builtin.lsp_type_definitions, '(LSP) Type Definitions'},
+    x = {builtin.diagnostics, '(LSP) Diagnostic list'},
   },
-  g = {'<cmd>Telescope live_grep<cr>', 'Live grep'},
+  g = {builtin.live_grep, 'Live grep'},
   s = {pick_session, 'Pick Session'},
 }, { prefix = '<leader>'})
