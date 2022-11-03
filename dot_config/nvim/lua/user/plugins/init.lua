@@ -89,12 +89,14 @@ return require('packer').startup({
     -- Writing and Organization related
     use {
       'preservim/vim-markdown',
+      ft = 'markdown',
       requires = 'godlygeek/tabular',
-      after = 'which-key.nvim',
+      after = { 'which-key.nvim', 'telescope.nvim' },
       config = function() require('user.plugins.vim-markdown') end
     }
     use {
       'vhyrro/neorg',
+      ft = 'norg',
       run = ':Neorg sync-parsers',
       requires = { 'nvim-lua/plenary.nvim', 'nvim-neorg/neorg-telescope' },
       after = { 'neorg-telescope', 'nvim-treesitter' },

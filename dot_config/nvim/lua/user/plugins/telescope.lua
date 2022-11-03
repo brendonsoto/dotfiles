@@ -97,7 +97,6 @@ require('which-key').register({
     h = {builtin.help_tags, 'Help tag'},
     i = {builtin.lsp_implementations, '(LSP) Implementations'},
     j = {builtin.jumplist, 'Jumplist'},
-    l = {make_markdown_link, 'Make Markdown Link'},
     o = {builtin.oldfiles, 'Old files'},
     r = {builtin.lsp_references, '(LSP) Find References'},
     s = {builtin.lsp_document_symbols, '(LSP) Document Symbols'},

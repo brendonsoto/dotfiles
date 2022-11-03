@@ -1,7 +1,7 @@
 require('neorg').setup {
   load = {
     ["core.defaults"] = {},
-    -- ["core.integrations.telescope"] = {},
+    ["core.integrations.telescope"] = {},
     ["core.integrations.nvim-cmp"] = {},
     ["core.keybinds"] = {},
     ["core.norg.completion"] = {config = {engine = "nvim-cmp"}},
@@ -50,3 +50,7 @@ require('neorg').setup {
     }
   },
 }
+
+require('which-key').register({
+  ['<leader>fl'] = {':Telescope neorg find_linkable<cr>', '(Neorg) Find linkable'}
+})
