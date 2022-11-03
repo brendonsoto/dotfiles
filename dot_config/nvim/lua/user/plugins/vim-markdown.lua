@@ -41,7 +41,7 @@ wk.register(
     ["<leader>"] = {
       t = { ":Toc<CR>", "Table of Contents" },
       ["it"] = { ":InsertToc<CR>", "Insert Table of Contents" },
-      ["ml"] = {make_markdown_link, 'Make Markdown Link'},
+      ["ml"] = { make_markdown_link, "Make Markdown Link" },
     }
   }, {
     buffer = vim.api.nvim_get_current_buf()
