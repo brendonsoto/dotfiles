@@ -38,14 +38,10 @@ bind -N "Create and name a new winow" C command-prompt -p "Name of new window: "
 
 #===== Options =====#
 ## Server Options
-{{- if eq .chezmoi.os "darwin" }}
-set -g default-terminal "xterm-256color"
-{{- else }}
 set -g default-terminal "screen-256color"
-{{- end }}
 set -g escape-time 0
 set -g focus-events on
-set -g terminal-overrides "screen-256color"
+set -sa terminal-overrides ",alacritty:RGB"
 
 ## Session Options
 set -g base-index 1
