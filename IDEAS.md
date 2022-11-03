@@ -25,3 +25,5 @@ Using `:Telescope neorg find_linkable` for now
 But I'd like to fix it...
 
 ## Lua linter/formatter?
+
+## Markdown -- fix <CR> keymapping for relative links?
