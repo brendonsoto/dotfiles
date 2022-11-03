@@ -38,10 +38,13 @@ bind -N "Create and name a new winow" C command-prompt -p "Name of new window: "
 
 #===== Options =====#
 ## Server Options
-set -g default-terminal "screen-256color"
+# Use xterm-256 even though it reports an error in neovim
+# This is so we can have color and formatting (italics/bold/etc) working fine
+# https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
+set -g default-terminal "xterm-256color"
 set -g escape-time 0
 set -g focus-events on
-set -sa terminal-overrides ",alacritty:RGB"
+set -ag terminal-overrides ",*:RGB"
 
 ## Session Options
 set -g base-index 1
