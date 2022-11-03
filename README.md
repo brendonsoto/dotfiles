@@ -6,3 +6,7 @@ The `.chezmoiignore` file exists because I'd like to add notes on the developmen
 
 There are install scripts for macOS and linux (Solus).
 They have _mostly_ the same tools.
+
+## Related
+- [FIXME](./FIXME.md)
+- [IDEAS](./IDEAS.md)
