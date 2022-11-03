@@ -4,6 +4,7 @@
 Just learned about `Telescope.builtins.keymaps`
 Makes me wonder if I don't need `which-key`
 I do wonder too, can you add metadata for keymaps you make to make them descriptive?
+_Update:_ Nahhh, I like
 
 ## NOTE: Resolving webpack aliases when using "go to"
 Problem:
