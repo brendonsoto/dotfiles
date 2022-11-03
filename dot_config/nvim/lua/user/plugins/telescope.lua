@@ -97,7 +97,7 @@ require('which-key').register({
     h = {builtin.help_tags, 'Help tag'},
     i = {builtin.lsp_implementations, '(LSP) Implementations'},
     j = {builtin.jumplist, 'Jumplist'},
-    o = {builtin.oldfiles, 'Old files'},
+    o = {function() builtin.oldfiles({ only_cwd = true }) end, 'Old files'},
     r = {builtin.lsp_references, '(LSP) Find References'},
     s = {builtin.lsp_document_symbols, '(LSP) Document Symbols'},
     t = {builtin.lsp_type_definitions, '(LSP) Type Definitions'},
