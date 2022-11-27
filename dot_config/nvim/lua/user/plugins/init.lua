@@ -99,7 +99,7 @@ return require('packer').startup({
       ft = 'norg',
       run = ':Neorg sync-parsers',
       requires = { 'nvim-lua/plenary.nvim', 'nvim-neorg/neorg-telescope' },
-      after = { 'neorg-telescope', 'nvim-treesitter' },
+      after = { 'telescope.nvim', 'nvim-treesitter' },
       config = function() require('user.plugins.neorg') end
     }
     use {
