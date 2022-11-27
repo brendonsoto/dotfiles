@@ -8,9 +8,6 @@ M.on_attach = function(client, bufnr)
   require('illuminate').on_attach(client)
 end
 
--- Setup capabilities using default vim func & cmp
-local client_capabilities = vim.lsp.protocol.make_client_capabilities()
-
-M.capabilities = require('cmp_nvim_lsp').default_capabilities(client_capabilities)
+M.capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 return M
