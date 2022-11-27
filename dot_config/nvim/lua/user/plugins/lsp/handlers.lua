@@ -5,7 +5,6 @@ M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.server_capabilities.document_formatting = false
   end
-  require('illuminate').on_attach(client)
 end
 
 M.capabilities = require('cmp_nvim_lsp').default_capabilities()
