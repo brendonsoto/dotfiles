@@ -1,3 +1,4 @@
+local vks = require('user/utils').vks
 local gitsigns = require('gitsigns')
 
 gitsigns.setup {
@@ -10,10 +11,8 @@ gitsigns.setup {
     ignore_whitespace = true,
   },
   on_attach = function(_)
-    require('which-key').register({
-      [']h'] = { gitsigns.next_hunk, 'Git next hunk' },
-      ['[h'] = { gitsigns.prev_hunk, 'Git next hunk' },
-      ['gtb'] = { gitsigns.toggle_current_line_blame, 'Git Toggle blame' },
-    })
+    vks('n', ']h', gitsigns.next_hunk, { desc = 'Git next hunk' })
+    vks('n', '[h', gitsigns.prev_hunk, { desc = 'Git next hunk' })
+    vks('n', 'gtb', gitsigns.toggle_current_line_blame, { desc = 'Git Toggle blame' })
   end
 }
