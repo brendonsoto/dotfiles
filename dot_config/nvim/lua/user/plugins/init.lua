@@ -9,15 +9,15 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Packer and any colorscheme related packages at top
--- On how this is organized:
--- Plugins that are related by feature (e.g. plugins about writing) are grouped
--- I tried grouping plugins by those which requires other plugins
--- For plugins that need a certain plugin or is used in multiple configs (e.g
--- which-key), that plugin is at the top of the group
+-- NOTE: Tried sequencing using `after` and `requires` to an extent.
+-- Was confusing. Maybe don't do that again?
 return require('packer').startup({
   function()
     -- Packer itself
     use 'wbthomason/packer.nvim'
+
+    -- So much relies on plenary so putting it near top
+    use 'nvim-lua/plenary.nvim'
 
     use {
       'numToStr/Comment.nvim',
@@ -38,6 +38,25 @@ return require('packer').startup({
     -- For naming tabs!
     use 'gcmt/taboo.vim'
 
+    -- Treesitting
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
+    use 'windwp/nvim-ts-autotag'
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      config = function() require('user.plugins.treesitter') end
+    }
+    use {
+        -- Renders the markers to indicate indentation depths
+        'lukas-reineke/indent-blankline.nvim',
+        config = function() require('user.plugins.indent-blankline') end
+    }
+    use {
+      -- COLORS!!! After indent-blankline so those are colored too
+      'folke/tokyonight.nvim',
+      config = function() vim.cmd([[colorscheme tokyonight]]) end
+    }
+
     -- Key Maps!
     -- I use this in the configs of a bunch of other plugins so it's here near
     -- the top to indicate plugins after it may use this
@@ -48,21 +67,18 @@ return require('packer').startup({
     use {
       -- fm = file manager
       'is0n/fm-nvim',
-      after = 'which-key.nvim',
       config = function() require('user.plugins.fm') end
     }
     use {
       -- Git goodies
       'lewis6991/gitsigns.nvim',
-      after = 'which-key.nvim',
       config = function() require('user.plugins.gitsigns') end
     }
     use {
       'nvim-telescope/telescope.nvim',
-      requires = 'nvim-lua/plenary.nvim',
-      after = 'which-key.nvim',
       config = function() require('user.plugins.telescope') end
     }
+
     -- LSP stuff
     use {
       'j-hui/fidget.nvim',
@@ -74,82 +90,46 @@ return require('packer').startup({
     use 'RRethy/vim-illuminate'
     use {
       'neovim/nvim-lspconfig',
-      after = {
-        'mason.nvim',
-        'mason-lspconfig.nvim',
-        'null-ls.nvim',
-        'vim-illuminate',
-        'nvim-cmp',
-        'which-key.nvim',
-      },
       config = function()
         require('user.plugins.lsp')
       end
     }
+
+    -- COMPLETIONNNN
+    -- NOTE: this should be before nvim-cmp
+    use {
+      'windwp/nvim-autopairs',
+      config = function() require('user.plugins.autopairs') end
+    }
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-omni'
+    use 'hrsh7th/cmp-path'
+    use {
+      'hrsh7th/nvim-cmp',
+      config = function() require('user.plugins.cmp') end
+    }
+
     -- Writing and Organization related
+    use 'godlygeek/tabular'
     use {
       'preservim/vim-markdown',
       ft = 'markdown',
-      requires = 'godlygeek/tabular',
-      after = { 'which-key.nvim', 'telescope.nvim' },
       config = function() require('user.plugins.vim-markdown') end
     }
+    use 'nvim-neorg/neorg-telescope'
     use {
       'vhyrro/neorg',
       ft = 'norg',
-      run = ':Neorg sync-parsers',
-      requires = { 'nvim-lua/plenary.nvim', 'nvim-neorg/neorg-telescope' },
-      after = { 'telescope.nvim', 'nvim-treesitter' },
       config = function() require('user.plugins.neorg') end
     }
     use {
       -- This is mostly for writing for centering the writing area
       'junegunn/goyo.vim',
       ft = { 'markdown', 'norg' },
-    }
-
-    -- NOTE: this should be before nvim-cmp
-    use {
-      'windwp/nvim-autopairs',
-      config = function() require('user.plugins.autopairs') end
-    }
-
-    -- TODO: Add autopairs as a requirement and update cmp config
-    use {
-      'hrsh7th/nvim-cmp',
-      requires = {
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-cmdline',
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-path',
-        'saadparwaiz1/cmp_luasnip',
-        'L3MON4D3/LuaSnip',
-        'neovim/nvim-lspconfig',
-        'hrsh7th/cmp-omni'
-      },
-      config = function() require('user.plugins.cmp') end
-    }
-
-    use {
-      'nvim-treesitter/nvim-treesitter',
-      -- treesitter doesn't need these but they're used in the config, hence requires
-      requires = {
-        'JoosepAlviste/nvim-ts-context-commentstring',
-        'windwp/nvim-ts-autotag'
-      },
-      run = ':TSUpdate',
-      config = function() require('user.plugins.treesitter') end
-    }
-    use {
-        -- Renders the markers to indicate indentation depths
-        'lukas-reineke/indent-blankline.nvim',
-        after = 'nvim-treesitter',
-        config = function() require('user.plugins.indent-blankline') end
-    }
-    use {
-      'folke/tokyonight.nvim',
-      after = 'indent-blankline.nvim',
-      config = function() vim.cmd([[colorscheme tokyonight]]) end
     }
 
     -- Automatically set up configuration after cloning packer.nvim
