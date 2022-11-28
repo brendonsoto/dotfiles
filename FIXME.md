@@ -26,3 +26,11 @@ Of course, now I cannot reproduce it.
 New problem:
 How to resolve webpack aliases when in insert mode when making an import statement
 This makes me think it's a nvim-cmp thing
+
+### LSP related
+#### lsp + nvim-cmp
+2022-Nov-27
+This was occurring the past week too!
+For some reason cmp isn't playing nice with LSP
+I tried having the same setup as on the Wiki
+I'm going to try re-setting it up
