@@ -1,4 +1,5 @@
 require('user.autocmds')
 require('user.abbreviations')
 require('user.settings')
+require('user.base-keymaps')
 require('user.plugins.init')
