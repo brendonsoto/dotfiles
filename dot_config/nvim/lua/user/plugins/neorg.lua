@@ -1,3 +1,5 @@
+local vks = require('user.utils').vks
+
 require('neorg').setup {
   load = {
     ["core.defaults"] = {},
@@ -51,4 +53,4 @@ require('neorg').setup {
   },
 }
 
-vim.keymap.set('n', '<leader>fl', ':Telescope neorg find_linkable<cr>', { desc = '(Neorg) Find linkable' })
+vks('n', '<leader>fl', ':Telescope neorg find_linkable<cr>', { desc = '(Neorg) Find linkable' })
