@@ -14,3 +14,15 @@ _Update2:_ Going to try again
 
 ### Treesitter -- different color for highlighting a term?
 Instead of dimming it, make it like, pink
+
+### More notes than ideas...
+Here's how to set a description for a keymap without using `which-key`
+Note, `desc = ...`
+```lua
+vim.keymap.set(
+    'n',
+    '<Plug>(comment_toggle_linewise)',
+    call('toggle.linewise', 'g@'),
+    { expr = true, desc = 'Comment toggle linewise' }
+)
+```
