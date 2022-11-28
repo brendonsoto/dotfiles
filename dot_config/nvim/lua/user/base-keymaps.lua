@@ -38,6 +38,10 @@ vks('n', '[t', ':tabp<cr>', { desc = 'Previous tab' })
 vks('n', ']b', ':bnext<cr>', { desc = 'Next buffer' })
 vks('n', ']t', ':tabn<cr>', { desc = 'Next tab' })
 
+-- ## Diagnostics
+vks('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to prev diagnostic' })
+vks('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+
 
 -- # Insert mode stuff
 vks('i', '<c-e>', '<c-[>', { desc = 'Exit insert mode' })

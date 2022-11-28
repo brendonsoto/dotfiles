@@ -22,18 +22,17 @@ require('mason-lspconfig').setup({
 
 -- Setup LSP configs
 for _, server in pairs(servers) do
-  -- local opts = {}
   local opts = {
-  --   on_attach = require('user.plugins.lsp.handlers').on_attach,
+    on_attach = require('user.plugins.lsp.handlers').on_attach,
     -- capabilities = require('cmp_nvim_lsp').default_capabilities()
   }
 
-  -- local server_module = 'user.plugins.lsp.settings.' .. server
-  -- local has_custom_opts, custom_opts = pcall(require, server_module)
-  --
-  -- if has_custom_opts then
-  --   opts = vim.tbl_extend("force", opts, custom_opts)
-  -- end
+  local server_module = 'user.plugins.lsp.settings.' .. server
+  local has_custom_opts, custom_opts = pcall(require, server_module)
+
+  if has_custom_opts then
+    opts = vim.tbl_extend("force", opts, custom_opts)
+  end
 
   require("lspconfig")[server].setup(opts)
 end
