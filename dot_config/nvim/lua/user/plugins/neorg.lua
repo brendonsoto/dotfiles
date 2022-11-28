@@ -2,9 +2,9 @@ require('neorg').setup {
   load = {
     ["core.defaults"] = {},
     ["core.integrations.telescope"] = {},
-    ["core.integrations.nvim-cmp"] = {},
+    -- ["core.integrations.nvim-cmp"] = {},
     ["core.keybinds"] = {},
-    ["core.norg.completion"] = {config = {engine = "nvim-cmp"}},
+    -- ["core.norg.completion"] = {config = {engine = "nvim-cmp"}},
     ["core.norg.concealer"] = {
       config = {
         icons = {
@@ -51,6 +51,4 @@ require('neorg').setup {
   },
 }
 
-require('which-key').register({
-  ['<leader>fl'] = {':Telescope neorg find_linkable<cr>', '(Neorg) Find linkable'}
-})
+vim.keymap.set('n', '<leader>fl', ':Telescope neorg find_linkable<cr>', { desc = '(Neorg) Find linkable' })
