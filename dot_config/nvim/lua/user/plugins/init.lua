@@ -57,23 +57,19 @@ return require('packer').startup({
       config = function() vim.cmd([[colorscheme tokyonight]]) end
     }
 
-    -- Key Maps!
-    -- I use this in the configs of a bunch of other plugins so it's here near
-    -- the top to indicate plugins after it may use this
+    -- fm = file manager
     use {
-      'folke/which-key.nvim',
-      config = function() require('user.plugins.which-key') end
-    }
-    use {
-      -- fm = file manager
       'is0n/fm-nvim',
       config = function() require('user.plugins.fm') end
     }
+
+    -- Git goodies
     use {
-      -- Git goodies
       'lewis6991/gitsigns.nvim',
       config = function() require('user.plugins.gitsigns') end
     }
+
+    -- TELE!!!
     use {
       'nvim-telescope/telescope.nvim',
       config = function() require('user.plugins.telescope') end
