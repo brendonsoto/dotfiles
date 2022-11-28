@@ -1,3 +1,5 @@
+local vks = require('user/utils').vks
+
 require('fm-nvim').setup {
   ui = {
     -- Border around floating window
@@ -10,8 +12,5 @@ require('fm-nvim').setup {
   broot_conf = '$HOME/.config/broot/conf.hjson',
 }
 
-require('which-key').register({
-  ['bf'] = {':Broot<cr>', 'Browse files (using Broot)'},
-  ['lf'] = {':Lf %:p:h<cr>', 'File browser (using lf)'},
-  b = { ':Broot<cr>', 'Broot' }
-}, { prefix = '<leader>'})
+vks('n', '<leader>bf', ':Broot<cr>', { desc = 'Browse files (using Broot)' })
+vks('n', '<leader>lf', ':Lf %:p:h<cr>', { desc = 'File browser (using lf)' })
