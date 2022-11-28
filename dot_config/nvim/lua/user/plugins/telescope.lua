@@ -3,6 +3,7 @@ local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 local previewers = require('telescope.previewers')
 local builtin = require('telescope.builtin')
+local vks = vim.keymap.set
 
 -- Taken from the Config recipes
 local new_maker = function(filepath, bufnr, opts)
@@ -88,21 +89,17 @@ end
 
 
 -- Setup Telescope specific keybindings
-require('which-key').register({
-  f = {
-    ["<space>"] = {builtin.builtin, 'Telescope Builtin'},
-    b = {builtin.buffers, 'Find Buffer'},
-    d = {builtin.lsp_definitions, '(LSP) Definitions'},
-    f = {builtin.find_files, 'Files'},
-    h = {builtin.help_tags, 'Help tag'},
-    i = {builtin.lsp_implementations, '(LSP) Implementations'},
-    j = {builtin.jumplist, 'Jumplist'},
-    o = {function() builtin.oldfiles({ only_cwd = true }) end, 'Old files'},
-    r = {builtin.lsp_references, '(LSP) Find References'},
-    s = {builtin.lsp_document_symbols, '(LSP) Document Symbols'},
-    t = {builtin.lsp_type_definitions, '(LSP) Type Definitions'},
-    x = {builtin.diagnostics, '(LSP) Diagnostic list'},
-  },
-  g = {builtin.live_grep, 'Live grep'},
-  s = {pick_session, 'Pick Session'},
-}, { prefix = '<leader>'})
+vks('n', '<leader>f<space>', builtin.builtin, { desc = 'Telescope Builtin' })
+vks('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffer' })
+vks('n', '<leader>fd', builtin.lsp_definitions, { desc = '(LSP) Definitions' })
+vks('n', '<leader>ff', builtin.find_files, { desc = 'Files' })
+vks('n', '<leader>fh', builtin.help_tags, { desc = 'Help tag' })
+vks('n', '<leader>fi', builtin.lsp_implementations, { desc = '(LSP) Implementations' })
+vks('n', '<leader>fj', builtin.jumplist, { desc = 'Jumplist' })
+vks('n', '<leader>fo', function() builtin.oldfiles({ only_cwd = true }) end, { desc = 'Old files' })
+vks('n', '<leader>fr', builtin.lsp_references, { desc = '(LSP) Find References' })
+vks('n', '<leader>fs', builtin.lsp_document_symbols, { desc = '(LSP) Document Symbols' })
+vks('n', '<leader>ft', builtin.lsp_type_definitions, { desc = '(LSP) Type Definitions' })
+vks('n', '<leader>fx', builtin.diagnostics, { desc = '(LSP) Diagnostic list' })
+vks('n', '<leader>g', builtin.live_grep, { desc = 'Live grep' })
+vks('n', '<leader>s', pick_session, { desc = 'Pick Session' })
