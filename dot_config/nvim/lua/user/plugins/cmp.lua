@@ -19,12 +19,12 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        -- { name = 'omni' },
-        -- { name = 'path' },
         -- { name = 'neorg' }
     }, {
         -- Buffer in its own group as a fallback. See cmp.config.sources
         { name = 'buffer', keyword_length = 5 },
+    }, {
+        { name = 'path' },
     }),
     formatting = {
         -- adds text to say where the entry is coming from
