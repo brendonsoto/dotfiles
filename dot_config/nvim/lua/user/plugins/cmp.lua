@@ -39,8 +39,18 @@ cmp.setup({
     }
 })
 
+-- For use in `cmp.setup.formatting.format` for contexts where formatting does
+-- not make sense (e.g. search, commandline)
+local function remove_formatting(entry, vim_item)
+  vim_item.kind = ''
+  return vim_item
+end
+
 -- Use buffer source for `/`.
 cmp.setup.cmdline('/', {
+  formatting = {
+      format = remove_formatting
+  },
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' }
@@ -48,11 +58,14 @@ cmp.setup.cmdline('/', {
 })
 
 -- Use cmdline & path source for ':'.
--- cmp.setup.cmdline(':', {
---   mapping = cmp.mapping.preset.cmdline(),
---   sources = cmp.config.sources({
---     { name = 'path' }
---   }, {
---     { name = 'cmdline' }
---   })
--- })
+cmp.setup.cmdline(':', {
+  formatting = {
+      format = remove_formatting
+  },
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
