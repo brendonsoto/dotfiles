@@ -7,18 +7,24 @@ cmp.setup({
         end
     },
     mapping = cmp.mapping.preset.insert({
+        -- 'docs' here refers to docs in the completion menu
         ['<c-b>'] = cmp.mapping.scroll_docs(-4),
         ['<c-f>'] = cmp.mapping.scroll_docs(4),
+        -- 'complete' as in "show the completion menu"
         ['<c-space>'] = cmp.mapping.complete(),
         ['<c-e>'] = cmp.mapping.abort(),
-        ['<cr>'] = cmp.mapping.confirm({
-            -- behavior = cmp.ConfirmBehavior.Insert,
-            select = false -- Explicitly require confirming selection
-        })
+        -- fallback for pairs plugins (e.g. auto-pairs)
+        ['<cr>'] = function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ select = true })
+          else
+            fallback()
+          end
+        end
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'nvim_lsp' },
     }, {
         -- Buffer in its own group as a fallback. See cmp.config.sources
         { name = 'buffer', keyword_length = 5 },
@@ -37,7 +43,7 @@ cmp.setup({
             })[entry.source.name]
             return vim_item
         end
-    }
+    },
 })
 
 -- For use in `cmp.setup.formatting.format` for contexts where formatting does
