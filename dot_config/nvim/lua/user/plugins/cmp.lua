@@ -19,7 +19,6 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        -- { name = 'neorg' }
     }, {
         -- Buffer in its own group as a fallback. See cmp.config.sources
         { name = 'buffer', keyword_length = 5 },
@@ -32,7 +31,9 @@ cmp.setup({
             vim_item.menu = ({
                 buffer = '[Buffer]',
                 luasnip = '[LuaSnip]',
+                neorg = '[Neorg]',
                 nvim_lsp = '[LSP]',
+                path = '[Path]',
             })[entry.source.name]
             return vim_item
         end
@@ -67,5 +68,16 @@ cmp.setup.cmdline(':', {
     { name = 'path' }
   }, {
     { name = 'cmdline' }
+  })
+})
+
+-- Neorg setup
+cmp.setup.filetype('norg', {
+  sources = cmp.config.sources({
+    { name = 'neorg' }
+  }, {
+    { name = 'buffer' }
+  }, {
+    { name = 'path' }
   })
 })
