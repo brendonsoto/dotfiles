@@ -20,14 +20,17 @@ cmp.setup({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         -- { name = 'omni' },
-        -- { name = 'buffer', keyword_length = 5 },
         -- { name = 'path' },
         -- { name = 'neorg' }
+    }, {
+        -- Buffer in its own group as a fallback. See cmp.config.sources
+        { name = 'buffer', keyword_length = 5 },
     }),
     formatting = {
         -- adds text to say where the entry is coming from
         format = function(entry, vim_item)
             vim_item.menu = ({
+                buffer = '[Buffer]',
                 luasnip = '[LuaSnip]',
                 nvim_lsp = '[LSP]',
             })[entry.source.name]
