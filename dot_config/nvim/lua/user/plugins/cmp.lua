@@ -23,7 +23,17 @@ cmp.setup({
         -- { name = 'buffer', keyword_length = 5 },
         -- { name = 'path' },
         -- { name = 'neorg' }
-    })
+    }),
+    formatting = {
+        -- adds text to say where the entry is coming from
+        format = function(entry, vim_item)
+            vim_item.menu = ({
+                luasnip = '[LuaSnip]',
+                nvim_lsp = '[LSP]',
+            })[entry.source.name]
+            return vim_item
+        end
+    }
 })
 
 -- Use buffer source for `/`.
