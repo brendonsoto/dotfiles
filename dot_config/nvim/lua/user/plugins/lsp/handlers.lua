@@ -22,6 +22,4 @@ M.on_attach = function(client, bufnr)
   vks('n', '<leader>fc', buf.formatting, { desc = 'format code' })
 end
 
--- M.capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 return M

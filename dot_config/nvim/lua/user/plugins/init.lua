@@ -75,6 +75,24 @@ return require('packer').startup({
       config = function() require('user.plugins.telescope') end
     }
 
+    -- COMPLETIONNNN
+    -- NOTE: this should be before nvim-cmp
+    -- use {
+    --   'windwp/nvim-autopairs',
+    --   config = function() require('user.plugins.autopairs') end
+    -- }
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+    -- use 'hrsh7th/cmp-buffer'
+    -- use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/cmp-nvim-lsp'
+    -- use 'hrsh7th/cmp-omni'
+    -- use 'hrsh7th/cmp-path'
+    use {
+      'hrsh7th/nvim-cmp',
+      config = function() require('user.plugins.cmp') end
+    }
+
     -- LSP stuff
     use {
       'j-hui/fidget.nvim',
@@ -90,24 +108,6 @@ return require('packer').startup({
         require('user.plugins.lsp')
       end
     }
-
-    -- COMPLETIONNNN
-    -- NOTE: this should be before nvim-cmp
-    -- use {
-    --   'windwp/nvim-autopairs',
-    --   config = function() require('user.plugins.autopairs') end
-    -- }
-    -- use 'L3MON4D3/LuaSnip'
-    -- use 'saadparwaiz1/cmp_luasnip'
-    -- use 'hrsh7th/cmp-buffer'
-    -- use 'hrsh7th/cmp-cmdline'
-    -- use 'hrsh7th/cmp-nvim-lsp'
-    -- use 'hrsh7th/cmp-omni'
-    -- use 'hrsh7th/cmp-path'
-    -- use {
-    --   'hrsh7th/nvim-cmp',
-    --   config = function() require('user.plugins.cmp') end
-    -- }
 
     -- Writing and Organization related
     use 'godlygeek/tabular'
