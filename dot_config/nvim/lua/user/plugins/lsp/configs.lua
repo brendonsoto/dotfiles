@@ -24,7 +24,7 @@ require('mason-lspconfig').setup({
 for _, server in pairs(servers) do
   local opts = {
     on_attach = require('user.plugins.lsp.handlers').on_attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities()
+    capabilities = require('user.plugins.lsp.handlers').capabilities,
   }
 
   local server_module = 'user.plugins.lsp.settings.' .. server

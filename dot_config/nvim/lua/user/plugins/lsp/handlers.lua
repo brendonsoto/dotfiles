@@ -17,4 +17,7 @@ M.on_attach = function(client, bufnr)
   vks('n', '<leader>fc', buf.formatting, { desc = 'format code' })
 end
 
+-- NOTE: Using this instead of cmp for now because cmp's capabilites don't work
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+
 return M
