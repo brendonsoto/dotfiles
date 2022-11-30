@@ -30,3 +30,9 @@ vim.keymap.set(
     { expr = true, desc = 'Comment toggle linewise' }
 )
 ```
+
+### LSP - format on save?
+
+### LSP - explore workspaces?
+
+### How does LSP work?
