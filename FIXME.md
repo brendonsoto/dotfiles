@@ -27,6 +27,12 @@ New problem:
 How to resolve webpack aliases when in insert mode when making an import statement
 This makes me think it's a nvim-cmp thing
 
+### How to clear logs here and there automagically?
+
+
+# Resolved
+## Neovim
+
 ### LSP related
 #### lsp + nvim-cmp
 2022-Nov-27
@@ -34,3 +40,9 @@ This was occurring the past week too!
 For some reason cmp isn't playing nice with LSP
 I tried having the same setup as on the Wiki
 I'm going to try re-setting it up
+
+**Fixed!**
+2022-Nov-28
+I think I had two conflicting sources
+I wound up integrating one source at a time starting with LSP
+(although this technically involved two sources)
