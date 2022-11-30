@@ -4,11 +4,6 @@ local buf = vim.lsp.buf
 local M = {}
 
 M.on_attach = function(client, bufnr)
-  -- TODO: refactor this into a method that checks if string in list
-  -- if client.name == 'tsserver' then
-  --   client.server_capabilities.document_formatting = false
-  -- end
-
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
