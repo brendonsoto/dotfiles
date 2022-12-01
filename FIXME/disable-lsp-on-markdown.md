@@ -7,3 +7,4 @@
 
 ## Fix
 Setup CMP to use only Buffer and Path sources for markdown files.
+See commit after 3ef7549f6ac3972e32af9820b51f092ae9181194

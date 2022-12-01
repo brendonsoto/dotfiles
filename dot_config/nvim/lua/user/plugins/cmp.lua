@@ -87,3 +87,12 @@ cmp.setup.filetype('norg', {
     { name = 'path' }
   })
 })
+
+-- Markdown setup
+cmp.setup.filetype('markdown', {
+  sources = cmp.config.sources({
+    { name = 'buffer' }
+  }, {
+    { name = 'path' }
+  })
+})
