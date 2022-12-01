@@ -1,9 +1,9 @@
-# FIX ME
+* FIX ME
 
-## TODO:
-make a tempalte
+** TODO:
+   - [ ] make a tempalte
 
-## Neovim
-[CSS Comments](./css-comments.md)
-[Don't autocomplete on enter](./autocomplete-on-enter.md)
-[Disable LSP on markdown](./disable-lsp-on-markdown.md)
+** Neovim
+   - [ ] {:./css-comments:}[CSS Comments]
+   - [ ] {:./autocomplete-on-enter:}[Don't autocomplete on enter]
+   - [ ] {:./disable-lsp-on-markdown:}[Disable LSP on markdown]
