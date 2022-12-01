@@ -21,7 +21,10 @@ local new_maker = function(filepath, bufnr, opts)
 end
 
 telescope.setup {
-    defaults = {buffer_previewer_maker = new_maker},
+    defaults = {
+        buffer_previewer_maker = new_maker,
+        path_display = {'truncate'},
+    },
     pickers = {
         find_files = {
             find_command = {
