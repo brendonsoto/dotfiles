@@ -13,7 +13,7 @@
    - [ ] {:./css-comments:}[CSS Comments]
    - [ ] {:./autocomplete-on-enter:}[Don't autocomplete on enter]
    - [ ] {:./disable-lsp-on-markdown:}[Disable LSP on markdown]
-   - [ ] {:./lsp-and-cmp:}[lsp + nvim-cmp]
+   - [x] {:./lsp-and-cmp:}[lsp + nvim-cmp]
    - [ ] {:./neorg-toc:}[Neorg -- table of contents for quick moving around]
    - [ ] {:./webpack-resolving-aliases:}[Resolving webpack aliases when using "go to"]
    - [ ] How to clear logs here and there automagically?
