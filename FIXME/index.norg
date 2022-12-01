@@ -10,7 +10,7 @@
    - script for git worktree?
 
 ** Neovim
-   - [ ] {:./css-comments:}[CSS Comments]
+   - [ ] {:./css-comments-in-styled-components:}[CSS Comments in Styled components]
    - [ ] {:./autocomplete-on-enter:}[Don't autocomplete on enter]
    - [x] {:./disable-lsp-on-markdown:}[Disable LSP on markdown]
    - [x] {:./lsp-and-cmp:}[lsp + nvim-cmp]
