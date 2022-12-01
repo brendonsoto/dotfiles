@@ -17,5 +17,5 @@
    - [ ] {:./neorg-toc:}[Neorg -- table of contents for quick moving around]
    - [ ] {:./webpack-resolving-aliases:}[Resolving webpack aliases when using "go to"]
    - [ ] How to clear logs here and there automagically?
-   - [ ] LSP when it comes to auto-completing CSS
+   - [x] {:lsp-autocomplete-css:}[LSP when it comes to auto-completing CSS]
    - [x] {:telescope-trim-paths:}[Telescope - trim paths]
