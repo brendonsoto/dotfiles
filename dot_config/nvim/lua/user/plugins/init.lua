@@ -19,6 +19,8 @@ return require('packer').startup({
     -- So much relies on plenary so putting it near top
     use 'nvim-lua/plenary.nvim'
 
+    use 'lewis6991/impatient.nvim'
+
     use {
       'numToStr/Comment.nvim',
       config = function() require('Comment').setup() end
