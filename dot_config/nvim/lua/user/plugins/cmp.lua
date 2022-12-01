@@ -14,7 +14,7 @@ cmp.setup({
         ['<c-space>'] = cmp.mapping.complete(),
         ['<c-e>'] = cmp.mapping.abort(),
         -- fallback for pairs plugins (e.g. auto-pairs)
-        ['<cr>'] = function(fallback)
+        ['<c-y>'] = function(fallback)
           if cmp.visible() then
             cmp.confirm({ select = true })
           else
@@ -44,6 +44,17 @@ cmp.setup({
             return vim_item
         end
     },
+    enabled = function()
+      -- disable completion in comments
+      local context = require 'cmp.config.context'
+      -- keep command mode completion enabled when cursor is in a comment
+      if vim.api.nvim_get_mode().mode == 'c' then
+        return true
+      else
+        return not context.in_treesitter_capture("comment")
+          and not context.in_syntax_group("Comment")
+      end
+    end
 })
 
 -- For use in `cmp.setup.formatting.format` for contexts where formatting does
