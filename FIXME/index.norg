@@ -3,7 +3,19 @@
 ** TODO:
    - [ ] make a tempalte
 
+** macOS
+   - Brew installation requires another step now so not sure if I can automate it right away :/
+   - Rust?
+   -- wait until you're using it more regularly
+   - script for git worktree?
+
 ** Neovim
    - [ ] {:./css-comments:}[CSS Comments]
    - [ ] {:./autocomplete-on-enter:}[Don't autocomplete on enter]
    - [ ] {:./disable-lsp-on-markdown:}[Disable LSP on markdown]
+   - [ ] {:./lsp-and-cmp:}[lsp + nvim-cmp]
+   - [ ] {:./neorg-toc:}[Neorg -- table of contents for quick moving around]
+   - [ ] {:./webpack-resolving-aliases:}[Resolving webpack aliases when using "go to"]
+   - [ ] How to clear logs here and there automagically?
+   - [ ] LSP when it comes to auto-completing CSS
+   - [ ] Telescope - trim paths
