@@ -18,4 +18,4 @@
    - [ ] {:./webpack-resolving-aliases:}[Resolving webpack aliases when using "go to"]
    - [ ] How to clear logs here and there automagically?
    - [ ] LSP when it comes to auto-completing CSS
-   - [ ] {:telescope-trim-paths:}[Telescope - trim paths]
+   - [x] {:telescope-trim-paths:}[Telescope - trim paths]
