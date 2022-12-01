@@ -77,10 +77,10 @@ return require('packer').startup({
 
     -- COMPLETIONNNN
     -- NOTE: this should be before nvim-cmp
-    -- use {
-    --   'windwp/nvim-autopairs',
-    --   config = function() require('user.plugins.autopairs') end
-    -- }
+    use {
+      'windwp/nvim-autopairs',
+      config = function() require('user.plugins.autopairs') end
+    }
     -- Snippet engine for nvim-cmp
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
