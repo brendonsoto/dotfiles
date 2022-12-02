@@ -1,4 +1,5 @@
 local cmp = require('cmp')
+local cmp_buffer = require('cmp_buffer')
 
 cmp.setup({
     snippet = {
@@ -27,7 +28,7 @@ cmp.setup({
         { name = 'nvim_lsp' },
     }, {
         -- Buffer in its own group as a fallback. See cmp.config.sources
-        { name = 'buffer', keyword_length = 5 },
+        { name = 'buffer' },
     }, {
         { name = 'path' },
     }),
@@ -54,7 +55,12 @@ cmp.setup({
         return not context.in_treesitter_capture("comment")
           and not context.in_syntax_group("Comment")
       end
-    end
+    end,
+  sorting = {
+    comparators = {
+      function(...) return cmp_buffer:compare_locality(...) end,
+    }
+  }
 })
 
 -- For use in `cmp.setup.formatting.format` for contexts where formatting does
