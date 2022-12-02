@@ -19,3 +19,6 @@
    - [ ] How to clear logs here and there automagically?
    - [x] {:lsp-autocomplete-css:}[LSP when it comes to auto-completing CSS]
    - [x] {:telescope-trim-paths:}[Telescope - trim paths]
+   - [=] {::}[prevent node_modules from appearing in the completion menu]
+   -- actually, wait on this one... this is useful for 3rd party stuff
+   - [ ] {:lsp-not-falling-back-to-buffer:}[LSP not falling back to buffer]
