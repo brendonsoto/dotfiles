@@ -11,7 +11,7 @@
 
 ** Neovim
    - [ ] {:./css-comments-in-styled-components:}[CSS Comments in Styled components]
-   - [ ] {:./autocomplete-on-enter:}[Don't autocomplete on enter]
+   - [x] {:./autocomplete-on-enter:}[Don't autocomplete on enter]
    - [x] {:./disable-lsp-on-markdown:}[Disable LSP on markdown]
    - [x] {:./lsp-and-cmp:}[lsp + nvim-cmp]
    - [ ] {:./neorg-toc:}[Neorg -- table of contents for quick moving around]
