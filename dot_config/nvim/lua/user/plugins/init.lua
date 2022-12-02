@@ -110,6 +110,11 @@ return require('packer').startup({
         require('user.plugins.lsp')
       end
     }
+    use {
+      'glepnir/lspsaga.nvim',
+      branch = 'main',
+      config = function() require('user.plugins.lsp.saga') end
+    }
 
     -- Writing and Organization related
     use 'godlygeek/tabular'
