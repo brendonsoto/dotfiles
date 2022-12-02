@@ -121,7 +121,7 @@ return require('packer').startup({
     use 'nvim-neorg/neorg-telescope'
     use {
       'vhyrro/neorg',
-      ft = 'norg',
+      run = ":Neorg sync-parsers",
       config = function() require('user.plugins.neorg') end
     }
     use {
