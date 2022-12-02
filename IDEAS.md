@@ -1,5 +1,12 @@
 # Ideas
 
+## Git
+- only show local branches for autocomplete? but how to handle remotes for checking out other's work...
+
+## Git commit linting?
+I feel like I need to make sure I have at least a title and some description.
+No. Descriptions aren't always needed.
+
 ## Neovim
 ### Which-key <=> Telescope.builtins.keymaps
 Just learned about `Telescope.builtins.keymaps`
