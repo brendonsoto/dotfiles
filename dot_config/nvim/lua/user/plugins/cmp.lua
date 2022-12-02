@@ -14,14 +14,6 @@ cmp.setup({
         -- 'complete' as in "show the completion menu"
         ['<c-space>'] = cmp.mapping.complete(),
         ['<c-e>'] = cmp.mapping.abort(),
-        -- fallback for pairs plugins (e.g. auto-pairs)
-        ['<c-y>'] = function(fallback)
-          if cmp.visible() then
-            cmp.confirm({ select = true })
-          else
-            fallback()
-          end
-        end
     }),
     sources = cmp.config.sources({
         { name = 'luasnip' },
