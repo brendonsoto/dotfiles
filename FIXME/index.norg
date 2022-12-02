@@ -22,4 +22,4 @@
    - [=] {::}[prevent node_modules from appearing in the completion menu]
    -- actually, wait on this one... this is useful for 3rd party stuff
    - [ ] {:lsp-not-falling-back-to-buffer:}[LSP not falling back to buffer]
-   - [ ] {:git-go-to-top-of-file:}[Git - go to 0, 0 in the file]
+   - [x] {:git-go-to-top-of-file:}[Git - go to 0, 0 in the file]
