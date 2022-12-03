@@ -23,3 +23,9 @@
    -- actually, wait on this one... this is useful for 3rd party stuff
    - [ ] {:lsp-not-falling-back-to-buffer:}[LSP not falling back to buffer]
    - [x] {:git-go-to-top-of-file:}[Git - go to 0, 0 in the file]
+   - [ ] {:comments-in-jsx-and-tsx:}[Comments in JSX/TSX]
+   - [ ] {:lsp-progres:}[See LSP progress]
+
+** Tmux
+   - [ ] {:tmux-history-per-pane:}[Have each term pane hold its own history]
+   - [ ] [Reloading the shell removes the vim-bindings]

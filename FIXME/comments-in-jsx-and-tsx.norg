@@ -1,0 +1,14 @@
+* Comments in JSX/TSX
+
+** Repro steps
+   - Create a React component like:
+   @code React
+   <div
+    className="comment me"
+   >
+    Testing
+   </div>
+   @end
+   - try commenting the line with `className`.
+
+   The line is commented using `//` instead of `{/* */}`
