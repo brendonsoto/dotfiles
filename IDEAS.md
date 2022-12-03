@@ -7,6 +7,10 @@
 I feel like I need to make sure I have at least a title and some description.
 No. Descriptions aren't always needed.
 
+## Update `notify_when_done`
+I want to call it like `notify_when_done process`
+Maybe rename it to `lmk`
+
 ## Neovim
 ### Which-key <=> Telescope.builtins.keymaps
 Just learned about `Telescope.builtins.keymaps`
