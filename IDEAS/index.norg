@@ -1,0 +1,16 @@
+* IDEAS
+
+** Git
+   - {:git-autocomplete-branches:}[only show local branches for autocomplete?]
+   - {:git-commit-linting:}[Git commit linting]
+
+** Neovim
+   - {:replace-whichkey-with-telescope:}
+   - {:lua-linter-and-formatter:}
+   - {:treesitter-term-under-cursor-highlighting:}
+   - {:lsp-format-on-save:}
+   - {:lsp-explore-workspaces:}
+   - {:how-does-lsp-work:}
+
+** Shell
+   - {:update-notify-when-done:}

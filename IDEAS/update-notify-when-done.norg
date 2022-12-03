@@ -1,0 +1,3 @@
+* Update notify_when_done
+  I want to call it like `notify_when_done process`
+  Maybe rename it to `lmk`
