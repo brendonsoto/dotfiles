@@ -12,6 +12,7 @@
    - [ ] {:lsp-explore-workspaces:}
    - [ ] {:how-does-lsp-work:}
    - [x] {:change-background-on-time-of-day:}
+   - [ ] {:vim-notifications-use-system-notifier:}
 
 ** Shell
    - {:update-notify-when-done:}
