@@ -1,5 +1,1 @@
-{{- if (eq .chezmoi.os "darwin") -}}
-    family: Hack
-{{- else -}}
-    family: Hack Nerd Font Mono
-{{- end -}}
+family: Hack Nerd Font Mono
