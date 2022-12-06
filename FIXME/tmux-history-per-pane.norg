@@ -2,6 +2,5 @@
 
 ** Repro
    - Start tmux session
-   - Split window
-   - Run a 
-   - 
+   - Make another window
+   - in window 1, 

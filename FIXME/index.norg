@@ -28,4 +28,4 @@
 
 ** Tmux
    - [ ] {:tmux-history-per-pane:}[Have each term pane hold its own history]
-   - [ ] [Reloading the shell removes the vim-bindings]
+   - [ ] {:reloading-shell-removes-vim-bindings:}[Reloading the shell removes the vim-bindings]
