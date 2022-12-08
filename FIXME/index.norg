@@ -25,6 +25,7 @@
    - [x] {:git-go-to-top-of-file:}[Git - go to 0, 0 in the file]
    - [ ] {:comments-in-jsx-and-tsx:}[Comments in JSX/TSX]
    - [x] {:lsp-progres:}[See LSP progress]
+   - [x] {:cmp-completion-menu-doesnt-show-lsp:}
 
 ** Tmux
    - [ ] {:tmux-history-per-pane:}[Have each term pane hold its own history]

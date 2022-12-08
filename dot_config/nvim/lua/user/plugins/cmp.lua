@@ -12,14 +12,20 @@ cmp.setup({
         ['<c-b>'] = cmp.mapping.scroll_docs(-4),
         ['<c-f>'] = cmp.mapping.scroll_docs(4),
         -- 'complete' as in "show the completion menu"
-        ['<c-space>'] = cmp.mapping.complete(),
+        ['<c-space>'] = cmp.mapping.complete({
+          config = {
+            sources = {
+              { name = 'nvim_lsp' },
+            }, {
+              { name = 'buffer' },
+            }
+          }
+        }),
         ['<c-e>'] = cmp.mapping.abort(),
     }),
     sources = cmp.config.sources({
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
-    }, {
-        -- Buffer in its own group as a fallback. See cmp.config.sources
         { name = 'buffer' },
     }, {
         { name = 'path' },
