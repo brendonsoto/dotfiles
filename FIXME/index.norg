@@ -23,7 +23,7 @@
    -- actually, wait on this one... this is useful for 3rd party stuff
    - [ ] {:lsp-not-falling-back-to-buffer:}[LSP not falling back to buffer]
    - [x] {:git-go-to-top-of-file:}[Git - go to 0, 0 in the file]
-   - [ ] {:comments-in-jsx-and-tsx:}[Comments in JSX/TSX]
+   - [_] {:comments-in-jsx-and-tsx:}[Comments in JSX/TSX]
    - [x] {:lsp-progres:}[See LSP progress]
    - [x] {:cmp-completion-menu-doesnt-show-lsp:}
 
