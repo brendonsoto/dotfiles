@@ -15,7 +15,7 @@
    - [x] {:./disable-lsp-on-markdown:}[Disable LSP on markdown]
    - [x] {:./lsp-and-cmp:}[lsp + nvim-cmp]
    - [ ] {:./neorg-toc:}[Neorg -- table of contents for quick moving around]
-   - [ ] {:./webpack-resolving-aliases:}[Resolving webpack aliases when using "go to"]
+   - [x] {:./webpack-resolving-aliases:}[Resolving webpack aliases when using "go to"]
    - [x] {:lsp-autocomplete-css:}[LSP when it comes to auto-completing CSS]
    - [x] {:telescope-trim-paths:}[Telescope - trim paths]
    - [=] {::}[prevent node_modules from appearing in the completion menu]
