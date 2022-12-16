@@ -19,6 +19,7 @@ require('nvim-treesitter.configs').setup {
         "c",
         "css",
         "dockerfile",
+        "help",
         "html",
         "javascript",
         "jsdoc",
@@ -26,6 +27,7 @@ require('nvim-treesitter.configs').setup {
         "lua",
         "norg",
         "python",
+        "query",
         "regex",
         "ruby",
         "rust",
@@ -37,7 +39,8 @@ require('nvim-treesitter.configs').setup {
     highlight = {
         enable = true,
         custom_captures = {NOTE = "Special"},
-        additional_vim_regex_highlighting = { "typescriptreact" }
+        -- additional_vim_regex_highlighting = { "typescriptreact" }
+        additional_vim_regex_highlighting = false,
     },
     rainbow = {
         enable = true,
