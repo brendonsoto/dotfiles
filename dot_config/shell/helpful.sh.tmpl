@@ -4,10 +4,11 @@ export HISTCONTROL=ignoredups
 # @description Calls the given function and alerts on success or error.
 # The alert is a macOS notification alert, like a pop up.
 # For when running a lengthy process and you want to look away.
-# @arg $@ string[] Whatever function to be called with whatever parameters
+# @arg $@ Whatever function to be called with whatever parameters
+#         NOTE: must be a function and not an alias.
 # @example
 #   notify_when_done npm install
-notify_when_done() {
+lmk() {
   "$@" || osascript -e 'display alert "Oh no!" message "Something dun gon goofd up! Check your terminal."'
   osascript -e 'display alert "Process finished!" message "check your terminal"'
 }

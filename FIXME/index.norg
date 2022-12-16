@@ -28,6 +28,8 @@
    - [x] {:cmp-completion-menu-doesnt-show-lsp:}
    - [x] {:dashboard-actions:}
 
+** Shell
+   - [x] {:lmk-func-problematic-with-aliases:}
 
 ** Tmux
    - [ ] {:tmux-history-per-pane:}[Have each term pane hold its own history]
