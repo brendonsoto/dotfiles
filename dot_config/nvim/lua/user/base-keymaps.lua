@@ -50,3 +50,20 @@ vks('i', '<c-c>', '<c-[>', { desc = 'Exit insert mode' })
 
 -- # Visual mode stuff
 vks('v', '//', 'y/<c-r>"<cr>', { desc = 'Search for visual selection' })
+
+
+-- # From Primagen
+-- ## Move visual chunks
+vks('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move visual chunk up' })
+vks('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move visual chunk down' })
+
+-- ## Keep the cursor in the center when scrolling and searching
+vks('n', '<C-d>', '<C-d>zz')
+vks('n', '<C-u>', '<C-u>zz')
+vks('n', 'n', 'nzzzv')
+vks('n', 'N', 'Nzzzv')
+
+-- ## Quick formatting
+vks('n', '<leader>f', function()
+  vim.lsp.buf.format()
+end, { desc = 'LSP format buffer' })
