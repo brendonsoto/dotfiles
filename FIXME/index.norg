@@ -30,6 +30,7 @@
 
 ** Shell
    - [x] {:lmk-func-problematic-with-aliases:}
+   - [x] {:mk_tmux_sesh:}
 
 ** Tmux
    - [ ] {:tmux-history-per-pane:}[Have each term pane hold its own history]

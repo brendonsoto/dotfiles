@@ -17,3 +17,16 @@ mk_tmux_sesh() {
 
   DIR=$1 SESH_NAME=$sesh_name tmuxp load default
 }
+
+# @description Start a tmux session from a list of dirs from FZF
+#              Depends on $WORK_DIRS set to a colon separated list of paths and
+#              $WORK_PATH being set.
+# @example
+#   $ twerk
+twerk() {
+  service_list=$(printf "%s" "$WORK_DIRS" | tr ':' '\n')
+  service=$(printf "%s\n" "$service_list" | fzf)
+  service_path=$(printf "%s/%s" "$WORK_PATH" "$service")
+
+  mk_tmux_sesh "$service_path"
+}

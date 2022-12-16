@@ -14,6 +14,7 @@
    - [x] {:change-background-on-time-of-day:}
    - [ ] {:vim-notifications-use-system-notifier:}
    - [ ] How to clear logs here and there automagically?
+   - [x] {:revisiting-twerk:}
 
 ** Shell
    - {:update-notify-when-done:}
