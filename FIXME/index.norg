@@ -20,7 +20,8 @@
    - [x] {:telescope-trim-paths:}[Telescope - trim paths]
    - [=] {::}[prevent node_modules from appearing in the completion menu]
    -- actually, wait on this one... this is useful for 3rd party stuff
-   - [ ] {:lsp-not-falling-back-to-buffer:}[LSP not falling back to buffer]
+   - [x] {:lsp-not-falling-back-to-buffer:}[LSP not falling back to buffer]
+   - [x] {:lsp-cmp-problems:}
    - [x] {:git-go-to-top-of-file:}[Git - go to 0, 0 in the file]
    - [_] {:comments-in-jsx-and-tsx:}[Comments in JSX/TSX]
    - [x] {:lsp-progres:}[See LSP progress]

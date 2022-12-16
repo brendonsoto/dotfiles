@@ -1,5 +1,5 @@
 local cmp = require('cmp')
-local cmp_buffer = require('cmp_buffer')
+local compare = require('cmp.config.compare')
 
 cmp.setup({
     snippet = {
@@ -24,8 +24,9 @@ cmp.setup({
         ['<c-e>'] = cmp.mapping.abort(),
     }),
     sources = cmp.config.sources({
-        { name = 'luasnip' },
         { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+    }, {
         { name = 'buffer' },
     }, {
         { name = 'path' },
@@ -54,11 +55,22 @@ cmp.setup({
           and not context.in_syntax_group("Comment")
       end
     end,
-  sorting = {
-    comparators = {
-      function(...) return cmp_buffer:compare_locality(...) end,
-    }
-  }
+    -- Took from CMP's default config and rearranged
+    sorting = {
+      -- priority_weight = 2,
+      comparators = {
+        compare.scopes,
+        compare.offset,
+        compare.recently_used,
+        -- compare.exact,
+        -- compare.score,
+        -- compare.locality,
+        -- compare.kind,
+        -- compare.sort_text,
+        -- compare.length,
+        -- compare.order,
+      },
+    },
 })
 
 -- For use in `cmp.setup.formatting.format` for contexts where formatting does

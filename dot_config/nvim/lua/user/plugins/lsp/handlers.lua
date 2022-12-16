@@ -18,6 +18,7 @@ M.on_attach = function(client, bufnr)
 end
 
 -- NOTE: Using this instead of cmp for now because cmp's capabilites don't work
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
+-- M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 return M
