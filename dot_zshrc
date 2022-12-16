@@ -4,18 +4,40 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # This is needed before other
 autoload -Uz compinit && compinit
 
-# Antidote
-source ~/.antidote/antidote.zsh
-antidote load
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+# Change auto-update behavior to reminders and let chezmoi handle updates
+zstyle ':omz:update' mode reminder
+
+plugins=(
+  asdf
+  docker
+  fd
+  npm
+  ripgrep
+  safe-paste
+  # Custom ZSH plugins (not from the oh-my-zsh directory)
+  zsh-autosuggestions
+  zsh-completions
+  zsh-vi-mode
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # Starship -- theming
 eval "$(starship init zsh)"
 
+# Do the initialization when the script is sourced (i.e. Initialize instantly)
+ZVM_INIT_MODE=sourcing
+
 # Load Stuff
 [ -f ~/.config/shell/main ] && . ~/.config/shell/main
 [ -f ~/.config/shell/work.zsh ] && . ~/.config/shell/work.zsh
+[ -f ~/.local/share/zsh/zsh-vi-mode ] && . ~/.local/share/zsh/zsh-vi-mode
 
-alias reload=". ~/.zshrc"
+# the `&& omz reload` is to get vi-mode working after reload
+alias reload=". ~/.zshrc && omz reload"
 
 # Don't share history between tabs
 # unsetopt inc_append_history
@@ -24,6 +46,12 @@ unsetopt share_history
 # Prevent repeats in PATH
 typeset -U PATH
 
-# Bind Vi j/k keys to mimic up and down
-zvm_bindkey vicmd 'k' up-line-or-search
-zvm_bindkey vicmd 'j' down-line-or-search
+function zvm_config() {
+  ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+}
+
+function zvm_after_lazy_keybindings() {
+  # Bind Vi j/k keys to mimic up and down
+  zvm_bindkey vicmd 'k' up-line-or-search
+  zvm_bindkey vicmd 'j' down-line-or-search
+}
