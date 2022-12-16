@@ -6,6 +6,9 @@ alias gm="git merge"
 alias grh="git reset --hard"
 alias grm="git rebase main"
 alias gcp="git cherry-pick"
+alias gwa="git worktree add"
+alias gwl="git worktree list"
+alias gwr="git worktree remove"
 alias lg="lazygit"
 
 gcm() {
