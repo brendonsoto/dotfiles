@@ -77,6 +77,12 @@ return require('packer').startup({
       config = function() require('user.plugins.telescope') end
     }
 
+    -- Harpoon. Ahab go brrr
+    use {
+      'ThePrimeagen/harpoon',
+      config = function() require('user.plugins.harpoon') end
+    }
+
     -- COMPLETIONNNN
     -- NOTE: this should be before nvim-cmp
     use {
