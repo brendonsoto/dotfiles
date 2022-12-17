@@ -66,6 +66,7 @@ return require('packer').startup({
     }
 
     -- Git goodies
+    use 'tpope/vim-fugitive'
     use {
       'lewis6991/gitsigns.nvim',
       config = function() require('user.plugins.gitsigns') end
