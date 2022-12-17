@@ -7,6 +7,7 @@ cmd([[
 ]])
 
 g.mapleader = ' '
+g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+]] -- Hide '.' and '..' from netrw
 
 set.clipboard:append('unnamedplus') -- Use the clipboard register + in addition to the default
 set.completeopt = {'menu', 'menuone', 'noselect'} -- NOTE: from nvim-cmp
@@ -41,7 +42,8 @@ set.undolevels = 100
 set.undoreload = 1000
 
 local disabled_built_ins = {
-    "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers", "gzip", "zip",
+    -- "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers",
+    "gzip", "zip",
     "zipPlugin", "tar", "tarPlugin", "getscript", "getscriptPlugin",
     "2html_plugin", "logipat", "rrhelper", "spellfile_plugin"
 }
