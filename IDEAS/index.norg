@@ -16,6 +16,11 @@
    - [ ] How to clear logs here and there automagically?
    - [x] {:revisiting-twerk:}
    - [ ] {:revisit-netrw:}
+   - [_] {https://github.com/VonHeikemen/lsp-zero.nvim}
+   -- Not going to implement since my current config is enough and I don't want another layer of abstraction over my main tools
+   - [ ] {https://github.com/ThePrimeagen/harpoon}
+   - [ ] {https://gethub.com/mbbill/undotree}
+   - [ ] {https://github.com/nvim-treesitter/playground}
 
 ** Shell
    - {:update-notify-when-done:}
