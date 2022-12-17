@@ -13,4 +13,4 @@ require('fm-nvim').setup {
 }
 
 -- vks('n', '<leader>bf', ':Broot<cr>', { desc = 'Browse files (using Broot)' })
-vks('n', '<leader>bf', ':Lf %:p:h<cr>', { desc = 'Browse files (using LF)' })
+vks('n', '<leader>fm', ':Lf %:p:h<cr>', { desc = 'File Manager (using LF)' })
