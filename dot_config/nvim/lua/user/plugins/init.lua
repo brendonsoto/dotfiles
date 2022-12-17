@@ -83,6 +83,14 @@ return require('packer').startup({
       config = function() require('user.plugins.harpoon') end
     }
 
+    use {
+      'mbbill/undotree',
+      config = function()
+        vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>')
+        vim.g.undotree_SetFocusWhenToggle = 1
+      end
+    }
+
     -- COMPLETIONNNN
     -- NOTE: this should be before nvim-cmp
     use {

@@ -19,7 +19,7 @@
    - [_] {https://github.com/VonHeikemen/lsp-zero.nvim}
    -- Not going to implement since my current config is enough and I don't want another layer of abstraction over my main tools
    - [x] {:harpoon:}
-   - [ ] {https://gethub.com/mbbill/undotree}
+   - [x] {:undotree:}
    - [ ] {https://github.com/nvim-treesitter/playground}
 
 ** Shell
