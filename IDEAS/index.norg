@@ -15,6 +15,7 @@
    - [ ] {:vim-notifications-use-system-notifier:}
    - [ ] How to clear logs here and there automagically?
    - [x] {:revisiting-twerk:}
+   - [ ] {:revisit-netrw:}
 
 ** Shell
    - {:update-notify-when-done:}
