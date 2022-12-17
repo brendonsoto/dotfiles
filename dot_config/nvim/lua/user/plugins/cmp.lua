@@ -52,7 +52,6 @@ cmp.setup({
         return true
       else
         return not context.in_treesitter_capture("comment")
-          and not context.in_syntax_group("Comment")
       end
     end,
     -- Took from CMP's default config and rearranged
