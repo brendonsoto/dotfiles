@@ -44,16 +44,16 @@ cmp.setup({
             return vim_item
         end
     },
-    enabled = function()
-      -- disable completion in comments
-      local context = require 'cmp.config.context'
-      -- keep command mode completion enabled when cursor is in a comment
-      if vim.api.nvim_get_mode().mode == 'c' then
-        return true
-      else
-        return not context.in_treesitter_capture("comment")
-      end
-    end,
+    -- enabled = function()
+    --   -- disable completion in comments
+    --   local context = require 'cmp.config.context'
+    --   -- keep command mode completion enabled when cursor is in a comment
+    --   if vim.api.nvim_get_mode().mode == 'c' then
+    --     return true
+    --   else
+    --     return not context.in_treesitter_capture("comment")
+    --   end
+    -- end,
     -- Took from CMP's default config and rearranged
     sorting = {
       -- priority_weight = 2,
