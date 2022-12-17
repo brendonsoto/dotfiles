@@ -7,7 +7,7 @@ cmd([[
 ]])
 
 g.mapleader = ' '
-g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+]] -- Hide '.' and '..' from netrw
+g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+]] -- Hide hidden files by default
 
 set.clipboard:append('unnamedplus') -- Use the clipboard register + in addition to the default
 set.completeopt = {'menu', 'menuone', 'noselect'} -- NOTE: from nvim-cmp
