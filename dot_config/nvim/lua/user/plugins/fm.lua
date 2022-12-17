@@ -9,8 +9,8 @@ require('fm-nvim').setup {
     height = 1,
     width = 1,
   },
-  broot_conf = '$HOME/.config/broot/conf.hjson',
+  -- broot_conf = '$HOME/.config/broot/conf.hjson',
 }
 
-vks('n', '<leader>bf', ':Broot<cr>', { desc = 'Browse files (using Broot)' })
-vks('n', '<leader>lf', ':Lf %:p:h<cr>', { desc = 'File browser (using lf)' })
+-- vks('n', '<leader>bf', ':Broot<cr>', { desc = 'Browse files (using Broot)' })
+vks('n', '<leader>bf', ':Lf %:p:h<cr>', { desc = 'Browse files (using LF)' })
