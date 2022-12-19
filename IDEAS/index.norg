@@ -22,5 +22,7 @@
    - [x] {:undotree:}
    - [=] {https://github.com/nvim-treesitter/playground}
    -- I want to use this when I start learning what treesitter's all about
+   - [ ] {:explore-treesitter-keymaps:}
+   - [ ] {:rework-twerk-to-have-only-relevant-dirs:}
 
 ** Shell
