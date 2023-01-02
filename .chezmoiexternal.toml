@@ -3,11 +3,13 @@
     url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfcd.sh"
     refreshPeriod = "168h"
 [".oh-my-zsh"]
-    type = "archive"
-    url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
+    type = "git-repo"
+    url = "https://github.com/ohmyzsh/ohmyzsh.git"
     exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
+    [".oh-my-zsh".clone]
+        args = ["--depth=1"]
+    [".oh-my-zsh".pull]
+        args = ["--ff-only"]
 [".config/shell/zsh/custom/plugins/zsh-autosuggestions"]
     type = "archive"
     url = "https://github.com/zsh-users/zsh-autosuggestions/archive/master.tar.gz"
