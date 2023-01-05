@@ -130,6 +130,10 @@ return require('packer').startup({
       branch = 'main',
       config = function() require('user.plugins.lsp.saga') end
     }
+    use {
+      'simrat39/rust-tools.nvim',
+      config = function() require('user.plugins.rust-tools') end,
+    }
 
     -- Writing and Organization related
     use 'godlygeek/tabular'
