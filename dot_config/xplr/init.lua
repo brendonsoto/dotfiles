@@ -1179,7 +1179,21 @@ xplr.config.modes.builtin.default = {
       ["right"] = {
         help = "enter",
         messages = {
-          "Enter",
+          { LuaEval = [[
+            function(app)
+              if app.focused_node.is_file then
+                return {
+                  {
+                    BashExec0 = [===[
+                      ${EDITOR:-vi} "${XPLR_FOCUS_PATH:?}"
+                    ]===]
+                  }
+                }
+              else
+                return { "Enter" }
+              end
+            end
+          ]]}
         },
       },
       ["s"] = {
