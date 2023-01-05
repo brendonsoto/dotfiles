@@ -12,16 +12,17 @@ cmp.setup({
         ['<c-b>'] = cmp.mapping.scroll_docs(-4),
         ['<c-f>'] = cmp.mapping.scroll_docs(4),
         -- 'complete' as in "show the completion menu"
-        ['<c-space>'] = cmp.mapping.complete({
-          config = {
-            sources = {
-              { name = 'nvim_lsp' },
-            }, {
-              { name = 'buffer' },
-            }
-          }
-        }),
+        -- ['<c-space>'] = cmp.mapping.complete({
+        --   config = {
+        --     sources = {
+        --       { name = 'nvim_lsp' },
+        --     }, {
+        --       { name = 'buffer' },
+        --     }
+        --   }
+        -- }),
         ['<c-e>'] = cmp.mapping.abort(),
+        ['<C-space>'] = cmp.mapping.confirm({ select = true }),
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
