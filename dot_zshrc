@@ -24,6 +24,7 @@ plugins=(
   zsh-autosuggestions
   zsh-completions
   zsh-vi-mode
+  zsh-syntax-highlighting # docs said to source last. not sure if applies to omz, but y not?
 )
 
 source $ZSH/oh-my-zsh.sh
