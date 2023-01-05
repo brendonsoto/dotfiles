@@ -24,5 +24,7 @@
    -- I want to use this when I start learning what treesitter's all about
    - [ ] {:explore-treesitter-keymaps:}
    - [ ] {:rework-twerk-to-have-only-relevant-dirs:}
+   - [ ] Can I get typescript's LSP auto-import to use single-quotes instead of double?
+   - [ ] `J` joins /and/ deletes the space
 
 ** Shell
