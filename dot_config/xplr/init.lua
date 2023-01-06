@@ -1013,23 +1013,6 @@ xplr.config.layouts.custom = {}
 -- `xplr.config.modes.builtin` contain some built-in modes which can be
 -- overridden, but you can't add or remove modes in it.
 
--- A function reference to either enter a dir or open a file in EDITOR
-local enter_func = [[
-  function(app)
-    if app.focused_node.is_file then
-      return {
-        {
-          BashExec0 = [===[
-            ${EDITOR:-vi} "${XPLR_FOCUS_PATH:?}"
-          ]===]
-        }
-      }
-    else
-      return { "Enter" }
-    end
-  end
-]]
-
 -- The builtin default mode.
 -- Visit the [Default Key Bindings](https://xplr.dev/en/default-key-bindings)
 -- to see what each mode does.
@@ -1196,7 +1179,7 @@ xplr.config.modes.builtin.default = {
       ["right"] = {
         help = "enter",
         messages = {
-          { LuaEval = enter_func }
+          { CallLua = "custom.enter_func" },
         },
       },
       ["s"] = {
@@ -2071,17 +2054,10 @@ xplr.config.modes.builtin.search = {
           "FocusNext",
         },
       },
-      -- ["enter"] = {
-      --   help = "submit",
-      --   messages = {
-      --     "AcceptSearch",
-      --     "PopMode",
-      --   },
-      -- },
       ["enter"] = {
         help = "enter",
         messages = {
-          { LuaEval = enter_func },
+          { CallLua = "custom.enter_func" },
           { SetInputBuffer = "" },
         },
       },
@@ -2732,6 +2708,20 @@ end
 -- You can also use nested tables such as
 -- `xplr.fn.custom.my_plugin.my_function` to define custom functions.
 xplr.fn.custom = {}
+
+-- A function reference to either enter a dir or open a file in EDITOR
+xplr.fn.custom.enter_func = function(app)
+  if app.focused_node.is_file then
+    return {
+      -- { LogInfo = "IS file" }
+      "PrintResultAndQuit"
+    }
+  end
+  return {
+    -- { LogInfo = "is NAHT file" }
+    "Enter"
+  }
+end
 
 -- ## Hooks -------------------------------------------------------------------
 --
