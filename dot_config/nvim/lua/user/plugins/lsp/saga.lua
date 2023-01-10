@@ -1,7 +1,12 @@
 local vks = require('user.utils').vks
 local saga = require('lspsaga')
 
-saga.setup({})
+saga.init_lsp_saga({
+  show_outline = {
+    auto_enter = false,
+    jump_key = '<CR>',
+  },
+})
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
