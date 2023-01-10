@@ -45,7 +45,7 @@ vks('n', ']E', function()
 end, { silent = true })
 
 -- Outline
-vks('n','<leader>o', '<cmd>LSoutlineToggle<CR>', { desc = 'LSP Outline', silent = true })
+vks('n','<leader>o', '<cmd>Lspsaga outline<CR>', { desc = 'LSP Outline', silent = true })
 
 -- Hover Doc
 vks('n', 'K', '<cmd>Lspsaga hover_doc<CR>', { silent = true })
