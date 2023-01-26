@@ -27,6 +27,7 @@
    - [x] {:lsp-progres:}[See LSP progress]
    - [x] {:cmp-completion-menu-doesnt-show-lsp:}
    - [x] {:dashboard-actions:}
+   - (x) Go back to `<C-space>` opening up completion menu (maybe `<c-y>` to accept? or `<c-a>`? no, that's for tmux)
 
 ** Shell
    - [x] {:lmk-func-problematic-with-aliases:}
