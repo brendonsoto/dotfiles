@@ -12,11 +12,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
-
 -- Rest of my stuff
 require('user.autocmds')
 require('user.abbreviations')
 require('user.settings')
 require('user.base-keymaps')
-require('user.plugins.init')
+-- require('user.plugins.init')
+
+
+require("lazy").setup("user.plugins")
