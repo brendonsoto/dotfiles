@@ -72,6 +72,9 @@ return {
     end,
   },
 
+  -- Highlighting other uses of the word under cursor
+  { 'RRethy/vim-illuminate' },
+
   -- Named tabs!!
   { 'gcmt/taboo.vim' },
 
