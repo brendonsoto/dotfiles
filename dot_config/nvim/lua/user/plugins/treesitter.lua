@@ -3,7 +3,9 @@ return {
   { 'windwp/nvim-ts-autotag' },
   {
     'nvim-treesitter/nvim-treesitter',
+    version = false,
     build = ':TSUpdate',
+    -- event = { "BufReadPost", "BufNewFile" },
     opts = function()
       return {
         autotag = {
@@ -22,6 +24,8 @@ return {
           "jsdoc",
           "json",
           "lua",
+          "markdown",
+          "markdown_inline",
           "norg",
           "python",
           "query",
@@ -35,7 +39,7 @@ return {
         },
         highlight = {
           enable = true,
-          custom_captures = {NOTE = "Special"},
+          custom_captures = { NOTE = "Special" },
           -- additional_vim_regex_highlighting = { "typescriptreact" }
           additional_vim_regex_highlighting = false,
         },
@@ -46,12 +50,13 @@ return {
           -- colors = {}, -- table of hex strings
           -- termcolors = {} -- table of colour name strings
         },
-        incremental_selection = {enable = true},
-        indent = {
-          enable = true
-        },
-        textobjects = {enable = true}
+        incremental_selection = { enable = true },
+        indent = { enable = true },
+        textobjects = { enable = true }
       }
+    end,
+    config = function(_, opts)
+      require('nvim-treesitter.configs').setup(opts)
     end,
   },
 }
