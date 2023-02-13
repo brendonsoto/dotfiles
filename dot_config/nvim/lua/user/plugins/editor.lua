@@ -83,7 +83,7 @@ return {
     'vhyrro/neorg',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     ft = 'norg',
-    build = ':Neorg sync-parsers',
+    -- build = ':Neorg sync-parsers',
     opts = function()
       return {
         load = {
@@ -112,16 +112,6 @@ return {
                 },
                 marker = {enabled = true, icon = ""},
               },
-              conceals = {
-                url = true,
-                bold = true,
-                italic = true,
-                underline = true,
-                strikethrough = true,
-                verbatim = true,
-                trailing = true,
-                link = true
-              }
             }
           },
           ["core.norg.dirman"] = {
@@ -138,7 +128,9 @@ return {
         },
       }
     end,
-    config = function()
+    config = function(_, opts)
+      require('neorg').setup(opts)
+
       vim.keymap.set('n', '<leader>fl', ':Telescope neorg find_linkable<cr>', { desc = '(Neorg) Find linkable' })
 
       local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
