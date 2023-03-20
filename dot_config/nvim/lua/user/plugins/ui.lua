@@ -23,7 +23,6 @@ return {
     'rcarriga/nvim-notify',
     config = function ()
       vim.notify = require('notify')
-      vim.notify('testing', 'info')
 
       -- Utility functions shared between progress reports for LSP and DAP
 
