@@ -1,19 +1,6 @@
 -- Coding plugins here mean plugins for manipulating the text of the buffer
 return {
-  -- Comments
-  {
-    'numToStr/Comment.nvim',
-    config = function(_, opts)
-      require('Comment').setup(opts)
-    end,
-  },
-
   -- Completion
-  -- TODO: Bring in once CMP is in
-  -- {
-  --   'windwp/nvim-autopairs',
-  --   config = function() require('user.plugins.autopairs') end
-  -- },
   {
     'hrsh7th/nvim-cmp',
     version = false,
@@ -57,8 +44,8 @@ return {
         sources = cmp.config.sources({
           { name = 'path' }
         }, {
-            { name = 'cmdline' }
-          })
+          { name = 'cmdline' }
+        })
       })
 
       -- Neorg setup
@@ -66,10 +53,10 @@ return {
         sources = cmp.config.sources({
           { name = 'neorg' }
         }, {
-            { name = 'buffer' }
-          }, {
-            { name = 'path' }
-          })
+          { name = 'buffer' }
+        }, {
+          { name = 'path' }
+        })
       })
 
       -- Markdown setup
@@ -77,8 +64,8 @@ return {
         sources = cmp.config.sources({
           { name = 'buffer' }
         }, {
-            { name = 'path' }
-          })
+          { name = 'path' }
+        })
       })
 
       return {
@@ -108,10 +95,10 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
         }, {
-            { name = 'buffer' },
-          }, {
-            { name = 'path' },
-          }),
+          { name = 'buffer' },
+        }, {
+          { name = 'path' },
+        }),
         formatting = {
           -- adds text to say where the entry is coming from
           format = function(entry, vim_item)
@@ -186,7 +173,7 @@ return {
               local filename = selection[1]
               local file_without_dashes = string.gsub(filename, "-", " ")
               local ext_indx = string.find(filename, "%.")
-              local file_without_ext = string.sub(file_without_dashes, 0, ext_indx-1)
+              local file_without_ext = string.sub(file_without_dashes, 0, ext_indx - 1)
               local md_link = string.format("[%s](./%s)", file_without_ext, filename)
               vim.api.nvim_put({ md_link }, "", false, true)
             end)
@@ -206,8 +193,32 @@ return {
     end,
   },
 
-  -- Sandwich / Surround
-  { 'machakann/vim-sandwich' },
+  -- Mini with a bunch of goodies
+  {
+    'echasnovski/mini.nvim',
+    version = false,
+    config = function()
+      require('mini.bracketed').setup()
+      require('mini.comment').setup()
+      require('mini.indentscope').setup({
+        draw = {
+          delay = 50,
+          animation = require('mini.indentscope').gen_animation.quadratic({
+            easing = 'in',
+            duration = 10,
+            unit = 'step',
+          })
+        },
+      })
+      require('mini.pairs').setup()
+      require('mini.starter').setup({
+        header = function ()
+          return require('user.dashboard-art').get_art()
+        end
+      })
+      require('mini.surround').setup()
+    end,
+  },
 
   -- Tabular
   { 'godlygeek/tabular' },
