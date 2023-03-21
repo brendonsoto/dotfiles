@@ -28,19 +28,14 @@ vks('n', '<leader>/', ':nohl<cr>', { desc = 'Undo highlighting' })
 
 -- # Normal mode stuff
 -- ## Splits
-vks('n', 'sh', ':split<cr>', { desc= 'Split current pane horizontally' })
-vks('n', 'sv', ':vs<cr>', { desc= 'Split current pane vertically' })
-vks('n', 'st', ':tab split<cr>', { desc= 'Open current pane into tab' })
+vks('n', '<leader>sh', ':split<cr>', { desc= 'Split current pane horizontally' })
+vks('n', '<leader>sv', ':vs<cr>', { desc= 'Split current pane vertically' })
+vks('n', '<leader>st', ':tab split<cr>', { desc= 'Open current pane into tab' })
 
--- ## Inspired by T-Pope's Unimpaired
-vks('n', '[b', ':bprev<cr>', { desc = 'Previous buffer' })
-vks('n', '[t', ':tabp<cr>', { desc = 'Previous tab' })
-vks('n', ']b', ':bnext<cr>', { desc = 'Next buffer' })
-vks('n', ']t', ':tabn<cr>', { desc = 'Next tab' })
 
--- ## Diagnostics
-vks('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to prev diagnostic' })
-vks('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+-- ## Tab navigation
+vks('n', '<leader>tn', ':tabn<cr>', { desc = 'Tab Next' })
+vks('n', '<leader>tp', ':tabp<cr>', { desc = 'Tab Prev' })
 
 
 -- # Insert mode stuff
@@ -53,10 +48,6 @@ vks('v', '//', 'y/<c-r>"<cr>', { desc = 'Search for visual selection' })
 
 
 -- # From Primagen
--- ## Move visual chunks
-vks('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move visual chunk up' })
-vks('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move visual chunk down' })
-
 -- ## Keep the cursor in the center when scrolling and searching
 vks('n', '<C-d>', '<C-d>zz')
 vks('n', '<C-u>', '<C-u>zz')
