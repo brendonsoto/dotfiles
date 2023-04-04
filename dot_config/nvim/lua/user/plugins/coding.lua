@@ -216,7 +216,20 @@ return {
           return require('user.dashboard-art').get_art()
         end
       })
-      require('mini.surround').setup()
+      require('mini.surround').setup({
+        mappings = {
+          add = 'sa',
+          delete = 'sd',
+          find = 'sf',
+          find_left = 'sF',
+          highlight = '', -- was interfering w/ split horiz + i don't use
+          replace = 'sr',
+          update_n_lines = '', -- i'm fine w/ default search range of 20 lines
+
+          suffix_last = 'l', -- Suffix to search with "prev" method
+          suffix_next = 'n', -- Suffix to search with "next" method
+        }
+      })
     end,
   },
 
