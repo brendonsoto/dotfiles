@@ -34,11 +34,12 @@ return {
   { 'tpope/vim-fugitive' },
   {
     'lewis6991/gitsigns.nvim',
-    keys = {
-      { ']h', '<cmd>Gitsigns next_hunk<cr>', 'n', desc = 'Git next hunk' },
-      { '[h', '<cmd>Gitsigns prev_hunk<cr>', 'n', desc = 'Git prev hunk' },
-    },
-    -- config = function() require('user.plugins.gitsigns') end
+    init = function ()
+      local vks = vim.keymap.set
+      vks('n', ']h', '<cmd>Gitsigns next_hunk<cr>',{ desc = 'Git next hunk' })
+      vks('n', '[h', '<cmd>Gitsigns prev_hunk<cr>',{ desc = 'Git next hunk' })
+    end,
+    config = true,
   },
 
   -- Goyo -- focus-ish zone
