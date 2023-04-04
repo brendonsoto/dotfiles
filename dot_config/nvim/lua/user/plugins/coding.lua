@@ -198,7 +198,20 @@ return {
     'echasnovski/mini.nvim',
     version = false,
     config = function()
-      require('mini.bracketed').setup()
+      require('mini.bracketed').setup({
+        treesitter = { suffix = 'a', options = {} },
+        indent = { suffix = '' },
+      })
+      local vks = vim.keymap.set
+      vks('n', '[i', '<Cmd>lua MiniBracketed.indent("backward", { change_type = "less" })<CR>',
+        { desc = 'Go to the previous indent level' })
+      vks('n', '[I', '<Cmd>lua MiniBracketed.indent("backward", { change_type = "more" })<CR>',
+        { desc = 'Go to the previous indent level' })
+      vks('n', ']i', '<Cmd>lua MiniBracketed.indent("forward", { change_type = "less" })<CR>',
+        { desc = 'Go to the previous indent level' })
+      vks('n', ']I', '<Cmd>lua MiniBracketed.indent("forward", { change_type = "more" })<CR>',
+        { desc = 'Go to the previous indent level' })
+
       require('mini.comment').setup()
       require('mini.indentscope').setup({
         draw = {
