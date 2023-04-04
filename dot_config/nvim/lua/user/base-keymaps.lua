@@ -28,9 +28,9 @@ vks('n', '<leader>/', ':nohl<cr>', { desc = 'Undo highlighting' })
 
 -- # Normal mode stuff
 -- ## Splits
-vks('n', '<leader>sh', ':split<cr>', { desc= 'Split current pane horizontally' })
-vks('n', '<leader>sv', ':vs<cr>', { desc= 'Split current pane vertically' })
-vks('n', '<leader>st', ':tab split<cr>', { desc= 'Open current pane into tab' })
+vks('n', 'sh', ':split<cr>', { desc= 'Split current pane horizontally' })
+vks('n', 'sv', ':vs<cr>', { desc= 'Split current pane vertically' })
+vks('n', 'st', ':tab split<cr>', { desc= 'Open current pane into tab' })
 
 
 -- ## Tab navigation
