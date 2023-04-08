@@ -18,7 +18,6 @@ return {
           "c",
           "css",
           "dockerfile",
-          "help",
           "html",
           "javascript",
           "jsdoc",
@@ -35,7 +34,8 @@ return {
           "scss",
           "tsx",
           "typescript",
-          "vim"
+          "vim",
+          "vimdoc",
         },
         highlight = {
           enable = true,
