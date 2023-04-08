@@ -23,6 +23,8 @@ return {
     'rcarriga/nvim-notify',
     config = function ()
       vim.notify = require('notify')
+      -- Set a background for Notify based on TokyoNight Storm
+      vim.cmd([[highlight NotifyBackground guibg=#1f2335]])
 
       -- Utility functions shared between progress reports for LSP and DAP
 

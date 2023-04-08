@@ -53,3 +53,4 @@ for _, plugin in pairs(disabled_built_ins) do g["loaded_" .. plugin] = 1 end
 set.background = "dark"
 
 cmd([[highlight Comment cterm=italic]])
+cmd([[highlight Normal guibg=none]])
