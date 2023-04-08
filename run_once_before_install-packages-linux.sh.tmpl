@@ -1,11 +1,33 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
-
-# Upgrade first
-sudo dnf upgrade
-
-# Installing for Solus
 echo "Installing packages and apps"
+
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
+sudo dnf upgrade
+sudo dnf copr enable atim/lazygit -y
+
+sudo dnf install \
+ alacritty \
+ bat \
+ fd-find \
+ fzf \
+ gcc-c++ \
+ git \
+ gitui \
+ lazygit \
+ neovim \
+ plocate \
+ ripgrep \
+ tmux \
+ python3-tmuxp \
+ zsh
+
+if [ -z "$(command -v starship)" ]
+then
+  echo "Installing Starship"
+  curl -sS https://starship.rs/install.sh | sh
+fi
+{{ else if eq .chezmoi.osRelease.id "solus" -}}
 sudo dnf install \
   alacritty \
   bat \
@@ -18,74 +40,38 @@ sudo dnf install \
   neovim \
   plocate \
   ripgrep \
-  silver-searcher \
   starship \
   tmux \
   tmuxp \
   zsh
 
 sudo dnf install -c system.devel
-
-# Install font
-echo "Checking fonts..."
-
-# make local dir for fonts if it doesn't exist
-if [ ! -d "$HOME/.local/share/fonts" ]
-then
-  mkdir -p ~/.local/share/fonts
-  echo "Created ~/.local/share/fonts"
-fi
-
-# check for fonts existance before fetching
-were_fonts_installed=0
-
-if [ -e "$(find "$HOME"/.local/share/fonts/ -maxdepth 1 -name '*Windows' -print -quit)" ]
-then
-  # Delete all non-mono fonts
-  # This is because the nerd-fonts come w/ multiple versions including windows compatible
-  # I only care about the Mono versions for now
-
-  echo "Removing non Mono fonts"
-  find ~/.local/share/fonts -type f ! -name '*Mono.ttf' -delete
-  find ~/.local/share/fonts -type f -name '*Windows*' -delete
-  echo "Finished removing non mono fonts"
-fi
-
-if [ ! $were_fonts_installed ]
-then
-  echo "Resetting font cache"
-  fc-cache -f -v
-  echo "Finished checking fonts"
-fi
-
-echo "Done with fonts"
-
-# Install asdf and other langs
-echo "Checking if asdf is installed"
-if [ -z "$(command -v asdf)" ]
-then
-  echo "Installing asdf"
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
-  . "$HOME/.asdf/asdf.sh"
-else
-  echo "asdf is already installed!"
-fi
+{{ end -}}
 
 # Installing langs
 ## Nodejs
 echo "Checking if nodejs is installed"
-if [ -z "$(command -v node)" ]
+
+if [ "$(command -v asdf)" ]
 then
-  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-  asdf install nodejs latest
-  asdf global nodejs latest
-  echo "Installed Nodejs LTS and set it to global asdf version"
+  if [ "$(command -v node)" ]
+  then
+    echo "nodejs already installed"
+  else
+    asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+    asdf install nodejs latest
+    asdf global nodejs latest
+    echo "Installed Nodejs LTS and set it to global asdf version"
+  fi
 else
-  echo "nodejs already installed"
+  printf "\033[0;35m
+    Can't use asdf now.
+    You may have to do this manually.
+  \033[0m
+  "
 fi
 
 # Communicate installation complete
-
 printf "\033[0;35m
 
 #################################################
