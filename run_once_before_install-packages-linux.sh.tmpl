@@ -2,11 +2,11 @@
 #!/bin/sh
 
 # Upgrade first
-sudo eopkg upgrade
+sudo dnf upgrade
 
 # Installing for Solus
 echo "Installing packages and apps"
-sudo eopkg install \
+sudo dnf install \
   alacritty \
   bat \
   broot \
@@ -24,7 +24,7 @@ sudo eopkg install \
   tmuxp \
   zsh
 
-sudo eopkg install -c system.devel
+sudo dnf install -c system.devel
 
 # Install font
 echo "Checking fonts..."
