@@ -1,3 +1,10 @@
+local servers = {
+  'eslint',
+  'html',
+  'lua_ls',
+  'tsserver',
+}
+
 return {
   -- LSP stuff
   -- {
@@ -80,12 +87,6 @@ return {
     config = function()
       local vks = require('user.utils').vks
       local buf = vim.lsp.buf
-      local servers = {
-        'eslint',
-        'html',
-        'lua_ls',
-        'tsserver',
-      }
 
       -- Setup LSP configs
       for _, server in pairs(servers) do
