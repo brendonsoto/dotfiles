@@ -34,8 +34,8 @@ vks('n', 'st', ':tab split<cr>', { desc= 'Open current pane into tab' })
 
 
 -- ## Tab navigation
-vks('n', '<leader>tn', ':tabn<cr>', { desc = 'Tab Next' })
-vks('n', '<leader>tp', ':tabp<cr>', { desc = 'Tab Prev' })
+vks('n', ']t', ':tabn<cr>', { desc = 'Tab Next' })
+vks('n', '[t', ':tabp<cr>', { desc = 'Tab Prev' })
 
 
 -- # Insert mode stuff
