@@ -1164,9 +1164,11 @@ xplr.config.modes.builtin.default = {
         },
       },
       ["enter"] = {
-        help = "quit with result",
+        -- help = "quit with result",
+        help = "enter with result",
         messages = {
-          "PrintResultAndQuit",
+          -- "PrintResultAndQuit",
+          { CallLua = "custom.enter_func" },
         },
       },
       ["f"] = {
