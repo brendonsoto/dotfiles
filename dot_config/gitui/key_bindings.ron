@@ -20,6 +20,11 @@
     move_up: Some(( code: Char('k'), modifiers: ( bits: 0,),)),
     move_down: Some(( code: Char('j'), modifiers: ( bits: 0,),)),
 
+    stage_unstage_item: Some(( code: Char(' '), modifiers: (bits: 0,),)),
+    exit_popup: Some(( code: Char('q'), modifiers: (bits: 0,),)),
+
+    blame: Some(( code: Char('b'), modifiers: (bits: 0,),)),
+
     popup_up: Some(( code: Char('p'), modifiers: ( bits: 2,),)),
     popup_down: Some(( code: Char('n'), modifiers: ( bits: 2,),)),
     page_up: Some(( code: Char('d'), modifiers: ( bits: 2,),)),
@@ -42,4 +47,6 @@
     stash_open: Some(( code: Char('l'), modifiers: ( bits: 0,),)),
 
     abort_merge: Some(( code: Char('M'), modifiers: ( bits: 1,),)),
+
+    commit_amend: Some(( code: Char('A'), modifiers: ( bits: 1,),)),
 )
