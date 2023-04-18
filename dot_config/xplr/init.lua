@@ -1233,6 +1233,19 @@ xplr.config.modes.builtin.default = {
         --   },
         -- },
       },
+      ["D"] = {
+        help = "duplicate as",
+        messages = {
+          "PopMode",
+          { SwitchModeBuiltin = "duplicate_as" },
+          {
+            BashExecSilently0 = [===[
+              NAME=$(basename "${XPLR_FOCUS_PATH:?}")
+              "$XPLR" -m 'SetInputBuffer: %q' "${NAME:?}"
+            ]===],
+          },
+        },
+      },
       ["right"] = {
         help = "enter",
         messages = {
