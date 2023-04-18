@@ -146,13 +146,21 @@ return {
     },
     opts = function()
       return {
+        finder = {
+          keys = {
+            expand_or_jump = '<CR>',
+            quit = { 'q', '<ESC>' },
+            vsplit = 'v',
+            split = 's',
+            tabe = 't',
+          },
+        },
         outline = {
           auto_close = true,
           auto_preview = true,
           show_detail = true,
           keys = {
-            jump = '<CR>',
-            expand_collapse = 'u',
+            expand_or_jump = '<CR>',
             quit = 'q',
           },
         },
