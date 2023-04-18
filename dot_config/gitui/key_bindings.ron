@@ -23,7 +23,8 @@
     stage_unstage_item: Some(( code: Char(' '), modifiers: (bits: 0,),)),
     exit_popup: Some(( code: Char('q'), modifiers: (bits: 0,),)),
 
-    blame: Some(( code: Char('b'), modifiers: (bits: 0,),)),
+    blame: Some(( code: Char('B'), modifiers: (bits: 1,),)),
+    select_branch: Some(( code: Char('b'), modifiers: (bits: 0,),)),
 
     popup_up: Some(( code: Char('p'), modifiers: ( bits: 2,),)),
     popup_down: Some(( code: Char('n'), modifiers: ( bits: 2,),)),
