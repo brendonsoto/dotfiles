@@ -34,10 +34,10 @@ return {
   { 'tpope/vim-fugitive' },
   {
     'lewis6991/gitsigns.nvim',
-    init = function ()
+    init = function()
       local vks = vim.keymap.set
-      vks('n', ']h', '<cmd>Gitsigns next_hunk<cr>',{ desc = 'Git next hunk' })
-      vks('n', '[h', '<cmd>Gitsigns prev_hunk<cr>',{ desc = 'Git next hunk' })
+      vks('n', ']h', '<cmd>Gitsigns next_hunk<cr>', { desc = 'Git next hunk' })
+      vks('n', '[h', '<cmd>Gitsigns prev_hunk<cr>', { desc = 'Git next hunk' })
     end,
     config = true,
   },
@@ -99,19 +99,19 @@ return {
                 heading = {
                   enabled = true,
 
-                  level_1 = {enabled = true, icon = ""},
+                  level_1 = { enabled = true, icon = "" },
 
-                  level_2 = {enabled = true, icon = " "},
+                  level_2 = { enabled = true, icon = " " },
 
-                  level_3 = {enabled = true, icon = "  "},
+                  level_3 = { enabled = true, icon = "  " },
 
-                  level_4 = {enabled = true, icon = "   "},
+                  level_4 = { enabled = true, icon = "   " },
 
-                  level_5 = {enabled = true, icon = "    "},
+                  level_5 = { enabled = true, icon = "    " },
 
-                  level_6 = {enabled = true, icon = "     "}
+                  level_6 = { enabled = true, icon = "     " }
                 },
-                marker = {enabled = true, icon = ""},
+                marker = { enabled = true, icon = "" },
               },
             }
           },
@@ -139,7 +139,7 @@ return {
       parser_configs.norg = {
         install_info = {
           url = "https://github.com/nvim-neorg/tree-sitter-norg",
-          files = {"src/parser.c", "src/scanner.cc"},
+          files = { "src/parser.c", "src/scanner.cc" },
           branch = "main"
         }
       }
@@ -161,32 +161,37 @@ return {
 
       -- Taken from the Config recipes
       local new_maker = function(filepath, bufnr, opts)
-          opts = opts or {}
+        opts = opts or {}
 
-          filepath = vim.fn.expand(filepath)
-          vim.loop.fs_stat(filepath, function(_, stat)
-              if not stat then return end
-              if stat.size > 100000 then
-                  return
-              else
-                  previewers.buffer_previewer_maker(filepath, bufnr, opts)
-              end
-          end)
+        filepath = vim.fn.expand(filepath)
+        vim.loop.fs_stat(filepath, function(_, stat)
+          if not stat then return end
+          if stat.size > 100000 then
+            return
+          else
+            previewers.buffer_previewer_maker(filepath, bufnr, opts)
+          end
+        end)
       end
 
       telescope.setup {
-          defaults = {
-              buffer_previewer_maker = new_maker,
-              path_display = {'truncate'},
+        defaults = {
+          buffer_previewer_maker = new_maker,
+          path_display = { 'truncate' },
+        },
+        extensions = {
+          heading = {
+            treesitter = true,
           },
-          pickers = {
-              find_files = {
-                  find_command = {
-                      'rg', '--ignore', '--hidden', '--files', '-g', '!.git/*'
-                  },
-                  follow = true
-              }
+        },
+        pickers = {
+          find_files = {
+            find_command = {
+              'rg', '--ignore', '--hidden', '--files', '-g', '!.git/*'
+            },
+            follow = true
           }
+        },
       }
 
       -- Command for easy making markdown link
@@ -200,7 +205,7 @@ return {
               local filename = selection[1]
               local file_without_dashes = string.gsub(filename, "-", " ")
               local ext_indx = string.find(filename, "%.")
-              local file_without_ext = string.sub(file_without_dashes, 0, ext_indx-1)
+              local file_without_ext = string.sub(file_without_dashes, 0, ext_indx - 1)
               local md_link = string.format("[%s](./%s)", file_without_ext, filename)
               vim.api.nvim_put({ md_link }, "", false, true)
             end)
@@ -264,6 +269,14 @@ return {
     end,
   },
   { 'nvim-neorg/neorg-telescope' },
+  {
+    'crispgm/telescope-heading.nvim',
+    config = function()
+      local vks = vim.keymap.set
+      require('telescope').load_extension('heading')
+      vks('n', '<leader>dh', ':Telescope heading<CR>', { desc = 'Doc header (Markdown)' })
+    end,
+  },
 
   -- Undo tree
   -- Uncomment when you plan on actually using it
