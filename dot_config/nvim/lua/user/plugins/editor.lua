@@ -278,6 +278,21 @@ return {
     end,
   },
 
+  -- Session managment
+  {
+    'rmagatti/auto-session',
+    config = function()
+      vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+      require('auto-session').setup({
+        auto_session_enabled = false,
+        auto_save_enabled = false,
+        auto_restore_enabled = false,
+        auto_session_use_git_branch = true,
+      })
+      require('telescope').load_extension('session-lens')
+    end,
+  },
+
   -- Undo tree
   -- Uncomment when you plan on actually using it
   -- {
