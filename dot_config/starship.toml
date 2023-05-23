@@ -17,6 +17,12 @@ format = " "
 success_symbol = "[](bold green)"
 error_symbol = "[](bold red)"
 
+# Trying to improve performance
+# kudos: https://github.com/starship/starship/issues/4305#issuecomment-1222882244
+[git_status]
+ignore_submodules = true
+untracked = ""
+
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
