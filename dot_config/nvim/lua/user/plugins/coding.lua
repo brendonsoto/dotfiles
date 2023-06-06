@@ -212,10 +212,14 @@ return {
         },
       })
       require('mini.pairs').setup()
-      require('mini.starter').setup({
+      local starter = require('mini.starter')
+      starter.setup({
         header = function ()
           return require('user.dashboard-art').get_art()
-        end
+        end,
+        items = {
+          starter.sections.telescope(),
+        }
       })
       require('mini.surround').setup({
         mappings = {
