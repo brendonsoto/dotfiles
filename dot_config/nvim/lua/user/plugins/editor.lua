@@ -38,6 +38,7 @@ return {
       local vks = vim.keymap.set
       vks('n', ']h', '<cmd>Gitsigns next_hunk<cr>', { desc = 'Git next hunk' })
       vks('n', '[h', '<cmd>Gitsigns prev_hunk<cr>', { desc = 'Git next hunk' })
+      vks('n', 'gb', '<cmd>Gitsigns toggle_current_line_blame<cr>', { desc = 'Toggle line blame' })
     end,
     config = true,
   },
