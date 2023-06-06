@@ -238,6 +238,6 @@ return {
     end,
   },
 
-  -- Tabular
-  { 'godlygeek/tabular' },
+  -- Tabular - I rarely use this
+  -- { 'godlygeek/tabular' },
 }
