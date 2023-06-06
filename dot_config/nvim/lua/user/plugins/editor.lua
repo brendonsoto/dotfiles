@@ -79,73 +79,6 @@ return {
   -- Named tabs!!
   { 'gcmt/taboo.vim' },
 
-  -- Neorg
-  {
-    'vhyrro/neorg',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    ft = 'norg',
-    -- build = ':Neorg sync-parsers',
-    opts = function()
-      return {
-        load = {
-          ["core.defaults"] = {},
-          ["core.integrations.telescope"] = {},
-          -- ["core.integrations.nvim-cmp"] = {},
-          ["core.keybinds"] = {},
-          -- ["core.norg.completion"] = {config = {engine = "nvim-cmp"}},
-          ["core.norg.concealer"] = {
-            config = {
-              icons = {
-                heading = {
-                  enabled = true,
-
-                  level_1 = { enabled = true, icon = "" },
-
-                  level_2 = { enabled = true, icon = " " },
-
-                  level_3 = { enabled = true, icon = "  " },
-
-                  level_4 = { enabled = true, icon = "   " },
-
-                  level_5 = { enabled = true, icon = "    " },
-
-                  level_6 = { enabled = true, icon = "     " }
-                },
-                marker = { enabled = true, icon = "" },
-              },
-            }
-          },
-          ["core.norg.dirman"] = {
-            config = {
-              -- TODO: Can I use an environment var for this too?
-              workspaces = {
-                work = "~/documents/neorg-work",
-                notes = "~/documents/notes",
-              },
-              autodetect = true,
-              autochdir = true
-            }
-          }
-        },
-      }
-    end,
-    config = function(_, opts)
-      require('neorg').setup(opts)
-
-      vim.keymap.set('n', '<leader>fl', ':Telescope neorg find_linkable<cr>', { desc = '(Neorg) Find linkable' })
-
-      local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-
-      parser_configs.norg = {
-        install_info = {
-          url = "https://github.com/nvim-neorg/tree-sitter-norg",
-          files = { "src/parser.c", "src/scanner.cc" },
-          branch = "main"
-        }
-      }
-    end,
-  },
-
   -- Telescope!!
   {
     'nvim-telescope/telescope.nvim',
@@ -268,7 +201,6 @@ return {
       vks('n', '<leader>s', pick_session, { desc = 'Pick Session' })
     end,
   },
-  { 'nvim-neorg/neorg-telescope' },
   {
     'crispgm/telescope-heading.nvim',
     config = function()

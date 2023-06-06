@@ -48,17 +48,6 @@ return {
         })
       })
 
-      -- Neorg setup
-      cmp.setup.filetype('norg', {
-        sources = cmp.config.sources({
-          { name = 'neorg' }
-        }, {
-          { name = 'buffer' }
-        }, {
-          { name = 'path' }
-        })
-      })
-
       -- Markdown setup
       cmp.setup.filetype('markdown', {
         sources = cmp.config.sources({
@@ -105,7 +94,6 @@ return {
             vim_item.menu = ({
               buffer = '[Buffer]',
               luasnip = '[LuaSnip]',
-              neorg = '[Neorg]',
               nvim_lsp = '[LSP]',
               path = '[Path]',
             })[entry.source.name]
