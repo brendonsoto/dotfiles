@@ -46,3 +46,12 @@ unsetopt share_history
 
 # Prevent repeats in PATH
 typeset -U PATH
+
+
+if [ -n "$HOME/.config/broot/launcher/bash/br" ]; then
+  source /home/queenteenprincex/.config/broot/launcher/bash/br
+else
+  echo "broot not installed yet"
+fi
+
+
