@@ -1,4 +1,5 @@
 alias gbr="git branch --sort=-committerdate | head -5"
+alias gco="git checkout"
 alias gf="git fetch"
 alias gfarm="gcm; git fetch && git rebase origin/main"
 alias gp="git pull"
