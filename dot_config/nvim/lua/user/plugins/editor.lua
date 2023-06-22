@@ -129,28 +129,29 @@ return {
       }
 
       -- Command for easy making markdown link
-      local make_markdown_link = function()
-        require('telescope.builtin').find_files {
-          prompt_title = "Link file",
-          attach_mappings = function(prompt_bufnr, _)
-            actions.select_default:replace(function()
-              actions.close(prompt_bufnr)
-              local selection = action_state.get_selected_entry()
-              local filename = selection[1]
-              local file_without_dashes = string.gsub(filename, "-", " ")
-              local ext_indx = string.find(filename, "%.")
-              local file_without_ext = string.sub(file_without_dashes, 0, ext_indx - 1)
-              local md_link = string.format("[%s](./%s)", file_without_ext, filename)
-              vim.api.nvim_put({ md_link }, "", false, true)
-            end)
-            return true
-          end,
-        }
-      end
+      -- local make_markdown_link = function()
+      --   require('telescope.builtin').find_files {
+      --     prompt_title = "Link file",
+      --     attach_mappings = function(prompt_bufnr, _)
+      --       actions.select_default:replace(function()
+      --         actions.close(prompt_bufnr)
+      --         local selection = action_state.get_selected_entry()
+      --         local filename = selection[1]
+      --         local file_without_dashes = string.gsub(filename, "-", " ")
+      --         local ext_indx = string.find(filename, "%.")
+      --         local file_without_ext = string.sub(file_without_dashes, 0, ext_indx - 1)
+      --         local md_link = string.format("[%s](./%s)", file_without_ext, filename)
+      --         vim.api.nvim_put({ md_link }, "", false, true)
+      --       end)
+      --       return true
+      --     end,
+      --   }
+      -- end
 
       -- Manage sessions
       local pick_session = function()
-        local sessions_dir = '$HOME/.config/nvim/sessions'
+        local sessions_dir = vim.fn.stdpath("data") .. '/sessions/'
+        vim.loop.fs_mkdir(sessions_dir, 493) -- 493 = 0755
 
         require('telescope.builtin').find_files {
           prompt_title = 'Sessions (Creates one if input doesn\'t exist)',
@@ -160,10 +161,10 @@ return {
               actions.close(prompt_bufnr)
               local selection = action_state.get_selected_entry()
 
-              -- If the selection isn't an existin file, create a new one
+              -- If the selection isn't an existing file, create a new one
               if selection == nil then
                 local new_file = action_state.get_current_line()
-                local filepath = sessions_dir .. '/' .. new_file
+                local filepath = sessions_dir .. new_file
 
                 -- Accomodate my laziness of not wanting to add the file extension
                 if string.find(new_file, '.vim') == nil then
@@ -174,7 +175,7 @@ return {
                 print('Made new session file: ' .. filepath)
               else
                 local filename = selection[1]
-                local filepath = sessions_dir .. '/' .. filename
+                local filepath = sessions_dir .. filename
                 vim.cmd.source(filepath) -- same as `:Source <session.vim>`
               end
             end)
