@@ -4,6 +4,12 @@ then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Luarocks
+if [ -d "$HOME/.luarocks" ]
+then
+  export PATH="$HOME/.luarocks/bin:$PATH"
+fi
+
 # Ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/ripgreprc
 
