@@ -184,6 +184,30 @@ return {
         }
       end
 
+      -- Delete sessions
+      local delete_session = function()
+        local sessions_dir = vim.fn.stdpath("data") .. '/sessions/'
+
+        require('telescope.builtin').find_files {
+          prompt_title = 'Delete session',
+          cwd = sessions_dir,
+          attach_mappings = function(prompt_bufnr, _)
+            actions.select_default:replace(function()
+              actions.close(prompt_bufnr)
+              local selection = action_state.get_selected_entry()
+
+              -- If the selection isn't an existing file, create a new one
+              if selection ~= nil then
+                local filename = selection[1]
+                local filepath = sessions_dir .. filename
+                vim.fn.delete(filepath) -- same as `:Source <session.vim>`
+              end
+            end)
+            return true
+          end
+        }
+      end
+
 
       -- Setup Telescope specific keybindings
       vks('n', '<leader>f<space>', builtin.builtin, { desc = 'Telescope Builtin' })
@@ -200,7 +224,8 @@ return {
       vks('n', '<leader>ft', builtin.lsp_type_definitions, { desc = '(LSP) Type Definitions' })
       vks('n', '<leader>fx', builtin.diagnostics, { desc = '(LSP) Diagnostic list' })
       vks('n', '<leader>g', builtin.live_grep, { desc = 'Live grep' })
-      vks('n', '<leader>s', pick_session, { desc = 'Pick Session' })
+      vks('n', '<leader>sp', pick_session, { desc = 'Pick Session' })
+      vks('n', '<leader>sd', delete_session, { desc = 'Delete Session' })
     end,
   },
   {
