@@ -12,4 +12,19 @@ lmk() {
   "$@" || osascript -e 'display alert "Oh no!" message "Something dun gon goofd up! Check your terminal."'
   osascript -e 'display alert "Process finished!" message "check your terminal"'
 }
+
+remind_me_in() {
+  TIME=$1
+  SLEEP_TIME=$(($1 * 60))
+  shift # this is to get the rest of the args as one string
+  NOTE="$*"
+  echo "Ok! You'll be reminded of \"$NOTE\" in $TIME minute/s!"
+
+  closure() {
+    sleep "$1"
+    osascript -e "display notification \"$2\" with title \"Reminder!\""
+  }
+
+  closure "$SLEEP_TIME" "$NOTE" &
+}
 {{ end -}}
