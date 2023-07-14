@@ -177,7 +177,7 @@ return {
       -- if there is no implement it will hide
       -- when you use action in finder like open vsplit then you can
       -- use <C-t> to jump back
-      vks('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', { desc = 'LSP finder', silent = true })
+      vks('n', 'gh', '<cmd>Lspsaga finder<CR>', { desc = 'LSP finder', silent = true })
 
       -- Code action
       vks({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<CR>', { desc = 'Code action', silent = true })
@@ -198,14 +198,18 @@ return {
       vks('n', '<leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>', { silent = true })
 
       -- Diagnsotic jump can use `<c-o>` to jump back
-      vks('n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', { silent = true })
-      vks('n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', { silent = true })
+      vks('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', { silent = true })
+      vks('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', { silent = true })
+
+      -- Trying out incoming/outgoing calls
+      vks('n', 'gci', '<cmd>Lspsaga incoming_calls<CR>', { silent = true })
+      vks('n', 'gco', '<cmd>Lspsaga outgoing_calls<CR>', { silent = true })
 
       -- Only jump to error
-      vks('n', '[E', function()
+      vks('n', '[e', function()
         require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })
       end, { silent = true })
-      vks('n', ']E', function()
+      vks('n', ']e', function()
         require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })
       end, { silent = true })
 
