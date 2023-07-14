@@ -32,6 +32,11 @@ vks('n', 'sh', ':split<cr>', { desc= 'Split current pane horizontally' })
 vks('n', 'sv', ':vs<cr>', { desc= 'Split current pane vertically' })
 vks('n', 'st', ':tab split<cr>', { desc= 'Open current pane into tab' })
 
+-- ## Inspired by T-Pope's Unimpaired
+vks('n', '[b', ':bprev<cr>', { desc = 'Previous buffer' })
+vks('n', '[t', ':tabp<cr>', { desc = 'Previous tab' })
+vks('n', ']b', ':bnext<cr>', { desc = 'Next buffer' })
+vks('n', ']t', ':tabn<cr>', { desc = 'Next tab' })
 
 -- ## Tab navigation
 vks('n', ']t', ':tabn<cr>', { desc = 'Tab Next' })
