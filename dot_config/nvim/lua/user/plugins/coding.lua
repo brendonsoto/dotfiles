@@ -6,8 +6,8 @@ return {
     version = false,
     event = 'InsertEnter',
     dependencies = {
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
+      'dcampos/nvim-snippy',
+      'dcampos/cmp-snippy',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
@@ -60,7 +60,7 @@ return {
       return {
         snippet = {
           expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            require('snippy').expand_snippet(args.body)
           end
         },
         mapping = cmp.mapping.preset.insert({
@@ -82,7 +82,7 @@ return {
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
-          { name = 'luasnip' },
+          { name = 'snippy' },
         }, {
           { name = 'buffer' },
         }, {
@@ -93,7 +93,7 @@ return {
           format = function(entry, vim_item)
             vim_item.menu = ({
               buffer = '[Buffer]',
-              luasnip = '[LuaSnip]',
+              snippy = '[Snippy]',
               nvim_lsp = '[LSP]',
               path = '[Path]',
             })[entry.source.name]
