@@ -28,7 +28,7 @@ then
   curl -sS https://starship.rs/install.sh | sh
 fi
 {{ else if eq .chezmoi.osRelease.id "solus" -}}
-sudo dnf install \
+sudo eopkg install \
   alacritty \
   bat \
   broot \
@@ -45,7 +45,7 @@ sudo dnf install \
   tmuxp \
   zsh
 
-sudo dnf install -c system.devel
+sudo eopkg install -c system.devel
 {{ end -}}
 
 # Installing langs
