@@ -77,12 +77,26 @@ config.keys = {
     action = act.ActivatePaneDirection 'Down',
   },
 
+  -- Canceling modes by pressing escape or ctrl-c
+  { key = 'Escape', action = 'PopKeyTable' },
+  { key = 'c', mods = 'CTRL', action = 'PopKeyTable' },
+
   -- Pane readjustment
   {
-    key = 'R',
+    key = 'r',
     mods = 'LEADER',
     action = act.ActivateKeyTable {
       name = 'resize_pane',
+      one_shot = false,
+    },
+  },
+
+  -- Screen
+  {
+    key = 's',
+    mods = 'LEADER',
+    action = act.ActivateKeyTable {
+      name = 'screen',
       one_shot = false,
     },
   },
@@ -122,10 +136,16 @@ config.key_tables = {
     { key = 'l', action = act.AdjustPaneSize { 'Right', 5 } },
     { key = 'k', action = act.AdjustPaneSize { 'Up', 5 } },
     { key = 'j', action = act.AdjustPaneSize { 'Down', 5 } },
+  },
 
-    -- Cancel the mode by pressing escape
-    { key = 'Escape', action = 'PopKeyTable' },
-  }
+  screen = {
+    { key = 'j', action = act.ScrollByLine(1) },
+    { key = 'k', action = act.ScrollByLine(-1) },
+    { key = 'u', action = act.ScrollByPage(-1) },
+    { key = 'd', action = act.ScrollByPage(1) },
+    { key = 'G', action = act.ScrollToBottom },
+    { key = 'g', action = act.ScrollToTop },
+  },
 }
 
 -- config.window_background_image = '$HOME/Pictures/wallpapers/prince_x_nic_cage.jpg'
