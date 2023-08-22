@@ -34,8 +34,9 @@ config.keys = {
 
   -- Pane management
   {
-    key = '\\',
-    mods = 'LEADER',
+    key = '|',
+    -- The shift is needed in linux land...
+    mods = 'LEADER|SHIFT',
     action = act.SplitPane {
       direction = 'Right',
       size = { Percent = 50 },
@@ -77,9 +78,6 @@ config.keys = {
     action = act.ActivatePaneDirection 'Down',
   },
 
-  -- Canceling modes by pressing escape or ctrl-c
-  { key = 'Escape', action = 'PopKeyTable' },
-  { key = 'c', mods = 'CTRL', action = 'PopKeyTable' },
 
   -- Pane readjustment
   {
@@ -128,6 +126,21 @@ config.keys = {
     },
   },
 
+  -- Naming Workspaces/Tabs
+  {
+    key = 'n',
+    mods = 'LEADER',
+    action = act.ActivateKeyTable {
+      name = 'naming',
+    },
+  },
+  {
+    key = 'f',
+    mods = 'LEADER',
+    action = act.ActivateKeyTable {
+      name = 'find',
+    },
+  },
 }
 
 config.key_tables = {
@@ -136,6 +149,43 @@ config.key_tables = {
     { key = 'l', action = act.AdjustPaneSize { 'Right', 5 } },
     { key = 'k', action = act.AdjustPaneSize { 'Up', 5 } },
     { key = 'j', action = act.AdjustPaneSize { 'Down', 5 } },
+    -- Canceling modes by pressing escape or ctrl-c
+    { key = 'Escape', action = 'PopKeyTable' },
+    { key = 'c', mods = 'CTRL', action = 'PopKeyTable' },
+  },
+
+  naming = {
+    {
+      key = 't',
+      action = act.PromptInputLine {
+        description = 'What do you want to call this TAB?',
+        action = wezterm.action_callback(function(window, pane, line)
+          if line then
+            window:activate_tab():set_title(line)
+          end
+        end),
+      },
+    },
+    {
+      key = 'w',
+      action = act.PromptInputLine {
+        description = 'What do you want to call this TAB?',
+        action = wezterm.action_callback(function(window, pane, line)
+          if line then
+            window:activate_tab():set_title(line)
+          end
+        end),
+      },
+    },
+  },
+
+  find = {
+    {
+      key = 'w',
+      action = act.ShowLauncherArgs {
+        flags = 'FUZZY|WORKSPACES',
+      },
+    },
   },
 
   screen = {
@@ -145,6 +195,9 @@ config.key_tables = {
     { key = 'd', action = act.ScrollByPage(1) },
     { key = 'G', action = act.ScrollToBottom },
     { key = 'g', action = act.ScrollToTop },
+    -- Canceling modes by pressing escape or ctrl-c
+    { key = 'Escape', action = 'PopKeyTable' },
+    { key = 'c', mods = 'CTRL', action = 'PopKeyTable' },
   },
 }
 
