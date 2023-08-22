@@ -161,7 +161,7 @@ config.key_tables = {
         description = 'What do you want to call this TAB?',
         action = wezterm.action_callback(function(window, pane, line)
           if line then
-            window:activate_tab():set_title(line)
+            window:active_tab():set_title(line)
           end
         end),
       },
@@ -169,10 +169,13 @@ config.key_tables = {
     {
       key = 'w',
       action = act.PromptInputLine {
-        description = 'What do you want to call this TAB?',
+        description = 'What do you want to call this WORKSPACE?',
         action = wezterm.action_callback(function(window, pane, line)
           if line then
-            window:activate_tab():set_title(line)
+            wezterm.mux.rename_workspace(
+              wezterm.mux.get_active_workspace(),
+              line
+            )
           end
         end),
       },
