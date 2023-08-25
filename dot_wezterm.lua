@@ -206,6 +206,7 @@ config.key_tables = {
     { key = 'Escape', action = 'PopKeyTable' },
     { key = 'c', mods = 'CTRL', action = 'PopKeyTable' },
     { key = ']', mods = 'CTRL', action = 'PopKeyTable' },
+    { key = 'Enter', action = 'PopKeyTable' },
   },
 }
 
