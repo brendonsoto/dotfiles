@@ -68,11 +68,12 @@
     url = "https://github.com/asdf-vm/asdf.git"
     exact = true
     refreshPeriod = "168h"
-{{ else if eq .chezmoi.osRelease.id "solus" -}}
+{{ if eq .chezmoi.osRelease.id "solus" -}}
 [".local/bin/gitui"]
     type = "archive-file"
     url = "https://github.com/extrawurst/gitui/releases/latest/download/gitui-linux-musl.tar.gz"
     refreshPeriod = "168h"
     executable = true
     path = "./gitui"
+{{ end -}}
 {{ end -}}
