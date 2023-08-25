@@ -91,8 +91,8 @@ config.keys = {
 
   -- Screen
   {
-    key = 's',
-    mods = 'LEADER',
+    key = ']',
+    mods = 'CTRL',
     action = act.ActivateKeyTable {
       name = 'screen',
       one_shot = false,
@@ -125,6 +125,10 @@ config.keys = {
       end),
     },
   },
+
+  -- Move tabs programmatically
+  { key = '{', mods = 'SHIFT|CTRL', action = act.MoveTabRelative(-1) },
+  { key = '}', mods = 'SHIFT|CTRL', action = act.MoveTabRelative(1) },
 
   -- Naming Workspaces/Tabs
   {
@@ -201,6 +205,7 @@ config.key_tables = {
     -- Canceling modes by pressing escape or ctrl-c
     { key = 'Escape', action = 'PopKeyTable' },
     { key = 'c', mods = 'CTRL', action = 'PopKeyTable' },
+    { key = ']', mods = 'CTRL', action = 'PopKeyTable' },
   },
 }
 
