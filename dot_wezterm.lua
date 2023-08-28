@@ -21,16 +21,8 @@ config.font_size = 16.0
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
   -- Launchers
-  {
-    key = 'L',
-    mods = 'LEADER',
-    action = act.ShowLauncher,
-  },
-  {
-    key = 't',
-    mods = 'LEADER',
-    action = act.ShowTabNavigator,
-  },
+  { key = 'L', mods = 'LEADER', action = act.ShowLauncher },
+  { key = 't', mods = 'LEADER', action = act.ShowTabNavigator },
 
   -- Pane management
   {
@@ -50,54 +42,14 @@ config.keys = {
       size = { Percent = 50 },
     },
   },
-  {
-    key = 'z',
-    mods = 'LEADER',
-    action = act.TogglePaneZoomState,
-  },
+  { key = 'z', mods = 'LEADER', action = act.TogglePaneZoomState },
 
   -- Pane movement
-  {
-    key = 'h',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Left',
-  },
-  {
-    key = 'l',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Right',
-  },
-  {
-    key = 'k',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Up',
-  },
-  {
-    key = 'j',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Down',
-  },
+  { key = 'h', mods = 'LEADER', action = act.ActivatePaneDirection 'Left' },
+  { key = 'l', mods = 'LEADER', action = act.ActivatePaneDirection 'Right' },
+  { key = 'k', mods = 'LEADER', action = act.ActivatePaneDirection 'Up' },
+  { key = 'j', mods = 'LEADER', action = act.ActivatePaneDirection 'Down' },
 
-
-  -- Pane readjustment
-  {
-    key = 'r',
-    mods = 'LEADER',
-    action = act.ActivateKeyTable {
-      name = 'resize_pane',
-      one_shot = false,
-    },
-  },
-
-  -- Screen
-  {
-    key = ']',
-    mods = 'CTRL',
-    action = act.ActivateKeyTable {
-      name = 'screen',
-      one_shot = false,
-    },
-  },
 
   -- Workspaces
   -- Prompt for a name to use for a new workspace and switch to it.
@@ -130,6 +82,16 @@ config.keys = {
   { key = '{', mods = 'SHIFT|CTRL', action = act.MoveTabRelative(-1) },
   { key = '}', mods = 'SHIFT|CTRL', action = act.MoveTabRelative(1) },
 
+  -- KEY TABLE ACTIVATION
+  -- Finding Workspaces/Tabs
+  {
+    key = 'f',
+    mods = 'LEADER',
+    action = act.ActivateKeyTable {
+      name = 'find',
+    },
+  },
+
   -- Naming Workspaces/Tabs
   {
     key = 'n',
@@ -138,11 +100,24 @@ config.keys = {
       name = 'naming',
     },
   },
+
+  -- Pane readjustment
   {
-    key = 'f',
+    key = 'r',
     mods = 'LEADER',
     action = act.ActivateKeyTable {
-      name = 'find',
+      name = 'resize_pane',
+      one_shot = false,
+    },
+  },
+
+  -- Screen
+  {
+    key = ']',
+    mods = 'LEADER',
+    action = act.ActivateKeyTable {
+      name = 'screen',
+      one_shot = false,
     },
   },
 }
