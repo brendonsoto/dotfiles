@@ -1,6 +1,7 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
 local act = wezterm.action
+local mux = wezterm.mux
 
 -- This table will hold the configuration.
 local config = {}
@@ -205,6 +206,77 @@ config.key_tables = {
 --     }
 --   }
 -- }
+
+-- FOR WORK SETUPs:
+-- Use the below to automate making multiple windows with diff panes
+-- wezterm.on('gui-startup', function(cmd)
+--   local work_root = '/path/to/work/dir'
+--
+--   -- Create our base setup to work off of
+--   local tab, pane, window = mux.spawn_window(cmd or {})
+--
+--   -- Maximize the window so split pane sizes are set correctly
+--   window:gui_window():maximize()
+--
+--   -- Sleep since window resizing is async
+--   -- https://github.com/wez/wezterm/issues/3671
+--   wezterm.sleep_ms(1000)
+--
+--   -- Rename first tab to use for ad-hoc tool config purposes
+--   tab:set_title('config')
+--
+--
+--   -- logs
+--   tab, pane, window = window:spawn_tab({
+--     cwd = work_root,
+--   })
+--   tab:set_title('logs')
+--
+--   -- The goal is to have 2 rows & 2 cols, all the same size
+--   local pane_a = pane
+--   local pane_b = pane_a:split({ direction = 'Right' })
+--   pane_a:split({ direction = 'Bottom' })
+--   pane_b:split({ direction = 'Bottom' })
+--
+--
+--   -- Create Work root + obsid tab
+--   tab, pane, window = window:spawn_tab({
+--     cwd = work_root,
+--   })
+--   local work_root_pane = pane
+--
+--   tab:set_title('work_root + obsid')
+--
+--   pane:split({
+--     cwd = '/path/to/work/obsidian',
+--     direction = 'Right',
+--   })
+--
+--
+--   -- Create a tab w/ panes
+--   tab, pane, window = window:spawn_tab({
+--     cwd = work_root .. '/project',
+--   })
+--
+--   tab:set_title('Project A')
+--
+--   -- Create the tooling area with panes for Build/Lint/Test
+--   local tooling_pane = pane:split({ direction = 'Bottom', size = 0.2 }) -- Bottom for all tools
+--   tooling_pane:split({ direction = 'Left', size = 0.333 }) -- Left 1/3rd
+--   tooling_pane:split({ direction = 'Left', size = 0.5 }) -- Split remaining 2/3rds into 1/2
+--   -- tooling_pane now is the last third to be used for Testing
+--
+--   -- Create Tab with just bottom row for tooling
+--   tab, pane, window = window:spawn_tab({
+--     cwd = work_root .. '/other/project',
+--   })
+--   tab:set_title('Project B')
+--   pane:split({ direction = 'Bottom', size = 0.2 })
+--
+--
+--   -- Set the focus back to the tab with the monorepo root
+--   work_root_pane:activate()
+-- end)
 
 -- and finally, return the configuration to wezterm
 return config
