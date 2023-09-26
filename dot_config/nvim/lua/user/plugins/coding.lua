@@ -81,10 +81,9 @@ return {
           ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
+          { name = 'buffer' },
           { name = 'nvim_lsp' },
           { name = 'snippy' },
-        }, {
-          { name = 'buffer' },
         }, {
           { name = 'path' },
         }),
