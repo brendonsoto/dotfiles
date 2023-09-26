@@ -1,5 +1,9 @@
 export HISTCONTROL=ignoredups
 
+get_nth_line() {
+  sed -n "$1"p
+}
+
 {{- if eq .chezmoi.os "darwin" }}
 # @description Calls the given function and alerts on success or error.
 # The alert is a macOS notification alert, like a pop up.
@@ -22,7 +26,7 @@ remind_me_in() {
 
   closure() {
     sleep "$1"
-    osascript -e "display notification \"$2\" with title \"Reminder!\""
+    osascript -e "display alert \"Reminder!\" message \"$2\""
   }
 
   closure "$SLEEP_TIME" "$NOTE" &
