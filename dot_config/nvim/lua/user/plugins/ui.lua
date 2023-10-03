@@ -3,19 +3,38 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPost",
+    main = "ibl",
     opts = {
-      -- char = "▏",
-      char = "│",
-      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-      show_trailing_blankline_indent = false,
-      show_current_context = false,
+      indent = {
+        char = "|",
+        tab_char = ">",
+      },
+      exclude = {
+        filetypes = {
+          -- Defaults
+          "lspinfo",
+          "packer",
+          "checkhealth",
+          "help",
+          "man",
+          "gitcommit",
+          "TelescopePrompt",
+          "TelescopeResults",
+          -- Others
+          "alpha",
+          "dashboard",
+          "neo-tree",
+          "Trouble",
+          "lazy",
+        },
+      },
     },
     config = function(_, opts)
       -- Using the example from the README to have rainbow lines and treesitter suport
       vim.opt.list = true
       vim.opt.listchars:append("space:⋅")
 
-      require("indent_blankline").setup(opts)
+      require("ibl").setup(opts)
     end,
   },
 
