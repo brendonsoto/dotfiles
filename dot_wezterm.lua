@@ -207,6 +207,11 @@ config.key_tables = {
 --   }
 -- }
 
+config.inactive_pane_hsb = {
+  saturation = 0.6,
+  brightness = 0.6,
+}
+
 -- FOR WORK SETUPs:
 -- Use the below to automate making multiple windows with diff panes
 -- wezterm.on('gui-startup', function(cmd)
@@ -277,6 +282,7 @@ config.key_tables = {
 --   -- Set the focus back to the tab with the monorepo root
 --   work_root_pane:activate()
 -- end)
+
 
 -- and finally, return the configuration to wezterm
 return config
