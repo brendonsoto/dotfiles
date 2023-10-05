@@ -81,6 +81,8 @@ return {
                     globals = {'vim'}
                   },
                   workspace = {
+                    -- Prevent asking if I'm using libs every time
+                    checkThirdParty = false,
                     -- Make the server aware of Neovim runtime files
                     library = vim.api.nvim_get_runtime_file("", true),
                   },
