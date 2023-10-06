@@ -1,3 +1,5 @@
+fpath=($HOME/completion_zsh $fpath)
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -33,9 +35,24 @@ source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 
 # Load Stuff
+# zsh specific
+[ -f ~/.local/share/zsh/zsh-vi-mode ] && . ~/.local/share/zsh/zsh-vi-mode
+
+# Shell config + anything for work
 [ -f ~/.config/shell/main ] && . ~/.config/shell/main
 [ -f ~/.config/shell/work.zsh ] && . ~/.config/shell/work.zsh
-[ -f ~/.local/share/zsh/zsh-vi-mode ] && . ~/.local/share/zsh/zsh-vi-mode
+
+# GHCUP
+[ -f "/home/queen_teen_princex/.ghcup/env" ] && \
+  source "/home/queen_teen_princex/.ghcup/env" # ghcup-env
+
+# Broot
+if [ -n "$HOME/.config/broot/launcher/bash/br" ]; then
+  source "$HOME/.config/broot/launcher/bash/br"
+else
+  echo "broot not installed yet"
+fi
+
 
 # the `&& omz reload` is to get vi-mode working after reload
 alias reload=". ~/.zshrc && omz reload"
@@ -46,13 +63,6 @@ unsetopt share_history
 
 # Prevent repeats in PATH
 typeset -U PATH
-
-
-if [ -n "$HOME/.config/broot/launcher/bash/br" ]; then
-  source "$HOME/.config/broot/launcher/bash/br"
-else
-  echo "broot not installed yet"
-fi
 
 # kudos https://stackoverflow.com/questions/9810327/zsh-auto-completion-for-git-takes-significant-amount-of-time-can-i-turn-it-off/9810485#981048
 __git_files () {
