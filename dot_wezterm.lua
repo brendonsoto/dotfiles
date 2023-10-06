@@ -187,7 +187,7 @@ config.key_tables = {
 }
 
 -- config.window_background_image = '$HOME/Pictures/wallpapers/prince_x_nic_cage.jpg'
--- config.window_background_opacity = 0.02
+config.window_background_opacity = 0.9
 -- config.window_background_gradient = {
 --   orientation = {
 --     Radial = {
