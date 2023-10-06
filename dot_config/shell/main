@@ -17,6 +17,7 @@ cd "$HOME/.config/shell"
 . ./fzf.sh
 . ./tmuxp.sh
 . ./rust.sh
+. ./arduino.sh
 
 # Misc -- For anything temp
 [ -f ./misc.sh ] && . ./misc.sh
