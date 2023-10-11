@@ -172,12 +172,12 @@ config.key_tables = {
   },
 
   screen = {
-    { key = 'j', action = act.ScrollByLine(1) },
-    { key = 'k', action = act.ScrollByLine(-1) },
-    { key = 'u', action = act.ScrollByPage(-1) },
-    { key = 'd', action = act.ScrollByPage(1) },
-    { key = 'G', action = act.ScrollToBottom },
-    { key = 'g', action = act.ScrollToTop },
+    { key = 'j', mods = 'CTRL', action = act.ScrollByLine(1) },
+    { key = 'k', mods = 'CTRL', action = act.ScrollByLine(-1) },
+    { key = 'u', mods = 'CTRL', action = act.ScrollByPage(-1) },
+    { key = 'd', mods = 'CTRL', action = act.ScrollByPage(1) },
+    { key = 'G', mods = 'CTRL', action = act.ScrollToBottom },
+    { key = 'g', mods = 'CTRL', action = act.ScrollToTop },
     -- Canceling modes by pressing escape or ctrl-c
     { key = 'Escape', action = 'PopKeyTable' },
     { key = 'c', mods = 'CTRL', action = 'PopKeyTable' },
