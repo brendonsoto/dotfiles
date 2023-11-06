@@ -30,3 +30,6 @@ cmd([[autocmd BufRead,BufNewFile *.tmux set filetype=tmux]])
 
 -- Fugitive - auto-clean fugitive buffers
 cmd([[autocmd BufReadPost fugitive://* set bufhidden=delete]])
+
+-- Add JS/JSX/TS/TSX suffixes to files of the same type for easy nav
+cmd([[autocmd BufNewFile,BufRead *.js,*.jsx,*.ts,*.tsx setlocal suffixesadd+=.js,.jsx,.ts,.tsx]])
