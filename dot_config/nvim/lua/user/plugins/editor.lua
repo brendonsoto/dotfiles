@@ -150,7 +150,7 @@ return {
       -- end
 
       -- Manage sessions
-      local pick_session = function()
+      local session_pick = function()
         local sessions_dir = vim.fn.stdpath("data") .. '/sessions/'
         vim.loop.fs_mkdir(sessions_dir, 493) -- 493 = 0755
 
@@ -186,7 +186,7 @@ return {
       end
 
       -- Delete sessions
-      local delete_session = function()
+      local session_delete = function()
         local sessions_dir = vim.fn.stdpath("data") .. '/sessions/'
 
         require('telescope.builtin').find_files {
@@ -226,8 +226,8 @@ return {
       vks('n', '<leader>ft', builtin.lsp_type_definitions, { desc = '(LSP) Type Definitions' })
       vks('n', '<leader>fx', builtin.diagnostics, { desc = '(LSP) Diagnostic list' })
       vks('n', '<leader>g', builtin.live_grep, { desc = 'Live grep' })
-      vks('n', '<leader>sp', pick_session, { desc = 'Pick Session' })
-      vks('n', '<leader>sd', delete_session, { desc = 'Delete Session' })
+      vks('n', '<leader>sp', session_pick, { desc = 'Pick Session' })
+      vks('n', '<leader>sd', session_delete, { desc = 'Delete Session' })
     end,
   },
   {
