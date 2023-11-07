@@ -13,9 +13,9 @@ return {
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
     },
-    opts = function()
+    config = function()
       local cmp = require('cmp')
-      local compare = require('cmp.config.compare')
+      -- local compare = require('cmp.config.compare')
 
       -- For use in `cmp.setup.formatting.format` for contexts where formatting does
       -- not make sense (e.g. search, commandline)
@@ -24,40 +24,7 @@ return {
         return vim_item
       end
 
-      -- Use buffer source for `/`.
-      cmp.setup.cmdline('/', {
-        formatting = {
-          format = remove_formatting
-        },
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' }
-        }
-      })
-
-      -- Use cmdline & path source for ':'.
-      cmp.setup.cmdline(':', {
-        formatting = {
-          format = remove_formatting
-        },
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = 'path' }
-        }, {
-          { name = 'cmdline' }
-        })
-      })
-
-      -- Markdown setup
-      cmp.setup.filetype('markdown', {
-        sources = cmp.config.sources({
-          { name = 'buffer' }
-        }, {
-          { name = 'path' }
-        })
-      })
-
-      return {
+      cmp.setup({
         snippet = {
           expand = function(args)
             require('snippy').expand_snippet(args.body)
@@ -109,23 +76,57 @@ return {
         --     return not context.in_treesitter_capture("comment")
         --   end
         -- end,
+
         -- Took from CMP's default config and rearranged
-        sorting = {
-          -- priority_weight = 2,
-          comparators = {
-            compare.scopes,
-            compare.offset,
-            compare.recently_used,
-            -- compare.exact,
-            -- compare.score,
-            -- compare.locality,
-            -- compare.kind,
-            -- compare.sort_text,
-            -- compare.length,
-            -- compare.order,
-          },
+        -- sorting = {
+        --   -- priority_weight = 2,
+        --   comparators = {
+        --     compare.scopes,
+        --     compare.offset,
+        --     compare.recently_used,
+        --     -- compare.exact,
+        --     -- compare.score,
+        --     -- compare.locality,
+        --     -- compare.kind,
+        --     -- compare.sort_text,
+        --     -- compare.length,
+        --     -- compare.order,
+        --   },
+        -- },
+      })
+
+      -- Use buffer source for `/`.
+      cmp.setup.cmdline('/', {
+        formatting = {
+          format = remove_formatting
         },
-      }
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'buffer' }
+        }
+      })
+
+      -- Use cmdline & path source for ':'.
+      cmp.setup.cmdline(':', {
+        formatting = {
+          format = remove_formatting
+        },
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline' }
+        })
+      })
+
+      -- Markdown setup
+      cmp.setup.filetype('markdown', {
+        sources = cmp.config.sources({
+          { name = 'buffer' }
+        }, {
+          { name = 'path' }
+        })
+      })
     end,
   },
 
