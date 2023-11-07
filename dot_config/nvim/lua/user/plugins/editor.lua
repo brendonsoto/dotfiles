@@ -50,29 +50,30 @@ return {
     ft = { 'markdown', 'norg' },
   },
 
+  -- I don't really use this and always forget
   -- Harpoon. Ahab go brrr
-  {
-    'ThePrimeagen/harpoon',
-    dependencies = { 'nvim-telescope/telescope.nvim' },
-    config = function()
-      local vks = require('user/utils').vks
-      local mark = require('harpoon.mark')
-      local ui = require('harpoon.ui')
-
-      vks('n', '<leader>mf', mark.add_file, { desc = 'Harpoon - mark file' })
-      vks('n', '<leader>ms', ui.toggle_quick_menu, { desc = 'Harpoon - toggle ui (Marks Show)' })
-
-      -- Using hjkl as my way to remember 1,2,3,4
-      vks('n', '<C-h>', function() ui.nav_file(1) end, { desc = 'Harpoon - go to file 1' })
-      vks('n', '<C-j>', function() ui.nav_file(2) end, { desc = 'Harpoon - go to file 2' })
-      vks('n', '<C-k>', function() ui.nav_file(3) end, { desc = 'Harpoon - go to file 3' })
-      vks('n', '<C-l>', function() ui.nav_file(4) end, { desc = 'Harpoon - go to file 4' })
-
-      -- Telescope integration
-      require('telescope').load_extension('harpoon')
-      vks('n', '<leader>th', ':Telescope harpoon marks<CR>', { desc = 'Telescope Harpoon Marks' })
-    end,
-  },
+  -- {
+  --   'ThePrimeagen/harpoon',
+  --   dependencies = { 'nvim-telescope/telescope.nvim' },
+  --   config = function()
+  --     local vks = require('user/utils').vks
+  --     local mark = require('harpoon.mark')
+  --     local ui = require('harpoon.ui')
+  --
+  --     vks('n', '<leader>mf', mark.add_file, { desc = 'Harpoon - mark file' })
+  --     vks('n', '<leader>ms', ui.toggle_quick_menu, { desc = 'Harpoon - toggle ui (Marks Show)' })
+  --
+  --     -- Using hjkl as my way to remember 1,2,3,4
+  --     vks('n', '<C-h>', function() ui.nav_file(1) end, { desc = 'Harpoon - go to file 1' })
+  --     vks('n', '<C-j>', function() ui.nav_file(2) end, { desc = 'Harpoon - go to file 2' })
+  --     vks('n', '<C-k>', function() ui.nav_file(3) end, { desc = 'Harpoon - go to file 3' })
+  --     vks('n', '<C-l>', function() ui.nav_file(4) end, { desc = 'Harpoon - go to file 4' })
+  --
+  --     -- Telescope integration
+  --     require('telescope').load_extension('harpoon')
+  --     vks('n', '<leader>th', ':Telescope harpoon marks<CR>', { desc = 'Telescope Harpoon Marks' })
+  --   end,
+  -- },
 
   -- Highlighting other uses of the word under cursor
   { 'RRethy/vim-illuminate' },
@@ -238,20 +239,21 @@ return {
     end,
   },
 
+  -- Not sure I actually use this...
   -- Session managment
-  {
-    'rmagatti/auto-session',
-    config = function()
-      vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-      require('auto-session').setup({
-        auto_session_enabled = false,
-        auto_save_enabled = false,
-        auto_restore_enabled = false,
-        auto_session_use_git_branch = true,
-      })
-      require('telescope').load_extension('session-lens')
-    end,
-  },
+  -- {
+  --   'rmagatti/auto-session',
+  --   config = function()
+  --     vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+  --     require('auto-session').setup({
+  --       auto_session_enabled = false,
+  --       auto_save_enabled = false,
+  --       auto_restore_enabled = false,
+  --       auto_session_use_git_branch = true,
+  --     })
+  --     require('telescope').load_extension('session-lens')
+  --   end,
+  -- },
 
   -- Undo tree
   -- Uncomment when you plan on actually using it
