@@ -1,4 +1,4 @@
-* Rework twerk to have only relevant dirs
+# Rework twerk to have only relevant dirs
   This is for my `twerk` command.
   It prints a list of work directories in `fzf` and the selected one is piped to a `tmuxp` command.
 

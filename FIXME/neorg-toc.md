@@ -1,4 +1,4 @@
-* Neorg -- table of contents for quick moving around
+# Neorg -- table of contents for quick moving around
   Kinda ish...
   `:Telescope neorg search_headings` is broken
   Using `:Telescope neorg find_linkable` for now

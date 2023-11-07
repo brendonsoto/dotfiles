@@ -1,8 +1,8 @@
-* LSP Progress
+# LSP Progress
   The progress barely shows progress.
   Fidget seems to only appear at the very end.
 
-** Fix
+## Fix
    *tl;dr - delete plugins, remove `~/.config/nvim files`, and re-install*
    This is weird.
    I did fix it but I didn't really observe what the issue was.

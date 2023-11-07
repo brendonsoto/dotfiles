@@ -1,4 +1,4 @@
-* CSS Comment in styled components
+# CSS Comment in styled components
   Need them as `/* comment */` not `// comment`
 
   Forget the comments, that was in {:./comments-in-jsx-and-tsx:}

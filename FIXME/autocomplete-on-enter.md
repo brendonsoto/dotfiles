@@ -1,18 +1,18 @@
-* Autocompleting on Enter
+# Autocompleting on Enter
 
-** Steps to repro
+## Steps to repro
    - Start typing
    - If the autocompletion list appears, press enter
 
-** Desired outcome
+## Desired outcome
    Pressing enter won't automatically insert what's at the top of the menu.
    `<c-n>` and `<c-p>` still work fine.
    There's still a way to "confirm" what the top option is.
 
-** Hunch
+## Hunch
    Something with CMP
 
-** Reality
+## Reality
    Was CMP mappings.
    Before:
    @code lua

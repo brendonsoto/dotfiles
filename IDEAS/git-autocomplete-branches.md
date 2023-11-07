@@ -1,2 +1,2 @@
-* Only show local branches for autocomplete?
+# Only show local branches for autocomplete?
   but how to handle remotes for checking out other's work...

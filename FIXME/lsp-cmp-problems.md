@@ -1,5 +1,5 @@
-* LSP CMP Problems
-** Completion menu showing weird results
+# LSP CMP Problems
+## Completion menu showing weird results
    2022-Dec-14
 
    Example:
@@ -11,7 +11,7 @@
    How are LSP results sorted?
    This is for CMP so I should probably look through its source code to find out.
 
-** Fix
+## Fix
    Learned a bit about `cmp.compare` functions and `cmp.config.sorting`.
    I took what was in CMP's default config and rearranged it to get
    @code lua

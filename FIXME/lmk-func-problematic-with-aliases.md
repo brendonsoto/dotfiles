@@ -1,10 +1,10 @@
-* lmk script problematic with aliases
+# lmk script problematic with aliases
 
-** Steps to repro
+## Steps to repro
    - Have an alias (struggling to think of one since the one I use is for work), maybe like `alias e="echo 'hey'"`
    - Run `lmk <alias>`
 
-** Fix
+## Fix
    Turn the alias into a function.
    OR
    Make sure whatever the alias is referencing is in the `$PATH`.

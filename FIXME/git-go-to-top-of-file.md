@@ -1,13 +1,13 @@
-* Git go to top of file
+# Git go to top of file
   This is for commits
 
-** Repro
+## Repro
    - make changes
    - `git ci` (commit)
    - notice how your cursor may be at a random position
 
-** FIX
-*** Before
+## FIX
+### Before
     @code vimscript
       :au BufReadPost *
   \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'gitcommit'
@@ -15,5 +15,5 @@
     \ | endif
     @end
 
-*** After
+### After
     See `:h restore-cursor`

@@ -1,6 +1,6 @@
-* Have each term pane hold its own history
+# Have each term pane hold its own history
 
-** Repro
+## Repro
    - Start tmux session
    - Make another window
    - in window 1, 

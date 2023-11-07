@@ -1,4 +1,4 @@
-* Resolving webpack aliases when using "go to"
+# Resolving webpack aliases when using "go to"
   Problem:
   You have a webpack alias and thus have import statements like:
   `import MyComp from '~/components';`
@@ -10,7 +10,7 @@
   How to resolve webpack aliases when in insert mode when making an import statement
   This makes me think it's a nvim-cmp thing
 
-** Why the problem happens
+## Why the problem happens
    This has to do with mixing TS and JS files together.
    If there's an `alias` and both TS and JS files are referenced from it, the TS files will be found via LSP but not the JS ones.
    I believe this is because of the tsconfig needing the alias specified too.

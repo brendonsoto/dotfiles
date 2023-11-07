@@ -1,6 +1,6 @@
-* Comments in JSX/TSX
+# Comments in JSX/TSX
 
-** Repro steps
+## Repro steps
    - Create a React component like:
    @code React
    <div
@@ -13,6 +13,6 @@
 
    The line is commented using `//` instead of `{/* */}`
 
-** CANCELLED
+## CANCELLED
    Turns out having a comment using `//` for an attribute, or in other words something /inside/ a JSX element, is fine.
    The brackets are only needed if including a comment like a child element, but even then `//` works fine.

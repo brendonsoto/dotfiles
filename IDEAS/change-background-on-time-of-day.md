@@ -1,8 +1,8 @@
-* Change the background color based on the time of day 
+# Change the background color based on the time of day 
   I used to use this for a while but removed it as I liked the dark screen more.
   Here's the snippet (with `chezmoi`)
 
-  @code lua
+  ``` lua
   {{ if not .force_dark -}}
   -- Set background depending on time of day
   -- This is mostly to hint to me that it's time to go home / stop working
@@ -19,4 +19,4 @@
   {{- else -}}
   set.background = "dark"
   {{- end }}
-  @end
+  ```

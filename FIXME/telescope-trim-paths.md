@@ -1,5 +1,5 @@
-* Telescope - Trim Paths
-** Fix
+# Telescope - Trim Paths
+## Fix
    Commit: 464fadc35f3ca9c3a38a48b1d9d23ccc77793b6d
 
    Thanks to google an `:help telescope`!

@@ -1,5 +1,5 @@
-* Harpoon
-  {https://github.com/ThePrimeagen/harpoon}
+# Harpoon
+  [Harpoon](https://github.com/ThePrimeagen/harpoon)
 
   Currently have a basic setup to:
   - add a file
