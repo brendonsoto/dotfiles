@@ -21,6 +21,9 @@ config.font_size = 16.0
 
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
+  -- Debug
+  { key = 'd', mods = 'LEADER', action = act.ShowDebugOverlay },
+
   -- Launchers
   { key = 'L', mods = 'LEADER', action = act.ShowLauncher },
   { key = 't', mods = 'LEADER', action = act.ShowTabNavigator },
@@ -283,6 +286,23 @@ config.inactive_pane_hsb = {
 --   work_root_pane:activate()
 -- end)
 
+{{  if (eq .chezmoi.os "linux") -}}
+table.insert(
+  config.keys,
+  { key = 't', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' }
+)
+table.insert(
+  config.keys,
+  { key = 'w', mods = 'CTRL', action = act.CloseCurrentTab { confirm = false } }
+)
+
+for i = 1, 8 do
+  table.insert(
+    config.keys,
+    { key = tostring(i), mods = 'CTRL', action = act.ActivateTab(i - 1) }
+  )
+end
+{{- end  }}
 
 -- and finally, return the configuration to wezterm
 return config
