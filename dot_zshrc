@@ -29,6 +29,12 @@ plugins=(
   zsh-syntax-highlighting # docs said to source last. not sure if applies to omz, but y not?
 )
 
+# For NVM
+if [ -d "$HOME/.nvm" ]; then
+  zstyle ':omz:plugins:nvm' autoload yes
+  plugins+=(nvm)
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # Starship -- theming
