@@ -1,3 +1,6 @@
+# NOTE!!!
+# Any updates to zsh plugins needs to happen _BEFORE_ sourcing omz!
+
 fpath=($HOME/completion_zsh $fpath)
 
 # If you come from bash you might have to change your $PATH.
