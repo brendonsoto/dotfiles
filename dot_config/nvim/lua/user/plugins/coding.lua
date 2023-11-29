@@ -45,7 +45,7 @@ return {
             }
           }),
           ['<c-e>'] = cmp.mapping.abort(),
-          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
           { name = 'buffer' },
