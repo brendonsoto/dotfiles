@@ -287,19 +287,10 @@ config.inactive_pane_hsb = {
 -- end)
 
 {{  if (eq .chezmoi.os "linux") -}}
-table.insert(
-  config.keys,
-  { key = 't', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' }
-)
-table.insert(
-  config.keys,
-  { key = 'w', mods = 'CTRL', action = act.CloseCurrentTab { confirm = false } }
-)
-
 for i = 1, 8 do
   table.insert(
     config.keys,
-    { key = tostring(i), mods = 'CTRL', action = act.ActivateTab(i - 1) }
+    { key = tostring(i), mods = 'LEADER', action = act.ActivateTab(i - 1) }
   )
 end
 {{- end  }}
