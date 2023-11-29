@@ -31,16 +31,24 @@ return {
   },
 
   -- Git
-  { 'tpope/vim-fugitive' },
+  -- { 'tpope/vim-fugitive' },
+  -- {
+  --   'lewis6991/gitsigns.nvim',
+  --   init = function()
+  --     local vks = vim.keymap.set
+  --     vks('n', ']h', '<cmd>Gitsigns next_hunk<cr>', { desc = 'Git next hunk' })
+  --     vks('n', '[h', '<cmd>Gitsigns prev_hunk<cr>', { desc = 'Git next hunk' })
+  --     vks('n', 'gb', '<cmd>Gitsigns toggle_current_line_blame<cr>', { desc = 'Toggle line blame' })
+  --   end,
+  --   config = true,
+  -- },
   {
-    'lewis6991/gitsigns.nvim',
-    init = function()
-      local vks = vim.keymap.set
-      vks('n', ']h', '<cmd>Gitsigns next_hunk<cr>', { desc = 'Git next hunk' })
-      vks('n', '[h', '<cmd>Gitsigns prev_hunk<cr>', { desc = 'Git next hunk' })
-      vks('n', 'gb', '<cmd>Gitsigns toggle_current_line_blame<cr>', { desc = 'Toggle line blame' })
-    end,
-    config = true,
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    config = true
   },
 
   -- Goyo -- focus-ish zone
