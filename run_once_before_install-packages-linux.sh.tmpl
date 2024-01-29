@@ -2,7 +2,23 @@
 #!/bin/sh
 echo "Installing packages and apps"
 
-{{ if eq .chezmoi.osRelease.id "fedora" -}}
+{{ if eq .chezmoi.osRelease.id "endeavouros" -}}
+sudo pacman -Syu
+
+sudo pacman -S \
+  bat \
+  fd \
+  fzf \
+  git \
+  gitui \
+  neovim \
+  plocate \
+  ripgrep \
+  starship \
+  wezterm \
+  zsh
+
+{{ else if eq .chezmoi.osRelease.id "fedora" -}}
 sudo dnf upgrade
 sudo dnf copr enable atim/lazygit -y
 
