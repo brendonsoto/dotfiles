@@ -55,13 +55,6 @@ eval "$(starship init zsh)"
 [ -f "/home/queen_teen_princex/.ghcup/env" ] && \
   source "/home/queen_teen_princex/.ghcup/env" # ghcup-env
 
-# Broot
-# if [ -n "$HOME/.config/broot/launcher/bash/br" ]; then
-#   source "$HOME/.config/broot/launcher/bash/br"
-# else
-#   echo "broot not installed yet"
-# fi
-
 
 # the `&& omz reload` is to get vi-mode working after reload
 alias reload=". ~/.zshrc && omz reload"

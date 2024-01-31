@@ -18,9 +18,10 @@ sudo pacman -S \
   wezterm \
   zsh
 
+sudo chsh -s /usr/bin/zsh
+
 {{ else if eq .chezmoi.osRelease.id "fedora" -}}
 sudo dnf upgrade
-sudo dnf copr enable atim/lazygit -y
 
 sudo dnf install \
  alacritty \
@@ -30,7 +31,6 @@ sudo dnf install \
  gcc-c++ \
  git \
  gitui \
- lazygit \
  neovim \
  plocate \
  ripgrep \
@@ -47,12 +47,9 @@ fi
 sudo eopkg install \
   alacritty \
   bat \
-  broot \
   fd \
   fzf \
   git \
-  lazygit \
-  lf \
   neovim \
   plocate \
   ripgrep \

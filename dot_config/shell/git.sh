@@ -11,7 +11,6 @@ alias gcp="git cherry-pick"
 alias gwa="git worktree add"
 alias gwl="git worktree list"
 alias gwr="git worktree remove"
-alias lg="lazygit"
 alias gu="gitui"
 
 gcm() {

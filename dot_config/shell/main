@@ -10,12 +10,9 @@ cd "$HOME/.config/shell"
 . ./fun.sh
 
 # Tool specific
-. ./broot.sh
 . ./git.sh
-. ./lf.sh
 . ./nvim.sh
 . ./fzf.sh
-. ./tmuxp.sh
 . ./rust.sh
 . ./arduino.sh
 
