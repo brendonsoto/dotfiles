@@ -16,11 +16,3 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude '.git' . "$1"
 }
-
-if [ "$(command -v fd)" ]
-then
-  fzt() {
-    dir=$(fd -t d | fzf)
-    mk_tmux_sesh "$dir"
-  }
-fi
