@@ -24,7 +24,6 @@ sudo chsh -s /usr/bin/zsh
 sudo dnf upgrade
 
 sudo dnf install \
- alacritty \
  bat \
  fd-find \
  fzf \
@@ -45,7 +44,6 @@ then
 fi
 {{ else if eq .chezmoi.osRelease.id "solus" -}}
 sudo eopkg install \
-  alacritty \
   bat \
   fd \
   fzf \

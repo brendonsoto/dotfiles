@@ -54,7 +54,7 @@ brew "zsh"
 EOF
 
 # Casks, but check if they are installed first
-casks=("alacritty" "alfred" "beekeeper-studio" "chromedriver" "discord" "flux" "licecap" "ngrok" "rectangle" "visual-studio-code")
+casks=("alfred" "beekeeper-studio" "chromedriver" "discord" "flux" "licecap" "ngrok" "rectangle" "visual-studio-code")
 
 for c in "${casks[@]}"; do
   if ! command -v brew &> /dev/null
