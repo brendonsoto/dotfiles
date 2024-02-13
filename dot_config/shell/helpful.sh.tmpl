@@ -13,8 +13,11 @@ get_nth_line() {
 # @example
 #   notify_when_done npm install
 lmk() {
-  "$@" || osascript -e 'display alert "Oh no!" message "Something dun gon goofd up! Check your terminal."'
-  osascript -e 'display alert "Process finished!" message "check your terminal"'
+  if "$@"; then
+    osascript -e 'display alert "Process finished!" message "check your terminal"'
+  else
+    osascript -e 'display alert "Oh no!" message "Something dun gon goofd up! Check your terminal."'
+  fi
 }
 
 remind_me_in() {
