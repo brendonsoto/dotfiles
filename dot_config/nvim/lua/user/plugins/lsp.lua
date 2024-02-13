@@ -143,7 +143,7 @@ return {
   },
   { 'jose-elias-alvarez/null-ls.nvim' },
   {
-    'glepnir/lspsaga.nvim',
+    'nvimdev/lspsaga.nvim',
     event = 'BufRead',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
@@ -152,8 +152,11 @@ return {
     opts = function()
       return {
         finder = {
+          max_height = 0.8,
+          left_width = 0.4,
+          right_width = 0.4,
           keys = {
-            expand_or_jump = '<CR>',
+            toggle_or_open = '<CR>',
             quit = { 'q', '<ESC>' },
             vsplit = 'v',
             split = 's',
@@ -161,13 +164,13 @@ return {
           },
         },
         outline = {
-          auto_close = true,
-          auto_preview = true,
-          show_detail = true,
-          keys = {
-            expand_or_jump = '<CR>',
-            quit = 'q',
-          },
+          layout = 'float',
+          -- commented out because its all the default but i'll forget
+          -- keys = {
+          --   toggle_or_jump = 'o',
+          --   quit = 'q',
+          --   jump = 'e',
+          -- },
         },
       }
     end,
