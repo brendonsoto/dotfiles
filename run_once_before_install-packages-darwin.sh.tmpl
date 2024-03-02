@@ -1,6 +1,28 @@
 {{- if (eq .chezmoi.os "darwin") -}}
 #!/bin/bash
 
+# Check if the dev tools are installed yet
+if [ -n "$(xcode-select -p 1>/dev/null;echo $?)" ]
+then
+  printf "\033[0;35m
+
+  #################################################
+  Ya need to install or update the xcode-command-line tools  ya dinges!!
+  Install it by running: xcode-select --install
+
+  BEFORE YOU DO THAT, clear the state of this one-time script so you can re-run this:
+  chezmoi state delete-bucket --bucket=scriptState
+
+  Also, you'll probably need to install homebrew afterwards:
+  https://brew.sh/
+  #################################################
+
+  "
+
+  return 1 2>/dev/null || exit 1
+fi
+
+
 # Make brew a requirement prior to run this
 # Not including it because of the differences between M1 and Intel macs
 if [ -z "$(command -v brew)" ]
@@ -48,14 +70,15 @@ brew "the_silver_searcher"
 brew "tree"
 brew "universal-ctags"
 brew "wget"
+brew "xplr"
 brew "zsh"
 EOF
 
 # Casks, but check if they are installed first
-casks=("alfred" "beekeeper-studio" "chromedriver" "discord" "flux" "licecap" "ngrok" "rectangle" "visual-studio-code")
+casks=("alfred" "beekeeper-studio" "discord" "flux" "rectangle" "visual-studio-code")
 
 for c in "${casks[@]}"; do
-  if ! command -v brew &> /dev/null
+  if ! command -v "$c" &> /dev/null
   then
     brew install --cask "$c"
   fi
