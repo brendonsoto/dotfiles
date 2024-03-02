@@ -30,11 +30,13 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-[".local/share/fonts/hack"]
+{{ if eq .chezmoi.os "darwin" -}}
+["Library/Fonts/hack"]
     type = "archive"
     url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/hack.zip"
     exact = true
     refreshPeriod = "168h"
+{{ end -}}
 {{ if eq .chezmoi.os "linux" -}}
 [".local/bin/xplr"]
     type = "file"
@@ -48,6 +50,11 @@
 [".asdf"]
     type = "git-repo"
     url = "https://github.com/asdf-vm/asdf.git"
+    exact = true
+    refreshPeriod = "168h"
+[".local/share/fonts/hack"]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/hack.zip"
     exact = true
     refreshPeriod = "168h"
 {{ if eq .chezmoi.osRelease.id "solus" -}}
