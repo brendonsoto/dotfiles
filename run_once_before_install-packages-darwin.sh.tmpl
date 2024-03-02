@@ -2,7 +2,9 @@
 #!/bin/bash
 
 # Check if the dev tools are installed yet
-if [ -n "$(xcode-select -p 1>/dev/null;echo $?)" ]
+xcode-select -p 1>/dev/null
+# NOTE: "$?" refers to the value of the last ran command
+if [ "$?" -ne 0 ]
 then
   printf "\033[0;35m
 
@@ -75,7 +77,7 @@ brew "zsh"
 EOF
 
 # Casks, but check if they are installed first
-casks=("alfred" "beekeeper-studio" "discord" "flux" "rectangle" "visual-studio-code")
+casks=("alfred" "beekeeper-studio" "discord" "flux" "rectangle" "visual-studio-code", "wezterm")
 
 for c in "${casks[@]}"; do
   if ! command -v "$c" &> /dev/null
