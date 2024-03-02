@@ -77,7 +77,7 @@ brew "zsh"
 EOF
 
 # Casks, but check if they are installed first
-casks=("alfred" "beekeeper-studio" "discord" "flux" "rectangle" "visual-studio-code", "wezterm")
+casks=("alfred" "beekeeper-studio" "discord" "flux" "obsidian" "rectangle" "visual-studio-code" "wezterm")
 
 for c in "${casks[@]}"; do
   if ! command -v "$c" &> /dev/null
