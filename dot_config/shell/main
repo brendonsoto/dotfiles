@@ -7,7 +7,7 @@ cd "$HOME/.config/shell"
 . ./path_addons.sh
 . ./aliases.sh
 . ./helpful.sh
-. ./fun.sh
+# . ./fun.sh
 
 # Tool specific
 . ./git.sh
