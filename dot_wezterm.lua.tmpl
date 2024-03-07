@@ -155,8 +155,8 @@ config.key_tables = {
         description = 'What do you want to call this WORKSPACE?',
         action = wezterm.action_callback(function(window, pane, line)
           if line then
-            wezterm.mux.rename_workspace(
-              wezterm.mux.get_active_workspace(),
+            mux.rename_workspace(
+              mux.get_active_workspace(),
               line
             )
           end
@@ -190,7 +190,11 @@ config.key_tables = {
 }
 
 -- config.window_background_image = '$HOME/Pictures/wallpapers/prince_x_nic_cage.jpg'
-config.window_background_opacity = 0.9
+-- I like transparency, but only when I can have my editor in one window
+-- and switching windows is immediate, no animation or delay. The
+-- animation makes me a bit nauseaous and I haven't made the time to
+-- look into reducing motion on MacOS & Linux.
+-- config.window_background_opacity = 0.9
 -- config.window_background_gradient = {
 --   orientation = {
 --     Radial = {

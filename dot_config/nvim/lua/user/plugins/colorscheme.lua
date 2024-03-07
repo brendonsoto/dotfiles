@@ -7,7 +7,11 @@ return {
     config = function()
       require('tokyonight').setup({
         style = 'storm',
-        transparent = true,
+        -- I like transparency, but only when I can have my editor in one window
+        -- and switching windows is immediate, no animation or delay. The
+        -- animation makes me a bit nauseaous and I haven't made the time to
+        -- look into reducing motion on MacOS & Linux.
+        -- transparent = true,
         -- styles = {
         --   markup = {
         --     italic = {
