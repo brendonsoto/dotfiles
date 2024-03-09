@@ -1,6 +1,8 @@
 # LSP Progress
-  The progress barely shows progress.
-  Fidget seems to only appear at the very end.
+  Tools like fidget don't show anything until the whole server is loaded
+
+## Repro
+   - Open up a TS file
 
 ## Fix
    *tl;dr - delete plugins, remove `~/.config/nvim files`, and re-install*
