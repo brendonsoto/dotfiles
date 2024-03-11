@@ -144,7 +144,7 @@ return {
   { 'jose-elias-alvarez/null-ls.nvim' },
   {
     'nvimdev/lspsaga.nvim',
-    event = 'BufRead',
+    -- event = 'BufRead',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
       'nvim-treesitter/nvim-treesitter',
@@ -188,7 +188,7 @@ return {
       vks({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<CR>', { desc = 'Code action', silent = true })
 
       -- Rename
-      vks('n', 'gr', '<cmd>Lspsaga rename<CR>', { desc = 'LSP rename', silent = true })
+      -- vks('n', 'gr', '<cmd>Lspsaga rename<CR>', { desc = 'LSP rename', silent = true })
 
       -- Peek Definition
       -- you can edit the definition file in this flaotwindow
