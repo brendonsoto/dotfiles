@@ -2,6 +2,7 @@ local servers = {
   'eslint',
   'html',
   'lua_ls',
+  'marksman',
   'tsserver',
 }
 

@@ -8,5 +8,5 @@ There are install scripts for macOS and linux (Solus).
 They have _mostly_ the same tools.
 
 ## Related
-- [FIXME](./FIXME.md)
-- [IDEAS](./IDEAS.md)
+- [FIXME](./FIXME/index.md)
+- [IDEAS](./IDEAS/index.md)
