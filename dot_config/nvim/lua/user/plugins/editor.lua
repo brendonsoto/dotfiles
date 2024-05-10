@@ -20,7 +20,14 @@ return {
     keys = {
       {
         '<leader>fm',
-        ':Xplr %:p:h<cr>',
+        function()
+          -- This is to cover if a path has spaces in it
+          local path = vim.fn.printf(
+            '"%s"',
+            vim.fn.fnameescape(vim.fn.expand('%:p:h'))
+          )
+          vim.cmd({ cmd = 'Xplr', args = { path } })
+        end,
         'n',
         desc = 'File Manager',
       },

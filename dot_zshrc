@@ -52,8 +52,7 @@ eval "$(starship init zsh)"
 [ -f ~/.config/shell/work.zsh ] && . ~/.config/shell/work.zsh
 
 # GHCUP
-[ -f "/home/queen_teen_princex/.ghcup/env" ] && \
-  source "/home/queen_teen_princex/.ghcup/env" # ghcup-env
+[ -f "~/.ghcup/env" ] && source "~/.ghcup/env"
 
 
 # the `&& omz reload` is to get vi-mode working after reload

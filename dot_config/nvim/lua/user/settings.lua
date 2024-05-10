@@ -33,6 +33,8 @@ set.smartcase = true
 set.smartindent = true
 set.splitbelow = true
 set.splitright = true
+-- kudos https://stackoverflow.com/questions/45227014/displaying-the-relative-path-of-the-currently-edited-file-in-vims-statusline
+set.statusline = "%{expand('%:~:.')}"
 set.swapfile = false
 set.tabstop = 2
 set.termguicolors = true
