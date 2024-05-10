@@ -1,24 +1,42 @@
 # IDEAS
 
+These are listed in no particular order.
+
 ## Git
-   - [only show local branches for autocomplete?](./git-autocomplete-branches.md)
-   - [Git commit linting](./git-commit-linting.md)
+
+- [only show local branches for autocomplete?](./git-autocomplete-branches.md)
+- [Git commit linting](./git-commit-linting.md)
 
 ## Neovim
-   - [ ] [lua-linter-and-formatter](./lua-linter-and-formatter.md)
-   - [ ] [treesitter-term-under-cursor-highlighting](./treesitter-term-under-cursor-highlighting.md)
-   - [ ] [lsp-format-on-save](./lsp-format-on-save.md)
-   - [ ] [lsp-explore-workspaces](./lsp-explore-workspaces.md)
-   - [ ] [how-does-lsp-work](./how-does-lsp-work.md)
-   - [ ] [vim-notifications-use-system-notifier](./vim-notifications-use-system-notifier.md)
-   - [ ] How to clear logs here and there automagically?
-   - [ ] [revisit-netrw](./revisit-netrw.md)
-   - [ ] [https//github.com/nvim-treesitter/playground](https//github.com/nvim-treesitter/playground)
+
+- auto update markdown files with `modifiedAt` in the YAML frontmatter (if exists) on buf close/save
+- [lua-linter-and-formatter](./lua-linter-and-formatter.md)
+- [treesitter-term-under-cursor-highlighting](./treesitter-term-under-cursor-highlighting.md)
+- how-does-lsp-work
+- [vim-notifications-use-system-notifier](./vim-notifications-use-system-notifier.md)
+- How to clear logs here and there automagically?
+- [revisit-netrw](./revisit-netrw.md)
+- [https//github.com/nvim-treesitter/playground](https//github.com/nvim-treesitter/playground)
     - I want to use this when I start learning what treesitter's all about
-   - [ ] [explore-treesitter-keymaps](./explore-treesitter-keymaps.md)
-   - [ ] [rework-twerk-to-have-only-relevant-dirs](./rework-twerk-to-have-only-relevant-dirs.md)
-   - [ ] Can I get typescript's LSP auto-import to use single-quotes instead of double?
-   - [ ] `J` joins /and/ deletes the space
+- [explore-treesitter-keymaps](./explore-treesitter-keymaps.md)
+- [rework-twerk-to-have-only-relevant-dirs](./rework-twerk-to-have-only-relevant-dirs.md)
+- Can I get typescript's LSP auto-import to use single-quotes instead of double?
+- `J` joins /and/ deletes the space
+
+### Done
+
+- [replace-whichkey-with-telescope](./replace-whichkey-with-telescope.md)
+- [change-background-on-time-of-day](./change-background-on-time-of-day.md)
+- [revisiting-twerk](./revisiting-twerk.md)
+- [harpoon](./harpoon.md)
+- [undotree](./undotree.md)
+
+### Won't do
+
+- lsp-format-on-save
+    - This isn't great when working on a team that hasn't implemented any automatic code formatting
+- [https//github.com/VonHeikemen/lsp-zero.nvim](https//github.com/VonHeikemen/lsp-zero.nvim)
+    - Not going to implement since my current config is enough and I don't want another layer of abstraction over my main tools
 
 ### Completed
    - [x] [replace-whichkey-with-telescope](./replace-whichkey-with-telescope.md)
