@@ -51,6 +51,7 @@ return {
           { name = 'buffer' },
           { name = 'nvim_lsp' },
           { name = 'snippy' },
+          { name = 'mkdnflow' },
         }, {
           { name = 'path' },
         }),

@@ -51,13 +51,6 @@ return {
     config = true
   },
 
-  -- Goyo -- focus-ish zone
-  {
-    -- This is mostly for writing for centering the writing area
-    'junegunn/goyo.vim',
-    ft = { 'markdown', 'norg' },
-  },
-
   -- I don't really use this and always forget
   -- Harpoon. Ahab go brrr
   -- {
