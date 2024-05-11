@@ -40,13 +40,16 @@ These are listed in no particular order.
 ### Won't do
 
 - lsp-format-on-save
-    - This isn't great when working on a team that hasn't implemented any automatic code formatting
+    - This isn't great when working on a team that hasn't implemented any
+    automatic code formatting
 - [https//github.com/VonHeikemen/lsp-zero.nvim](https//github.com/VonHeikemen/lsp-zero.nvim)
-    - Not going to implement since my current config is enough and I don't want another layer of abstraction over my main tools
+    - Not going to implement since my current config is enough and I don't want
+    another layer of abstraction over my main tools
 
 ### Completed
-   - [x] [replace-whichkey-with-telescope](./replace-whichkey-with-telescope.md)
-   - [x] [change-background-on-time-of-day](./change-background-on-time-of-day.md)
+- [x] [replace-whichkey-with-telescope](./replace-whichkey-with-telescope.md)
+   - [x]
+   [change-background-on-time-of-day](./change-background-on-time-of-day.md)
    - [x] [revisiting-twerk](./revisiting-twerk.md)
    - [x] [harpoon](./harpoon.md)
    - [x] [undotree](./undotree.md)
@@ -54,7 +57,8 @@ These are listed in no particular order.
    the rest of the file name in
 
 ### Won't Do
-   - [_] [https//github.com/VonHeikemen/lsp-zero.nvim](https//github.com/VonHeikemen/lsp-zero.nvim.md)
-   -- Not going to implement since my current config is enough and I don't want another layer of abstraction over my main tools
+- [https://github.com/VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim.md)
+    - Not going to implement since my current config is enough and I don't want
+another layer of abstraction over my main tools
 
 ## Shell
