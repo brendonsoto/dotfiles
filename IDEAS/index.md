@@ -9,7 +9,13 @@ These are listed in no particular order.
 
 ## Neovim
 
-- auto update markdown files with `modifiedAt` in the YAML frontmatter (if exists) on buf close/save
+- markdown:
+    - create a templates plugin/gist:
+        - looks for a `_templates` folder recursively
+        - uses Telescope to show options with previews
+        - hitting enter inserts template
+        - alternative: create snippets << probably go with this one
+
 - [lua-linter-and-formatter](./lua-linter-and-formatter.md)
 - [treesitter-term-under-cursor-highlighting](./treesitter-term-under-cursor-highlighting.md)
 - how-does-lsp-work
@@ -44,9 +50,11 @@ These are listed in no particular order.
    - [x] [revisiting-twerk](./revisiting-twerk.md)
    - [x] [harpoon](./harpoon.md)
    - [x] [undotree](./undotree.md)
+   - [X] create a file in the format of `YYYY_MM_DD_` and the ability to write
+   the rest of the file name in
 
 ### Won't Do
-   - [_] [https//github.com/VonHeikemen/lsp-zero.nvim](./https//github.com/VonHeikemen/lsp-zero.nvim.md)
+   - [_] [https//github.com/VonHeikemen/lsp-zero.nvim](https//github.com/VonHeikemen/lsp-zero.nvim.md)
    -- Not going to implement since my current config is enough and I don't want another layer of abstraction over my main tools
 
 ## Shell
