@@ -1,8 +1,9 @@
+local vks = vim.keymap.set
+
 require('mini.bracketed').setup({
   treesitter = { suffix = 'a', options = {} },
   indent = { suffix = '' },
 })
-local vks = vim.keymap.set
 vks('n', '[i', '<Cmd>lua MiniBracketed.indent("backward", { change_type = "less" })<CR>',
   { desc = 'Go to the previous indent level' })
 vks('n', '[I', '<Cmd>lua MiniBracketed.indent("backward", { change_type = "more" })<CR>',
@@ -19,6 +20,25 @@ require('mini.comment').setup({
     end,
   },
 })
+
+local MiniFiles = require('mini.files')
+MiniFiles.setup({
+  options = {
+    permanent_delete = true,
+  },
+  mappings = {
+    go_in = 'L',
+    go_in_plus = 'l',
+  },
+  windows = {
+    preview = true,
+    width_preview = 50,
+  },
+})
+vks('n', '<leader>fm', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end, {
+  desc = 'File manager'
+})
+
 require('mini.indentscope').setup({
   draw = {
     delay = 50,
@@ -29,7 +49,9 @@ require('mini.indentscope').setup({
     })
   },
 })
+
 require('mini.pairs').setup()
+
 local starter = require('mini.starter')
 starter.setup({
   header = function ()
@@ -39,6 +61,7 @@ starter.setup({
     starter.sections.telescope(),
   }
 })
+
 require('mini.surround').setup({
   mappings = {
     add = 'sa',

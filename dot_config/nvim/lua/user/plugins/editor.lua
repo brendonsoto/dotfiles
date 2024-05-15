@@ -4,36 +4,6 @@ return {
   -- Editorconfig integration
   { 'gpanders/editorconfig.nvim' },
 
-  -- File Explorer
-  {
-    'is0n/fm-nvim',
-    opts = {
-      ui = {
-        -- Border around floating window
-        border = "double", -- opts: 'rounded'; 'double'; 'single'; 'solid'; 'shawdow'
-
-        -- Percentage (0.8 = 80%)
-        height = 1,
-        width = 1,
-      }
-    },
-    keys = {
-      {
-        '<leader>fm',
-        function()
-          -- This is to cover if a path has spaces in it
-          local path = vim.fn.printf(
-            '"%s"',
-            vim.fn.fnameescape(vim.fn.expand('%:p:h'))
-          )
-          vim.cmd({ cmd = 'Xplr', args = { path } })
-        end,
-        'n',
-        desc = 'File Manager',
-      },
-    },
-  },
-
   -- Git
   {
     "NeogitOrg/neogit",
