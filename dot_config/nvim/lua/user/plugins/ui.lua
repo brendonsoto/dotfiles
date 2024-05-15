@@ -29,15 +29,7 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      -- Using the example from the README to have rainbow lines and treesitter suport
-      vim.opt.list = true
-      vim.opt.listchars:append("space:⋅")
-
-      require("ibl").setup(opts)
-    end,
   },
-
   {
     'rcarriga/nvim-notify',
     config = function ()

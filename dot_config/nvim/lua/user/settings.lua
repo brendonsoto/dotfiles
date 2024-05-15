@@ -14,6 +14,7 @@ set.inccommand = "split" -- Show substitutions as you go
 set.joinspaces = false -- Joining lines w/ punctuations adds only one space
 set.linebreak = true
 set.list = true
+set.listchars:append("space:⋅")
 set.modeline = false
 set.mouse = "a"
 set.foldenable = false
