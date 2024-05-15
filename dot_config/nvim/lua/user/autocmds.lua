@@ -6,7 +6,7 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd({ 'FileType' }, {
   pattern = 'qf',
   callback = function()
-    vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', '<CR>:cclose<CR>', {
+    vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', '<CR>:lclose<CR>', {
       noremap = true,
     })
   end,
