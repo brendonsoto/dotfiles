@@ -1,14 +1,28 @@
 local cmd = vim.cmd
+local autocmd = vim.api.nvim_create_autocmd
 
 -- AutoClose quickfix window on selection
-cmd([[autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>]])
+-- Relevant for only the current buffer
+autocmd({ 'FileType' }, {
+  pattern = 'qf',
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', '<CR>:cclose<CR>', {
+      noremap = true,
+    })
+  end,
+})
 
 -- Disable auto commenting
-cmd([[
-  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-]])
+autocmd({ 'FileType' }, {
+  pattern = '*',
+  desc = 'Disable auto commenting',
+  callback = function()
+     vim.opt.formatoptions:remove { 'c', 'r', 'o' }
+  end,
+})
 
 -- Jump to last known position in a file after opening
+-- From the vim docs, usr_05.txt
 cmd([[
   autocmd BufRead * autocmd FileType <buffer> ++once
     \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
@@ -16,20 +30,7 @@ cmd([[
 
 -- Sync syntax highlighting
 -- kudos https://vim.fandom.com/wiki/Fix_syntax_highlighting
-cmd([[autocmd BufEnter * :syntax sync fromstart]])
-
--- TODO: Move these to their own files?
--- Set .Xmonad-related files to use Haskell syntax highlighting
-cmd([[autocmd BufRead,BufNewFile .xmobarrc set filetype=haskell]])
-
--- Set JSON-like files to use json syntax highlighting
-cmd([[autocmd BufRead,BufNewFile *.json,.eslintrc,.babelrc set filetype=json]])
-
--- Tmux files
-cmd([[autocmd BufRead,BufNewFile *.tmux set filetype=tmux]])
-
--- Fugitive - auto-clean fugitive buffers
-cmd([[autocmd BufReadPost fugitive://* set bufhidden=delete]])
-
--- Add JS/JSX/TS/TSX suffixes to files of the same type for easy nav
-cmd([[autocmd BufNewFile,BufRead *.js,*.jsx,*.ts,*.tsx setlocal suffixesadd+=.js,.jsx,.ts,.tsx]])
+autocmd({ 'BufEnter' }, {
+  pattern = '*',
+  command = 'syntax sync fromstart',
+})
