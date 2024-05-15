@@ -32,7 +32,7 @@ return {
     },
     opts = function ()
       local lspconfig = require('lspconfig')
-      local vks = require('user.utils').vks
+      local vks = vim.keymap.set
       local buf = vim.lsp.buf
 
       local on_attach = function(client, bufnr)
@@ -178,7 +178,7 @@ return {
     config = function(_, opts)
       require('lspsaga').setup(opts)
 
-      local vks = require('user.utils').vks
+      local vks = vim.keymap.set
       -- Lsp finder find the symbol definition implement reference
       -- if there is no implement it will hide
       -- when you use action in finder like open vsplit then you can
