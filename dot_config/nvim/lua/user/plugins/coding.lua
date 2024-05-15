@@ -20,14 +20,9 @@ return {
       'hrsh7th/cmp-cmdline',
     },
   },
-
-
   -- Mini with a bunch of goodies
   {
     'echasnovski/mini.nvim',
     version = false,
   },
-
-  -- Tabular - I rarely use this
-  -- { 'godlygeek/tabular' },
 }
