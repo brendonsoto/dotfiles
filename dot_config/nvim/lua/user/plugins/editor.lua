@@ -32,23 +32,9 @@ return {
         desc = 'File Manager',
       },
     },
-    -- config = function()
-    --   require('user.plugins.fm')
-    -- end,
   },
 
   -- Git
-  -- { 'tpope/vim-fugitive' },
-  -- {
-  --   'lewis6991/gitsigns.nvim',
-  --   init = function()
-  --     local vks = vim.keymap.set
-  --     vks('n', ']h', '<cmd>Gitsigns next_hunk<cr>', { desc = 'Git next hunk' })
-  --     vks('n', '[h', '<cmd>Gitsigns prev_hunk<cr>', { desc = 'Git next hunk' })
-  --     vks('n', 'gb', '<cmd>Gitsigns toggle_current_line_blame<cr>', { desc = 'Toggle line blame' })
-  --   end,
-  --   config = true,
-  -- },
   {
     "NeogitOrg/neogit",
     dependencies = {
@@ -57,31 +43,6 @@ return {
     },
     config = true
   },
-
-  -- I don't really use this and always forget
-  -- Harpoon. Ahab go brrr
-  -- {
-  --   'ThePrimeagen/harpoon',
-  --   dependencies = { 'nvim-telescope/telescope.nvim' },
-  --   config = function()
-  --     local vks = require('user/utils').vks
-  --     local mark = require('harpoon.mark')
-  --     local ui = require('harpoon.ui')
-  --
-  --     vks('n', '<leader>mf', mark.add_file, { desc = 'Harpoon - mark file' })
-  --     vks('n', '<leader>ms', ui.toggle_quick_menu, { desc = 'Harpoon - toggle ui (Marks Show)' })
-  --
-  --     -- Using hjkl as my way to remember 1,2,3,4
-  --     vks('n', '<C-h>', function() ui.nav_file(1) end, { desc = 'Harpoon - go to file 1' })
-  --     vks('n', '<C-j>', function() ui.nav_file(2) end, { desc = 'Harpoon - go to file 2' })
-  --     vks('n', '<C-k>', function() ui.nav_file(3) end, { desc = 'Harpoon - go to file 3' })
-  --     vks('n', '<C-l>', function() ui.nav_file(4) end, { desc = 'Harpoon - go to file 4' })
-  --
-  --     -- Telescope integration
-  --     require('telescope').load_extension('harpoon')
-  --     vks('n', '<leader>th', ':Telescope harpoon marks<CR>', { desc = 'Telescope Harpoon Marks' })
-  --   end,
-  -- },
 
   -- Highlighting other uses of the word under cursor
   { 'RRethy/vim-illuminate' },
@@ -246,30 +207,4 @@ return {
       vks('n', '<leader>dh', ':Telescope heading<CR>', { desc = 'Doc header (Markdown)' })
     end,
   },
-
-  -- Not sure I actually use this...
-  -- Session managment
-  -- {
-  --   'rmagatti/auto-session',
-  --   config = function()
-  --     vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-  --     require('auto-session').setup({
-  --       auto_session_enabled = false,
-  --       auto_save_enabled = false,
-  --       auto_restore_enabled = false,
-  --       auto_session_use_git_branch = true,
-  --     })
-  --     require('telescope').load_extension('session-lens')
-  --   end,
-  -- },
-
-  -- Undo tree
-  -- Uncomment when you plan on actually using it
-  -- {
-  --   'mbbill/undotree',
-  --   config = function()
-  --     vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>')
-  --     vim.g.undotree_SetFocusWhenToggle = 1
-  --   end
-  -- }
 }
