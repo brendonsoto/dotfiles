@@ -1,10 +1,5 @@
-local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local g = vim.g
 local set = vim.opt -- to set options
-
-cmd([[
-  filetype plugin indent on " Enable file detection and load any plugins for them
-]])
 
 g.mapleader = ' '
 g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+]] -- Hide hidden files by default

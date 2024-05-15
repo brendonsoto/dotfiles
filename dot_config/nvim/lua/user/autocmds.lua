@@ -1,6 +1,13 @@
 local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
 
+-- Enable file detection and load any plugins for them
+autocmd({ 'FileType' }, {
+  pattern = 'plugin',
+  command = 'indent on',
+  desc = 'Enable file detection and load any plugins for them'
+})
+
 -- AutoClose quickfix window on selection
 -- Relevant for only the current buffer
 autocmd({ 'FileType' }, {
