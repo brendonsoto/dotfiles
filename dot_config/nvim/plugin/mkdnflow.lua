@@ -11,6 +11,10 @@ require('mkdnflow').setup({
     cmp = true,
     yaml = true,
   },
+  perspective = {
+    priority = 'current',
+    fallback = 'first',
+  },
   links = {
     conceal = true,
   },
@@ -26,9 +30,11 @@ require('mkdnflow').setup({
     },
   },
   mappings = {
+    MkdnEnter = {{'i', 'n', 'v'}, '<CR>'},
     MkdnGoBack = {'n', '<C-p>'},
     MkdnGoForward = {'n', '<C-n>'},
     MkdnFoldSection = {'n', '<c-f>'},
     MkdnUnfoldSection = {'n', '<c-F>'},
+    -- MkdnMoveSource<CR> -- this is interesting
   },
 })
