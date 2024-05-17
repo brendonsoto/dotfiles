@@ -20,13 +20,13 @@ autocmd({ 'FileType' }, {
 })
 
 -- Disable auto commenting
-autocmd({ 'FileType' }, {
-  pattern = '*',
-  desc = 'Disable auto commenting',
-  callback = function()
-     vim.opt.formatoptions:remove { 'c', 'r', 'o' }
-  end,
-})
+-- autocmd({ 'FileType' }, {
+--   pattern = '*',
+--   desc = 'Disable auto commenting',
+--   callback = function()
+--      vim.opt.formatoptions:remove { 'c', 'r', 'o' }
+--   end,
+-- })
 
 -- Jump to last known position in a file after opening
 -- From the vim docs, usr_05.txt

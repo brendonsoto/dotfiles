@@ -11,10 +11,12 @@ return {
   {
     'hrsh7th/nvim-cmp',
     version = false,
-    event = 'InsertEnter',
+    -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
+    event = { 'InsertEnter', 'CmdLineEnter' },
     dependencies = {
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lua', -- for autocompleting vim API
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
