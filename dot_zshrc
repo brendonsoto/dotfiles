@@ -69,3 +69,7 @@ typeset -U PATH
 __git_files () {
   _wanted files expl 'local files' _files
 }
+
+function lk {
+  cd "$(walk --icons "$@")"
+}
