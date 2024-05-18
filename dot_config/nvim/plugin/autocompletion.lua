@@ -1,4 +1,5 @@
 -- cmp at top, luasnip at bottom
+-- the two aren't in separated files since luasnip's referenced in cmp
 
 -- CMP
 local cmp = require('cmp') -- cmp = nvim-cmp
