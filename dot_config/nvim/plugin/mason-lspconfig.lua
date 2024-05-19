@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
   vks('n', 'gt', buf.type_definition, { desc = 'Go to type definition' })
   -- vks('n', 'K', buf.hover, { desc = 'Hover' })
   -- vks('n', '<leader>ca', buf.code_action, { desc = 'Code action' })
-  vks('n', '<leader>fc', buf.formatting, { desc = 'format code' })
+  vks('n', '<leader>fc', buf.format, { desc = 'format code' })
 end
 
 -- NOTE: Using this instead of cmp for now because cmp's capabilites don't work
