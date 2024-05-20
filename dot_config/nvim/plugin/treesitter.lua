@@ -42,6 +42,11 @@ require('nvim-treesitter.configs').setup({
     -- termcolors = {} -- table of colour name strings
   },
   incremental_selection = { enable = true },
-  indent = { enable = true },
+  indent = {
+    enable = true,
+    disable = {
+      'markdown', -- for lists
+    }
+  },
   textobjects = { enable = true }
 })

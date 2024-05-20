@@ -2,7 +2,9 @@ local set = vim.opt
 
 -- set.comments={'b:*','b:-','b:+','n:>'}
 -- set.formatlistpat='^\\s*[-*+]\\s'
-set.formatoptions='tcr'
+-- set.formatoptions='tcrn'
+-- kudos: https://www.reddit.com/r/neovim/comments/1agynre/how_to_make_markdown_list_items_indent_behind_the/
+set.formatoptions='clqn'
 set.shiftwidth=4
 set.spell=true
 set.spelllang='en_us'
