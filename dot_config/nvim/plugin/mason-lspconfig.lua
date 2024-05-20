@@ -13,7 +13,7 @@ local on_attach = function(client, bufnr)
   local buf = vim.lsp.buf
 
   -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   vks('n', 'gd', buf.definition, { desc = 'Go to definition' })
   vks('n', 'gD', buf.declaration, { desc = 'Go to declaration' })
