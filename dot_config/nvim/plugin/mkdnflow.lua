@@ -4,6 +4,14 @@ createdAt: {{ date }}
 tags:
 - 
 ---
+# {{ title }}
+
+
+
+## Related
+
+- Previous in track:
+- Next in track:
 ]]
 
 require('mkdnflow').setup({
@@ -17,6 +25,11 @@ require('mkdnflow').setup({
   },
   links = {
     conceal = true,
+    transform_explicit = function (input)
+      return (
+        string.lower('./'..os.date('%Y_%m_%d_')..string.gsub(input, ' ', '_'))
+      )
+    end
   },
   new_file_template = {
     use_template = true,
