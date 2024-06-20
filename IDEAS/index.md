@@ -15,6 +15,7 @@ These are listed in no particular order.
         - uses Telescope to show options with previews
         - hitting enter inserts template
         - alternative: create snippets << probably go with this one
+    - can I make nvim-cmp contextually aware and only reference files in links?
 
 - [lua-linter-and-formatter](./lua-linter-and-formatter.md)
 - [treesitter-term-under-cursor-highlighting](./treesitter-term-under-cursor-highlighting.md)
