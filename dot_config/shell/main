@@ -12,12 +12,21 @@ cd "$HOME/.config/shell"
 # Tool specific
 . ./git.sh
 . ./nvim.sh
-. ./fzf.sh
+# . ./fzf.sh
 . ./rust.sh
-. ./arduino.sh
+# . ./arduino.sh
 
 # Misc -- For anything temp
 [ -f ./misc.sh ] && . ./misc.sh
+
+# Others where a file doesn't make sense
+[ -f "~/.ghcup/env" ] && source "~/.ghcup/env"
+
+# Functions
+# For Walk
+function wa {
+  cd "$(walk --icons "$@")"
+}
 
 # Similar to the top, cd back to the OG dir
 cd "$prev_dir"

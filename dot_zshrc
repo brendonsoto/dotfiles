@@ -1,14 +1,23 @@
 # NOTE!!!
-# Any updates to zsh plugins needs to happen _BEFORE_ sourcing omz!
-
-fpath=($HOME/completion_zsh $fpath)
+# Any updates to zsh plugins needs to happen *BEFORE* sourcing omz!
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# This is needed before other
-autoload -Uz compinit && compinit
+# =====================================
+# zsh settings, separate from oh-my-zsh
+# =====================================
 
+# Prevent repeats in PATH
+typeset -U PATH path
+
+# Don't share history between tabs
+unsetopt inc_append_history
+unsetopt share_history
+
+# =====================================
+# Oh My Zsh
+# =====================================
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -16,10 +25,14 @@ export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.config/shell/zsh/custom
 
 # Change auto-update behavior to reminders and let chezmoi handle updates
-zstyle ':omz:update' mode reminder
+# zstyle ':omz:update' mode reminder
 
+# This needs to be declared *before* sourcing oh-my-zsh
+# I included these mostly for completion
+# NOTE: order matters. Plugins are loaded from top to bottom
 plugins=(
   asdf
+  colored-man-pages
   docker
   fd
   npm
@@ -27,10 +40,14 @@ plugins=(
   safe-paste
   # Custom ZSH plugins (not from the oh-my-zsh directory)
   zsh-autosuggestions
-  zsh-completions
   zsh-vi-mode
   zsh-syntax-highlighting # docs said to source last. not sure if applies to omz, but y not?
 )
+
+# For Homebrew
+if command -v brew &>/dev/null; then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
 
 # For NVM
 if [ -d "$HOME/.nvm" ]; then
@@ -40,36 +57,13 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# Starship -- theming
-eval "$(starship init zsh)"
-
-# Load Stuff
-# zsh specific
-[ -f ~/.local/share/zsh/zsh-vi-mode ] && . ~/.local/share/zsh/zsh-vi-mode
-
 # Shell config + anything for work
 [ -f ~/.config/shell/main ] && . ~/.config/shell/main
 [ -f ~/.config/shell/work.zsh ] && . ~/.config/shell/work.zsh
 
-# GHCUP
-[ -f "~/.ghcup/env" ] && source "~/.ghcup/env"
+# This is for autocompletion
+# NOTE: Anything that modifies `fpath` needs to come *BEFORE* this
+autoload -U compinit && compinit
 
-
-# the `&& omz reload` is to get vi-mode working after reload
-alias reload=". ~/.zshrc && omz reload"
-
-# Don't share history between tabs
-# unsetopt inc_append_history
-unsetopt share_history
-
-# Prevent repeats in PATH
-typeset -U PATH
-
-# kudos https://stackoverflow.com/questions/9810327/zsh-auto-completion-for-git-takes-significant-amount-of-time-can-i-turn-it-off/9810485#981048
-__git_files () {
-  _wanted files expl 'local files' _files
-}
-
-function wa {
-  cd "$(walk --icons "$@")"
-}
+# Starship -- theming
+eval "$(starship init zsh)"

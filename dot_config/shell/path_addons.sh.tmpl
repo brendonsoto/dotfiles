@@ -13,35 +13,10 @@ fi
 # Ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/ripgreprc
 
-# Zig
-if [ -d "$HOME"/Downloads/zig-linux-x86_64-0.10.0-dev.3880+e2bb92b2e ]
-then
-  export PATH="$HOME/Downloads/zig-linux-x86_64-0.10.0-dev.3880+e2bb92b2e:$PATH"
-fi
-
 {{- if eq .chezmoi.os "darwin" }}
-# Brew autocomplete
-if command -v brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
 # GCC
 # alias cc="/opt/homebrew/Cellar/gcc/11.3.0_2"
 # ln -s =/opt/homebrew/Cellar/gcc/11.3.0_2/bin/gcc-11 /usr/local/bin/cc
-
-# NOTE
-# If Neorg is having problems installing, use
-# CC=/opt/homebrew/Cellar/gcc/12.1.0/bin/gcc-12 nvim
-# and once in, `:TSInstall norg`
-
-# Python
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
-# Ruby
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # Adding opt for binaries installed by Homebrew
 export PATH=/usr/local/opt/:$PATH

@@ -17,3 +17,8 @@ gcm() {
   branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
   git checkout "$branch"
 }
+
+# kudos https://stackoverflow.com/questions/9810327/zsh-auto-completion-for-git-takes-significant-amount-of-time-can-i-turn-it-off/9810485#981048
+__git_files () {
+  _wanted files expl 'local files' _files
+}
