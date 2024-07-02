@@ -1,3 +1,4 @@
+# zmodload zsh/zprof # Uncomment here and last line to profile
 # NOTE!!!
 # Any updates to zsh plugins needs to happen *BEFORE* sourcing omz!
 
@@ -63,7 +64,9 @@ source $ZSH/oh-my-zsh.sh
 
 # This is for autocompletion
 # NOTE: Anything that modifies `fpath` needs to come *BEFORE* this
-autoload -U compinit && compinit
+# YOU DON'T HAVE TO DO THIS IF USING OMZ!!!
+# autoload -U compinit && compinit
 
 # Starship -- theming
 eval "$(starship init zsh)"
+# zprof
