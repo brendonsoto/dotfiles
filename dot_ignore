@@ -4,6 +4,7 @@
 .DS_Store
 .config/coc/extensions/**
 .config/coc/memos.json
+.mise.local.toml
 .netrwhist
 .stack-work
 .vim/autoload/plug.vim
