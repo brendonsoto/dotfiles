@@ -5,6 +5,11 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# For homebrew
+if command -v brew &>/dev/null; then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
+
 # =====================================
 # zsh settings, separate from oh-my-zsh
 # =====================================
@@ -36,6 +41,7 @@ plugins=(
   colored-man-pages
   docker
   fd
+  mise
   npm
   ripgrep
   safe-paste
@@ -44,17 +50,6 @@ plugins=(
   zsh-vi-mode
   zsh-syntax-highlighting # docs said to source last. not sure if applies to omz, but y not?
 )
-
-# For Homebrew
-if command -v brew &>/dev/null; then
-  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-fi
-
-# For NVM
-if [ -d "$HOME/.nvm" ]; then
-  zstyle ':omz:plugins:nvm' autoload yes
-  plugins+=(nvm)
-fi
 
 source $ZSH/oh-my-zsh.sh
 
