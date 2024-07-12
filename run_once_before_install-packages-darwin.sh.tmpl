@@ -50,40 +50,31 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "homebrew/bundle"
 tap "homebrew/services"
 brew "asciiquarium"
-brew "asdf"
 brew "bat"
-# brew "chezmoi"
 brew "coreutils"
 brew "curl"
 brew "fd"
-# brew "fzf"
 brew "gcc"
 brew "git"
-# brew "jq"
 brew "libyaml"
 brew "luajit", args: ["HEAD"]
 brew "luarocks"
 brew "neovim"
 brew "ripgrep"
 brew "starship"
-# brew "the_silver_searcher"
 brew "tree"
-# brew "universal-ctags"
 brew "walk"
 brew "wget"
 brew "zsh"
 EOF
 
 # Casks, but check if they are installed first
+# Im omitting some casks in case I use this on a work computer:
+# beekeeper-studio, discord, obsidian, rectangle, visual-studio-code
 casks=(
 "alfred"
 "amethyst"
-# "beekeeper-studio"
-# "discord"
 "flux"
-# "obsidian"
-# "rectangle"
-# "visual-studio-code"
 "wezterm"
 )
 
