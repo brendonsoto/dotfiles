@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Don't push if on a work-based branch
+# See pre-push.sample for more docs
+
+branch=$(git branch --show-current)
+
+if test "$branch" = "werk"
+then
+  echo "Whoopsies! You tried to push your werk branch!"
+  exit 1
+fi
+
+exit 0
