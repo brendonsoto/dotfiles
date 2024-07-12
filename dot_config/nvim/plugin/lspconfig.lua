@@ -19,3 +19,8 @@ vim.diagnostic.config {
     max_width = 80,
   },
 }
+
+-- Enable multi-line formatting for logging
+vim.lsp.log.set_format_func(vim.inspect)
+
+-- vim.lsp.log.set_level('debug')
