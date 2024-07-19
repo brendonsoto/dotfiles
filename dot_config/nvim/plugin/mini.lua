@@ -35,7 +35,14 @@ MiniFiles.setup({
     width_preview = 50,
   },
 })
-vks('n', '<leader>fm', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end, {
+vks('n', '<leader>fm', function()
+  local curr_file = vim.api.nvim_buf_get_name(0)
+  if vim.fn.filereadable(curr_file) == 1 then
+    MiniFiles.open(curr_file)
+  else
+    MiniFiles.open(nil)
+  end
+end, {
   desc = 'File manager'
 })
 
