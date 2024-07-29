@@ -40,10 +40,10 @@ plugins=(
   asdf
   colored-man-pages
   docker
-  fd
+  # fd -- shipped w/ package now
   mise
   npm
-  ripgrep
+  # ripgrep -- shipped w/ package now
   safe-paste
   # Custom ZSH plugins (not from the oh-my-zsh directory)
   zsh-autosuggestions
