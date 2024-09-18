@@ -124,18 +124,22 @@ end
 -- Setup Telescope specific keybindings
 vks('n', '<leader>f<space>', builtin.builtin, { desc = 'Telescope Builtin' })
 vks('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffer' })
-vks('n', '<leader>fd', builtin.lsp_definitions, { desc = '(LSP) Definitions' })
 vks('n', '<leader>ff', builtin.find_files, { desc = 'Files' })
 vks('n', '<leader>fh', builtin.help_tags, { desc = 'Help tag' })
-vks('n', '<leader>fi', builtin.lsp_implementations, { desc = '(LSP) Implementations' })
 vks('n', '<leader>fj', builtin.jumplist, { desc = 'Jumplist' })
 vks('n', '<leader>fk', builtin.keymaps, { desc = 'Keymaps' })
 vks('n', '<leader>fo', function() builtin.oldfiles({ only_cwd = true }) end, { desc = 'Old files' })
+vks('n', '<leader>g', builtin.live_grep, { desc = 'Live grep' })
+
+-- Session management
+vks('n', '<leader>sp', session_pick, { desc = 'Pick Session' })
+vks('n', '<leader>sd', session_delete, { desc = 'Delete Session' })
+
+-- LSP related
+vks('n', '<leader>fd', builtin.lsp_definitions, { desc = '(LSP) Definitions' })
+vks('n', '<leader>fi', builtin.lsp_implementations, { desc = '(LSP) Implementations' })
 vks('n', '<leader>fr', builtin.lsp_references, { desc = '(LSP) Find References' })
 vks('n', '<leader>fsa', builtin.lsp_document_symbols, { desc = '(LSP) Document Symbols - All' })
 vks('n', '<leader>fsf', function() builtin.lsp_document_symbols({ symbols = 'function' }) end, { desc = '(LSP) Document Symbols - Functions' })
 vks('n', '<leader>ft', builtin.lsp_type_definitions, { desc = '(LSP) Type Definitions' })
 vks('n', '<leader>fx', builtin.diagnostics, { desc = '(LSP) Diagnostic list' })
-vks('n', '<leader>g', builtin.live_grep, { desc = 'Live grep' })
-vks('n', '<leader>sp', session_pick, { desc = 'Pick Session' })
-vks('n', '<leader>sd', session_delete, { desc = 'Delete Session' })
