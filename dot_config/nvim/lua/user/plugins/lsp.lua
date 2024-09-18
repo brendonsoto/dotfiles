@@ -27,14 +27,15 @@ return {
     'neovim/nvim-lspconfig',
   },
   { 'jose-elias-alvarez/null-ls.nvim' },
-  {
-    'nvimdev/lspsaga.nvim',
-    -- event = 'BufRead',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-      'nvim-treesitter/nvim-treesitter',
-    },
-  },
+  -- lspsaga makes my experience slow ;_;
+  -- {
+  --   'nvimdev/lspsaga.nvim',
+  --   -- event = 'BufRead',
+  --   dependencies = {
+  --     'nvim-tree/nvim-web-devicons',
+  --     'nvim-treesitter/nvim-treesitter',
+  --   },
+  -- },
   {
     'simrat39/rust-tools.nvim',
   },
