@@ -13,6 +13,13 @@ return {
     },
     config = true
   },
+  {
+    "f-person/git-blame.nvim",
+    event = "VeryLazy",
+    opts = {
+      enabled = false,
+    },
+  },
 
   -- Highlighting other uses of the word under cursor
   { 'RRethy/vim-illuminate' },
