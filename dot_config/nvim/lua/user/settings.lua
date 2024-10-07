@@ -12,6 +12,7 @@ set.history = 50
 set.ignorecase = true
 set.inccommand = "split" -- Show substitutions as you go
 set.joinspaces = false -- Joining lines w/ punctuations adds only one space
+set.laststatus = 3 -- Only one statusbar
 set.linebreak = true
 set.list = true
 set.listchars:append("space:⋅")
