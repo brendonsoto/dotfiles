@@ -15,7 +15,7 @@ vks('n', '<leader>q', ':q<cr>', { desc = 'Quit!' })
 vks('n', '<leader>Q', ':qa<cr>', { desc = 'Quit all!' })
 
 -- ## Clipboard
-vks('n', '<leader>y', 'y "+y', { desc = 'Yank from clipboard' })
+vks('v', '<leader>y', 'y "+y<C-C>', { desc = 'Yank from clipboard' })
 vks('n', '<leader>P', 'p "+p', { desc = 'Paste from clipboard (deletes buffer)' })
 
 -- ## Paste but replace contents of the delete buffer
@@ -28,9 +28,9 @@ vks('n', '<leader>/', ':nohl<cr>', { desc = 'Undo highlighting' })
 
 -- # Normal mode stuff
 -- ## Splits
-vks('n', 'sh', ':split<cr>', { desc= 'Split current pane horizontally' })
-vks('n', 'sv', ':vs<cr>', { desc= 'Split current pane vertically' })
-vks('n', 'st', ':tab split<cr>', { desc= 'Open current pane into tab' })
+vks('n', 'sh', ':split<cr>', { desc = 'Split current pane horizontally' })
+vks('n', 'sv', ':vs<cr>', { desc = 'Split current pane vertically' })
+vks('n', 'st', ':tab split<cr>', { desc = 'Open current pane into tab' })
 
 -- ## Inspired by T-Pope's Unimpaired
 vks('n', '[b', ':bprev<cr>', { desc = 'Previous buffer' })
@@ -63,3 +63,6 @@ vks('n', 'N', 'Nzzzv')
 vks('n', '<leader>f', function()
   vim.lsp.buf.format()
 end, { desc = 'LSP format buffer' })
+
+-- ## LSP code actions
+vks('n', '<leader>ca', function() vim.lsp.buf.code_action() end, { desc = '(LSP) Code Actions' })
