@@ -21,7 +21,14 @@ return {
       --   --   }
       --   -- }
       -- })
-      vim.cmd([[colorscheme tokyonight-night]])
+      require('tokyonight').setup({
+        style = "night",
+        dim_inactive = true,
+        on_colors = function (colors)
+          colors.border = "magenta"
+        end,
+      })
+      vim.cmd([[colorscheme tokyonight]])
 
       -- Enable italics in markdown files
       vim.api.nvim_set_hl(0, '@markup.italic.markdown_inline', { link = '@markup.emphasis' })
