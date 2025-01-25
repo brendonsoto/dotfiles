@@ -21,6 +21,21 @@ typeset -U PATH path
 unsetopt inc_append_history
 unsetopt share_history
 
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' max-errors 3
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle :compinstall filename '/home/brendon/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
 # =====================================
 # Oh My Zsh
 # =====================================
