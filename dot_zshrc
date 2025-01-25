@@ -2,8 +2,8 @@
 # NOTE!!!
 # Any updates to zsh plugins needs to happen *BEFORE* sourcing omz!
 
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# IDK why this was here
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # For homebrew
 if command -v brew &>/dev/null; then
@@ -14,7 +14,7 @@ fi
 # zsh settings, separate from oh-my-zsh
 # =====================================
 
-# Prevent repeats in PATH
+# Prevent repeats in PATH (more in `man zshbuiltins` - search by `/typeset \[`)
 typeset -U PATH path
 
 # Don't share history between tabs
@@ -25,10 +25,10 @@ unsetopt share_history
 # Oh My Zsh
 # =====================================
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# export ZSH=$HOME/.oh-my-zsh
 
 # Custom path for Custom zsh plugins
-export ZSH_CUSTOM=$HOME/.config/shell/zsh/custom
+# export ZSH_CUSTOM=$HOME/.config/shell/zsh/custom
 
 # Change auto-update behavior to reminders and let chezmoi handle updates
 # zstyle ':omz:update' mode reminder
@@ -36,22 +36,22 @@ export ZSH_CUSTOM=$HOME/.config/shell/zsh/custom
 # This needs to be declared *before* sourcing oh-my-zsh
 # I included these mostly for completion
 # NOTE: order matters. Plugins are loaded from top to bottom
-plugins=(
-  asdf
-  colored-man-pages
-  docker
-  # fd -- shipped w/ package now
-  mise
-  npm
-  # ripgrep -- shipped w/ package now
-  safe-paste
-  # Custom ZSH plugins (not from the oh-my-zsh directory)
-  zsh-autosuggestions
-  zsh-vi-mode
-  zsh-syntax-highlighting # docs said to source last. not sure if applies to omz, but y not?
-)
+# plugins=(
+#   # asdf
+#   colored-man-pages
+#   docker
+#   # fd -- shipped w/ package now
+#   mise
+#   npm
+#   # ripgrep -- shipped w/ package now
+#   safe-paste
+#   # Custom ZSH plugins (not from the oh-my-zsh directory)
+#   zsh-autosuggestions
+#   zsh-vi-mode
+#   zsh-syntax-highlighting # docs said to source last. not sure if applies to omz, but y not?
+# )
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # Shell config + anything for work
 [ -f ~/.config/shell/main ] && . ~/.config/shell/main
