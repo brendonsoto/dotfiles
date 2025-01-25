@@ -13,7 +13,7 @@ cd "$HOME/.config/shell"
 . ./git.sh
 . ./nvim.sh
 # . ./fzf.sh
-. ./rust.sh
+# . ./rust.sh
 # . ./arduino.sh
 
 # Misc -- For anything temp
