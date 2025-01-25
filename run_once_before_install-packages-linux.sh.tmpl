@@ -3,7 +3,7 @@
 echo "Installing packages and apps"
 
 {{ if eq .chezmoi.osRelease.id "endeavouros" -}}
-sudo pacman -Syu
+sudo eos-update
 
 sudo pacman -S \
   bat \
@@ -17,7 +17,10 @@ sudo pacman -S \
   wezterm \
   zsh
 
-sudo chsh -s /usr/bin/zsh
+if [ $SHELL != "/usr/bin/zsh" ]
+then
+  sudo chsh -s /usr/bin/zsh
+fi
 
 {{ else if eq .chezmoi.osRelease.id "fedora" -}}
 sudo dnf upgrade
@@ -54,27 +57,12 @@ sudo eopkg install \
 sudo eopkg install -c system.devel
 {{ end -}}
 
-# Installing langs
-## Nodejs
-echo "Checking if nodejs is installed"
-
-if [ "$(command -v asdf)" ]
+# Install mise for installing other langs
+if [ ! -f "$HOME/.local/bin/mise" ]
 then
-  if [ "$(command -v node)" ]
-  then
-    echo "nodejs already installed"
-  else
-    asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-    asdf install nodejs latest
-    asdf global nodejs latest
-    echo "Installed Nodejs LTS and set it to global asdf version"
-  fi
-else
-  printf "\033[0;35m
-    Can't use asdf now.
-    You may have to do this manually.
-  \033[0m
-  "
+  echo "Installing mise"
+  curl https://mise.run | sh
+  echo "Don't forget to install whatever languages you want!"
 fi
 
 # Communicate installation complete
