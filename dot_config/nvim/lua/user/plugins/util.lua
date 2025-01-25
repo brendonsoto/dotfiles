@@ -2,6 +2,6 @@ return {
   -- So much relies on plenary
   { 'nvim-lua/plenary.nvim', lazy = true },
 
-  -- Not sure if needed, hence commented out cause otherwise i will forget
-  { 'lewis6991/impatient.nvim' },
+  -- impatient is deprecated. It's also replaced by `vim.loader.enable()`
+  -- { 'lewis6991/impatient.nvim' },
 }
