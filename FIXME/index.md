@@ -11,3 +11,8 @@ There's also a [template](./template.md) you can copy and rename for making new 
 
 ## Neovim
    - [ ] 
+ 
+
+## Wezterm
+
+- look if you can enable copying lines (`CTRL+shift+space`) that start w/ capital letters
