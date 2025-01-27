@@ -17,7 +17,11 @@ end
 config.color_scheme = 'Tokyo Night'
 
 config.font = wezterm.font 'Hack Nerd Font Mono'
+{{  if (eq .chezmoi.os "linux") -}}
 config.font_size = 12.0
+{{ else }}
+config.font_size = 16.0
+{{- end  }}
 
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
