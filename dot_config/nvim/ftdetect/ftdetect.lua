@@ -24,5 +24,7 @@ autocmd({ 'BufNewFile', 'BufRead' },  {
   desc = 'Set certain files\' filetype to json',
   callback = function()
     vim.opt.suffixesadd = { '.js', '.jsx', '.ts', '.tsx' }
+    -- Disable auto-commenting when hitting Enter in insert mode or O in normal
+    vim.opt.formatoptions:remove { 'r', 'o' }
   end,
 })
