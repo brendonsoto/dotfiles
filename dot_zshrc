@@ -2,8 +2,8 @@
 # NOTE!!!
 # Any updates to zsh plugins needs to happen *BEFORE* sourcing omz!
 
-# IDK why this was here
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Include any programs specific to the user in PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # For homebrew
 if command -v brew &>/dev/null; then
