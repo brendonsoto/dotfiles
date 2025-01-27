@@ -71,23 +71,24 @@ require('mason-lspconfig').setup({
       }
     end,
 
-    ["eslint"] = function ()
-      lspconfig.eslint.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-          filetypes = {
-            "graphql",
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-            "vue",
-          }
-        }
-      }
-    end,
+    -- Don't need this specific config if not working w/ graphql
+    -- ["eslint"] = function ()
+    --   lspconfig.eslint.setup {
+    --     on_attach = on_attach,
+    --     capabilities = capabilities,
+    --     settings = {
+    --       filetypes = {
+    --         "graphql",
+    --         "javascript",
+    --         "javascriptreact",
+    --         "javascript.jsx",
+    --         "typescript",
+    --         "typescriptreact",
+    --         "typescript.tsx",
+    --         "vue",
+    --       }
+    --     }
+    --   }
+    -- end,
   },
 })
