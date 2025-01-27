@@ -11,7 +11,7 @@ cd "$HOME/.config/shell"
 
 # Tool specific
 . ./git.sh
-. ./mise.sh
+# . ./mise.sh -- Don't need this if using omz
 . ./nvim.sh
 # . ./fzf.sh
 # . ./rust.sh
