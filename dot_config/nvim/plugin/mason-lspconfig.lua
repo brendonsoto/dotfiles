@@ -43,7 +43,7 @@ require('mason-lspconfig').setup({
       })
     end,
     -- Specific servers
-    ["ts_ls"] = function () end, -- early return for tsserver so typescript-tools can take over
+    -- ["ts_ls"] = function () end, -- early return for tsserver so typescript-tools can take over
     ["lua_ls"] = function ()
       lspconfig.lua_ls.setup {
         on_attach = on_attach,
