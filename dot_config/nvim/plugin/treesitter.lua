@@ -1,7 +1,4 @@
 require('nvim-treesitter.configs').setup({
-  autotag = {
-    enable = true,
-  },
   ensure_installed = {
     "c",
     "css",
@@ -13,12 +10,10 @@ require('nvim-treesitter.configs').setup({
     "lua",
     "markdown",
     "markdown_inline",
-    "norg",
     "python",
     "query",
     "regex",
     "ruby",
-    "rust",
     "scss",
     "tsx",
     "typescript",
