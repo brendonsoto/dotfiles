@@ -14,7 +14,7 @@ cd "$HOME/.config/shell"
 # . ./mise.sh -- Don't need this if using omz
 . ./nvim.sh
 # . ./fzf.sh
-# . ./rust.sh
+. ./rust.sh
 # . ./arduino.sh
 
 # Misc -- For anything temp
