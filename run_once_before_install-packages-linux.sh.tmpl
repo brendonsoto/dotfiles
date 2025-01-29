@@ -8,9 +8,7 @@ sudo eos-update
 sudo pacman -S \
   bat \
   fd \
-  # fzf \
   git \
-  # gitui \
   neovim \
   ripgrep \
   starship \
@@ -19,7 +17,7 @@ sudo pacman -S \
 
 if [ $SHELL != "/usr/bin/zsh" ]
 then
-  sudo chsh -s /usr/bin/zsh
+  sudo chsh -s /usr/bin/zsh $(whoami)
 fi
 
 {{ else if eq .chezmoi.osRelease.id "fedora" -}}
