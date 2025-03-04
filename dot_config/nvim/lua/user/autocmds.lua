@@ -13,7 +13,10 @@ autocmd({ 'FileType' }, {
 autocmd({ 'FileType' }, {
   pattern = 'qf',
   callback = function()
-    vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', '<CR>:lclose<CR>', {
+    vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', '<CR>:cclose<CR>', {
+      noremap = true,
+    })
+    vim.api.nvim_buf_set_keymap(0, 'n', 'q', '<CR>:cclose<CR>', {
       noremap = true,
     })
   end,
