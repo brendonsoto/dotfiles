@@ -193,6 +193,23 @@ config.key_tables = {
   },
 }
 
+config.background = {
+  {
+    source = {
+      File = os.getenv("HOME") .. "/.config/wezterm/backgrounds/default.png",
+    },
+    -- opacity = 0.75,
+  },
+  {
+    source = {
+      Color = "black",
+    },
+    height = "100%",
+    width = "100%",
+    opacity = 0.8,
+  }
+}
+
 -- config.window_background_image = '$HOME/Pictures/wallpapers/prince_x_nic_cage.jpg'
 -- I like transparency, but only when I can have my editor in one window
 -- and switching windows is immediate, no animation or delay. The
