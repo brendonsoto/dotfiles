@@ -24,6 +24,7 @@ return {
       require('tokyonight').setup({
         style = "night",
         dim_inactive = true,
+        transparent = true,
         on_colors = function (colors)
           colors.border = "magenta"
         end,
