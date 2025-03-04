@@ -21,7 +21,9 @@ local function confirm_active(fallback)
 end
 
 cmp.setup({
-  autocomplete = false,
+  completion = {
+    autocomplete = false,
+  },
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
