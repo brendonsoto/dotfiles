@@ -12,6 +12,8 @@ alias gwa="git worktree add"
 alias gwl="git worktree list"
 alias gwr="git worktree remove"
 alias gu="gitui"
+# gec = git empty commit
+alias gec="git commit --amend --reuse-message=HEAD && git push --force-with-lease"
 
 gcm() {
   branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
